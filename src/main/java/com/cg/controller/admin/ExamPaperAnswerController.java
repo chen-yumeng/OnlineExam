@@ -1,5 +1,6 @@
 package com.cg.controller.admin;
 
+import com.cg.entity.admin.ExamPaperAnswer;
 import com.cg.page.admin.Page;
 import com.cg.service.admin.ExamPaperAnswerService;
 import com.cg.service.admin.ExamService;
@@ -7,13 +8,11 @@ import com.cg.service.admin.QuestionService;
 import com.cg.service.admin.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -49,6 +48,37 @@ public class ExamPaperAnswerController {
         model.addObject("questionList", questionService.findList(queryMap));
         model.setViewName("examPaperAnswer/list");
         return model;
+    }
+    /**
+     * 删除答题信息
+     *
+     * @param examPaperAnswers
+     * @return
+     */
+    @RequestMapping(value = "delete", method = RequestMethod.POST, headers = "Accept=application/json")
+    @ResponseBody
+    public Map<String, String> delete(@RequestBody List<ExamPaperAnswer> examPaperAnswers) {
+        Map<String, String> ret = new HashMap<String, String>();
+        if (examPaperAnswers == null || examPaperAnswers.size() <= 0) {
+            ret.put("type", "error");
+            ret.put("msg", "请选择要删除的数据!");
+            return ret;
+        }
+        try {
+            if (examPaperAnswerService.delete(examPaperAnswers) <= 0) {
+                ret.put("type", "error");
+                ret.put("msg", "删除失败，请联系管理员!");
+                return ret;
+            }
+        } catch (Exception e) {
+            ret.put("type", "error");
+            ret.put("msg", "该考试下存在试卷或考试记录信息，不能删除!");
+            return ret;
+        }
+
+        ret.put("type", "success");
+        ret.put("msg", "删除成功!");
+        return ret;
     }
 
     /**

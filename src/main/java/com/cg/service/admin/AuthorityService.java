@@ -23,9 +23,8 @@ public interface AuthorityService {
      * 删除权限信息
      *
      * @param roleId
-     * @return
      */
-    int deleteByRoleId(Long roleId);
+    void deleteByRoleId(Long roleId);
 
     /**
      * 权限信息搜索查询

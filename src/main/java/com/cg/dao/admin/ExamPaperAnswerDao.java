@@ -1,6 +1,7 @@
 package com.cg.dao.admin;
 
 import com.cg.entity.admin.ExamPaperAnswer;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;
@@ -41,10 +42,10 @@ public interface ExamPaperAnswerDao {
     /**
      * 删除试卷答题信息
      *
-     * @param id
+     * @param examPaperAnswers
      * @return
      */
-    int delete(Long id);
+    int delete(@Param("examPaperAnswers") List<ExamPaperAnswer> examPaperAnswers);
 
     /**
      * 模糊搜索总条数

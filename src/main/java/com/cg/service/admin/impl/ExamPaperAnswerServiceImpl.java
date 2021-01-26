@@ -38,9 +38,9 @@ public class ExamPaperAnswerServiceImpl implements ExamPaperAnswerService {
     }
 
     @Override
-    public int delete(Long id) {
+    public int delete(List<ExamPaperAnswer> examPaperAnswers) {
         // TODO Auto-generated method stub
-        return examPaperAnswerDao.delete(id);
+        return examPaperAnswerDao.delete(examPaperAnswers);
     }
 
     @Override

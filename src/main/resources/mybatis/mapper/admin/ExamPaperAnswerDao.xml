@@ -76,7 +76,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</if>
 	</select>
 	<!-- 删除试卷答题信息 -->
-	<delete id="delete" parameterType="Long">
-		delete from examPaperAnswer where id =${value}
+	<delete id="delete">
+		delete from examPaperAnswer where id in
+		<foreach collection="examPaperAnswers" item="examPaperAnswer" open="(" separator="," close=")">
+			#{examPaperAnswer.id}
+		</foreach>
 	</delete>
 </mapper>

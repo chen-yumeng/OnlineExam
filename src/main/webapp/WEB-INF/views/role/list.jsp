@@ -164,12 +164,13 @@
     function remove() {
         $.messager.confirm('信息提示', '确定要删除该记录？', function (result) {
             if (result) {
-                var item = $('#data-datagrid').datagrid('getSelected');
+                var item = $('#data-datagrid').datagrid('getSelections');
                 $.ajax({
                     url: '${APP_PATH}/admin/role/delete',
                     dataType: 'json',
                     type: 'post',
-                    data: {id: item.id},
+                    contentType: "application/json",
+                    data: JSON.stringify(item),
                     success: function (data) {
                         if (data.type == 'success') {
                             $.messager.alert('信息提示', '删除成功！', 'info');
@@ -330,25 +331,20 @@
                     for (var i = 0; i < checkedParentNodes.length; i++) {
                         ids += checkedParentNodes[i].id + ',';
                     }
-                    if (ids != '') {
-
-                        $.ajax({
-                            url: 'add_authority',
-                            type: "post",
-                            data: {ids: ids, roleId: roleId},
-                            dataType: 'json',
-                            success: function (data) {
-                                if (data.type == 'success') {
-                                    $.messager.alert('信息提示', '权限编辑成！', 'info');
-                                    $('#select-authority-dialog').dialog('close');
-                                } else {
-                                    $.messager.alert('信息提示', data.msg, 'info');
-                                }
+                    $.ajax({
+                        url: 'add_authority',
+                        type: "post",
+                        data: {ids: ids, roleId: roleId},
+                        dataType: 'json',
+                        success: function (data) {
+                            if (data.type == 'success') {
+                                $.messager.alert('信息提示', '权限编辑成功！', 'info');
+                                $('#select-authority-dialog').dialog('close');
+                            } else {
+                                $.messager.alert('信息提示', data.msg, 'info');
                             }
-                        });
-                    } else {
-                        $.messager.alert('信息提示', '请至少选择一条权限！', 'info');
-                    }
+                        }
+                    });
                 }
             }, {
                 text: '取消',

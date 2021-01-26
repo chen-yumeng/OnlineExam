@@ -149,6 +149,7 @@ public class RoleController {
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
+			System.out.println(e);
 			ret.put("type", "error");
 			ret.put("msg", "该角色下存在权限或者用户信息，不能删除！");
 			return ret;
@@ -172,7 +173,7 @@ public class RoleController {
 	}
 
 	/**
-	 * 添加权限
+	 * 编辑权限
 	 * @param ids
 	 * @return
 	 */
@@ -184,8 +185,9 @@ public class RoleController {
 	){
 		Map<String,String> ret = new HashMap<String, String>();
 		if(StringUtils.isEmpty(ids)){
-			ret.put("type", "error");
-			ret.put("msg", "请选择相应的权限！");
+			authorityService.deleteByRoleId(roleId);
+			ret.put("type", "success");
+			ret.put("msg", "权限编辑成功！");
 			return ret;
 		}
 		if(roleId == null){

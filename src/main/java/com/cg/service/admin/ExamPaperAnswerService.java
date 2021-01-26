@@ -39,10 +39,10 @@ public interface ExamPaperAnswerService {
     /**
      * 删除试卷答题信息
      *
-     * @param id
+     * @param examPaperAnswers
      * @return
      */
-    int delete(Long id);
+    int delete(List<ExamPaperAnswer> examPaperAnswers);
 
     /**
      * 模糊搜索总条数
