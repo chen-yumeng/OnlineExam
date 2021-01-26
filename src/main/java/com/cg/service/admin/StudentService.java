@@ -38,10 +38,10 @@ public interface StudentService {
     /**
      * 删除考生信息
      *
-     * @param id
+     * @param students
      * @return
      */
-    int delete(Long id);
+    int delete(List<Student> students);
 
     /**
      * 模糊搜索总条数

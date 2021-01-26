@@ -91,7 +91,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</if>
 	</select>
 	<!-- 删除考试信息 -->
-	<delete id="delete" parameterType="Long">
-		delete from exam where id =${value}
+	<delete id="delete">
+		delete from exam where id in
+		<foreach collection="exams" item="exam" open="(" separator="," close=")">
+			#{exam.id}
+		</foreach>
 	</delete>
 </mapper>

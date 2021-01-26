@@ -38,10 +38,10 @@ public interface SubjectService {
     /**
      * 删除学科专业信息
      *
-     * @param id
+     * @param subjects
      * @return
      */
-    int delete(Long id);
+    int delete(List<Subject> subjects);
 
     /**
      * 模糊搜索总条数

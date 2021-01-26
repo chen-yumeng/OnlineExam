@@ -33,7 +33,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update role set name = #{name},remark = #{remark} where id = #{id}
 	</update>
 	<!-- 删除角色信息 -->
-	<delete id="delete" parameterType="Long">
-		delete from role where id = #{id}
+	<delete id="delete">
+		delete from role where id in
+		<foreach collection="roles" item="role" open="(" separator="," close=")">
+			#{role.id}
+		</foreach>
 	</delete>
 </mapper>

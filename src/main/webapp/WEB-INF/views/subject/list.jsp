@@ -123,7 +123,7 @@
     function remove() {
         $.messager.confirm('信息提示', '确定要删除该记录？', function (result) {
             if (result) {
-                var item = $('#data-datagrid').datagrid('getSelected');
+                var item = $('#data-datagrid').datagrid('getSelections');
                 if (item == null || item.length == 0) {
                     $.messager.alert('信息提示', '请选择要删除的数据！', 'info');
                     return;
@@ -132,7 +132,8 @@
                     url: '${APP_PATH}/admin/subject/delete',
                     dataType: 'json',
                     type: 'post',
-                    data: {id: item.id},
+                    contentType: "application/json",
+                    data: JSON.stringify(item),
                     success: function (data) {
                         if (data.type == 'success') {
                             $.messager.alert('信息提示', '删除成功！', 'info');
@@ -146,9 +147,9 @@
         });
     }
 
-    /*
-    编辑
-    */
+    /**
+     * 编辑
+     */
     function openEdit() {
         var item = $('#data-datagrid').datagrid('getSelected');
         if (item == null || item.length == 0) {

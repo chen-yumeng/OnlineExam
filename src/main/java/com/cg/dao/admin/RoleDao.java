@@ -1,6 +1,7 @@
 package com.cg.dao.admin;
 
 import com.cg.entity.admin.Role;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;
@@ -32,10 +33,10 @@ public interface RoleDao {
     /**
      * 删除角色信息
      *
-     * @param id
+     * @param roles
      * @return
      */
-    int delete(Long id);
+    int delete(@Param("roles") List<Role> roles);
 
     /**
      * 角色信息模糊分页搜索查询

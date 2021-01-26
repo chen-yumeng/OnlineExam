@@ -35,10 +35,10 @@ public interface QuestionService {
 
     /**
      * 删除试题信息
-     * @param id
+     * @param questions
      * @return
      */
-    int delete(Long id);
+    int delete(List<Question> questions);
 
     /**
      * 模糊搜索总条数

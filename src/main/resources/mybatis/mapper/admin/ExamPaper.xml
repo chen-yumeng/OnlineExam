@@ -81,8 +81,11 @@
         </if>
     </select>
     <!-- 删除试卷信息 -->
-    <delete id="delete" parameterType="Long">
-		delete from examPaper where id =${value}
+    <delete id="delete">
+		delete from examPaper where id in
+		<foreach collection="examPapers" item="examPaper" open="(" separator="," close=")">
+            #{examPaper.id}
+        </foreach>
 	</delete>
     <!-- 用户查询考过的试卷信息 -->
     <select id="findHistory" parameterType="Map" resultMap="userHistory">

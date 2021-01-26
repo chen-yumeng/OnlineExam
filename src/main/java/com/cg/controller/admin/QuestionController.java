@@ -10,10 +10,7 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -21,6 +18,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -179,20 +177,20 @@ public class QuestionController {
     /**
      * 删除试题
      *
-     * @param id
+     * @param questions
      * @return
      */
-    @RequestMapping(value = "delete", method = RequestMethod.POST)
+    @RequestMapping(value = "delete", method = RequestMethod.POST, headers = "Accept=application/json")
     @ResponseBody
-    public Map<String, String> delete(Long id) {
+    public Map<String, String> delete(@RequestBody List<Question> questions) {
         Map<String, String> ret = new HashMap();
-        if (id == null) {
+        if (questions == null || questions.size() <= 0) {
             ret.put("type", "error");
             ret.put("msg", "请选择要删除的数据!");
             return ret;
         }
         try {
-            if (questionService.delete(id) <= 0) {
+            if (questionService.delete(questions) <= 0) {
                 ret.put("type", "error");
                 ret.put("msg", "删除失败，请联系管理员!");
                 return ret;

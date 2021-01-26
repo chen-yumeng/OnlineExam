@@ -19,9 +19,9 @@ public class ExamPaperServiceImpl implements ExamPaperService {
     private ExamPaperDao examPaperDao;
 
     @Override
-    public int delete(Long id) {
+    public int delete(List<ExamPaper> examPapers) {
         // TODO Auto-generated method stub
-        return examPaperDao.delete(id);
+        return examPaperDao.delete(examPapers);
     }
 
     @Override

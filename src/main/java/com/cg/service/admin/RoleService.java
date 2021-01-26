@@ -33,10 +33,10 @@ public interface RoleService {
 	/**
 	 * 删除角色信息
 	 *
-	 * @param id
+	 * @param roles
 	 * @return
 	 */
-	int delete(Long id);
+	int delete(List<Role> roles);
 
 	/**
 	 * 角色信息模糊分页搜索查询

@@ -35,8 +35,8 @@ public class SubjectServiceImpl implements SubjectService {
     }
 
     @Override
-    public int delete(Long id) {
-        return subjectDao.delete(id);
+    public int delete(List<Subject> subjects) {
+        return subjectDao.delete(subjects);
     }
 
     @Override

@@ -41,10 +41,10 @@ public interface ExamPaperService {
     /**
      * 删除试卷信息
      *
-     * @param id
+     * @param examPapers
      * @return
      */
-    int delete(Long id);
+    int delete(List<ExamPaper> examPapers);
 
     /**
      * 模糊搜索总条数

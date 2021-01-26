@@ -37,9 +37,9 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     @Override
-    public int delete(Long id) {
+    public int delete(List<Question> questions) {
         // TODO Auto-generated method stub
-        return questionDao.delete(id);
+        return questionDao.delete(questions);
     }
 
     @Override

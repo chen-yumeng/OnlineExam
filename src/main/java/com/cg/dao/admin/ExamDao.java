@@ -1,6 +1,7 @@
 package com.cg.dao.admin;
 
 import com.cg.entity.admin.Exam;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;
@@ -39,10 +40,10 @@ public interface ExamDao {
     /**
      * 删除考试信息
      *
-     * @param id
+     * @param exams
      * @return
      */
-    int delete(Long id);
+    int delete(@Param("exams") List<Exam> exams);
 
     /**
      * 模糊搜索总条数

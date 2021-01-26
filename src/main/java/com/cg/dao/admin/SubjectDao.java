@@ -1,6 +1,7 @@
 package com.cg.dao.admin;
 
 import com.cg.entity.admin.Subject;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;
@@ -39,10 +40,10 @@ public interface SubjectDao {
     /**
      * 删除学科专业信息
      *
-     * @param id
+     * @param subjects
      * @return
      */
-    int delete(Long id);
+    int delete(@Param("subjects") List<Subject> subjects);
 
     /**
      * 模糊搜索总条数

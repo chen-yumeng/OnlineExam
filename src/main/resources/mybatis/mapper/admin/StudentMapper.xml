@@ -39,7 +39,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</if>
 	</select>
 	<!-- 删除考生信息 -->
-	<delete id="delete" parameterType="Long">
-		delete from student where id =${value}
+	<delete id="delete">
+		delete from student where id in
+		<foreach collection="students" item="student" open="(" separator="," close=")">
+			#{student.id}
+		</foreach>
 	</delete>
 </mapper>

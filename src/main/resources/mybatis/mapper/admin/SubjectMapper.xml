@@ -33,7 +33,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</if>
 	</select>
 	<!-- 删除学科专业信息 -->
-	<delete id="delete" parameterType="Long">
-		delete from subject where id =${value}
+	<delete id="delete">
+		delete from subject where id in
+		<foreach collection="subjects" item="subject" open="(" separator="," close=")">
+			#{subject.id}
+		</foreach>
 	</delete>
 </mapper>

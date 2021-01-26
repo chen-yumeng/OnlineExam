@@ -1,6 +1,7 @@
 package com.cg.dao.admin;
 
 import com.cg.entity.admin.Question;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;
@@ -35,10 +36,10 @@ public interface QuestionDao {
 
     /**
      * 删除试题信息
-     * @param id
+     * @param questions
      * @return
      */
-    int delete(Long id);
+    int delete(@Param("questions") List<Question> questions);
 
     /**
      * 模糊搜索总条数

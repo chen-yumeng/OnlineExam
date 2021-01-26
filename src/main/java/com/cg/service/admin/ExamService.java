@@ -38,10 +38,10 @@ public interface ExamService {
     /**
      * 删除考试信息
      *
-     * @param id
+     * @param exams
      * @return
      */
-    int delete(Long id);
+    int delete(List<Exam> exams);
 
     /**
      * 模糊搜索总条数

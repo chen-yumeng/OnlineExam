@@ -29,9 +29,9 @@ public class RoleServiceImpl implements RoleService {
 	}
 
 	@Override
-	public int delete(Long id) {
+	public int delete(List<Role> roles) {
 		// TODO Auto-generated method stub
-		return roleDao.delete(id);
+		return roleDao.delete(roles);
 	}
 
 	@Override

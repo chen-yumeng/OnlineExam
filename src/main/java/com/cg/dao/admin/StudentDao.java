@@ -1,6 +1,7 @@
 package com.cg.dao.admin;
 
 import com.cg.entity.admin.Student;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;
@@ -39,10 +40,10 @@ public interface StudentDao {
     /**
      * 删除考生信息
      *
-     * @param id
+     * @param students
      * @return
      */
-    int delete(Long id);
+    int delete(@Param("students") List<Student> students);
 
     /**
      * 模糊搜索总条数

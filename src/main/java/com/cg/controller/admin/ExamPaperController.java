@@ -7,13 +7,11 @@ import com.cg.service.admin.ExamService;
 import com.cg.service.admin.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -158,26 +156,25 @@ public class ExamPaperController {
     /**
      * 删除试卷
      *
-     * @param id
+     * @param examPapers
      * @return
      */
-    @RequestMapping(value = "delete", method = RequestMethod.POST)
+    @RequestMapping(value = "delete", method = RequestMethod.POST, headers = "Accept=application/json")
     @ResponseBody
-    public Map<String, String> delete(Long id) {
+    public Map<String, String> delete(@RequestBody List<ExamPaper> examPapers) {
         Map<String, String> ret = new HashMap<String, String>();
-        if (id == null) {
+        if (examPapers == null || examPapers.size() <= 0) {
             ret.put("type", "error");
             ret.put("msg", "请选择要删除的数据!");
             return ret;
         }
         try {
-            if (examPaperService.delete(id) <= 0) {
+            if (examPaperService.delete(examPapers) <= 0) {
                 ret.put("type", "error");
                 ret.put("msg", "删除失败，请联系管理员!");
                 return ret;
             }
         } catch (Exception e) {
-            // TODO: handle exception
             ret.put("type", "error");
             ret.put("msg", "该试卷下存在答题信息，不能删除!");
             return ret;

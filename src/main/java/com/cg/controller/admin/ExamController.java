@@ -9,14 +9,12 @@ import com.cg.service.admin.SubjectService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -260,20 +258,20 @@ public class ExamController {
     /**
      * 删除考试
      *
-     * @param id
+     * @param exams
      * @return
      */
-    @RequestMapping(value = "delete", method = RequestMethod.POST)
+    @RequestMapping(value = "delete", method = RequestMethod.POST, headers = "Accept=application/json")
     @ResponseBody
-    public Map<String, String> delete(Long id) {
+    public Map<String, String> delete(@RequestBody List<Exam> exams) {
         Map<String, String> ret = new HashMap<String, String>();
-        if (id == null) {
+        if (exams == null || exams.size() <= 0) {
             ret.put("type", "error");
             ret.put("msg", "请选择要删除的数据!");
             return ret;
         }
         try {
-            if (examService.delete(id) <= 0) {
+            if (examService.delete(exams) <= 0) {
                 ret.put("type", "error");
                 ret.put("msg", "删除失败，请联系管理员!");
                 return ret;

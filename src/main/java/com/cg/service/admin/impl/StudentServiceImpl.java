@@ -35,8 +35,8 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public int delete(Long id) {
-        return studentDao.delete(id);
+    public int delete(List<Student> students) {
+        return studentDao.delete(students);
     }
 
     @Override

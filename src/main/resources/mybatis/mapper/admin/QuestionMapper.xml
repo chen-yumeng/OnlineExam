@@ -56,7 +56,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select count(*) from question where questionType = ${questionType} and subjectId = ${subjectId}  
 	</select>
 	<!-- 删除试题信息 -->
-	<delete id="delete" parameterType="Long">
-		delete from question where id =${value}
+	<delete id="delete" >
+		delete from question where id in
+		<foreach collection="questions" item="question" open="(" separator="," close=")">
+			#{question.id}
+		</foreach>
 	</delete>
 </mapper>

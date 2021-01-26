@@ -38,9 +38,9 @@ public class ExamServiceImpl implements ExamService {
     }
 
     @Override
-    public int delete(Long id) {
+    public int delete(List<Exam> exams) {
         // TODO Auto-generated method stub
-        return examDao.delete(id);
+        return examDao.delete(exams);
     }
 
     @Override
