@@ -15,6 +15,11 @@ public class Subject {
     private String name;
 
     /**
+     * 学科任课教师
+     */
+    private Long teacherId;
+
+    /**
      * 学科备注
      */
     private String remark;
@@ -33,6 +38,14 @@ public class Subject {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Long getTeacherId() {
+        return teacherId;
+    }
+
+    public void setTeacherId(Long teacherId) {
+        this.teacherId = teacherId;
     }
 
     public String getRemark() {

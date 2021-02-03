@@ -12,6 +12,13 @@
         </div>
         <div class="wu-toolbar-search">
             <label>学科名称:</label><input id="search-name" class="wu-text" style="width:100px">
+            <label>任课教师:</label>
+            <select id="search-userId" class="easyui-combobox" panelHeight="auto" style="width:120px">
+                <option value="-1">全部</option>
+                <c:forEach items="${userList }" var="user">
+                    <option value="${user.id }">${user.username }</option>
+                </c:forEach>
+            </select>
 
             <a href="#" id="search-btn" class="easyui-linkbutton" iconCls="icon-search">搜索</a>
         </div>
@@ -28,6 +35,16 @@
                 <td align="right">学科名称:</td>
                 <td><input type="text" id="add-name" name="name" class="wu-text easyui-validatebox"
                            data-options="required:true, missingMessage:'请填写学科名称'"></td>
+            </tr>
+            <tr>
+                <td align="right">任课教师:</td>
+                <td>
+                    <select id="add-userId" name="teacherId" class="easyui-combobox" panelHeight="auto"
+                            style="width:268px" data-options="required:true, missingMessage:'请选择任课教师'">
+                        <c:forEach items="${userList }" var="user">
+                            <option value="${user.id }">${user.username }</option>
+                        </c:forEach>
+                    </select>
             </tr>
             <tr>
                 <td align="right">学科备注:</td>
@@ -47,6 +64,16 @@
                 <td align="right">学科名称:</td>
                 <td><input type="text" id="edit-name" name="name" class="wu-text easyui-validatebox"
                            data-options="required:true, missingMessage:'请填写学科名称'"></td>
+            </tr>
+            <tr>
+                <td align="right">任课教师:</td>
+                <td>
+                    <select id="edit-userId" name="teacherId" class="easyui-combobox" panelHeight="auto"
+                            style="width:268px" data-options="required:true, missingMessage:'请选择任课教师'">
+                        <c:forEach items="${userList }" var="user">
+                            <option value="${user.id }">${user.username }</option>
+                        </c:forEach>
+                    </select>
             </tr>
             <tr>
                 <td align="right">学科备注:</td>
@@ -87,6 +114,7 @@
                 } else {
                     $.messager.alert('信息提示', data.msg, 'warning');
                 }
+
             }
         });
     }
@@ -174,6 +202,7 @@
             onBeforeOpen: function () {
                 $("#edit-id").val(item.id);
                 $("#edit-name").val(item.name);
+                $("#edit-userId").val(item.userId);
                 $("#edit-remark").val(item.remark);
             }
         });
@@ -206,6 +235,11 @@
     //搜索按钮监听
     $("#search-btn").click(function () {
         var option = {name: $("#search-name").val()};
+        var userId = $("#search-userId").combobox('getValue');
+        console.log(userId)
+        if (userId != -1) {
+            option.userId = userId;
+        }
         $('#data-datagrid').datagrid('reload', option);
     });
 
@@ -242,6 +276,15 @@
         columns: [[
             {field: 'chk', checkbox: true},
             {field: 'name', title: '学科名称', width: 100, sortable: true},
+            {
+                field: 'teacherId', title: '任课教师', width: 100, formatter: function (value, row, index) {
+                    var userList = $("#search-userId").combobox('getData');
+                    for (var i = 0; i < userList.length; i++) {
+                        if (value == userList[i].value) return userList[i].text;
+                    }
+                    return value;
+                }
+            },
             {field: 'remark', title: '学科备注', width: 200},
         ]]
     });

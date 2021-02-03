@@ -3,6 +3,7 @@ package com.cg.controller.admin;
 import com.cg.entity.admin.Subject;
 import com.cg.page.admin.Page;
 import com.cg.service.admin.SubjectService;
+import com.cg.service.admin.UserService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +26,9 @@ public class SubjectController {
     @Autowired
     SubjectService subjectService;
 
+    @Autowired
+    UserService userService;
+
     /**
      * 学科专业列表页面
      *
@@ -33,6 +37,9 @@ public class SubjectController {
      */
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public ModelAndView list(ModelAndView model) {
+        Map<String, Object> queryMap = new HashMap<>();
+        queryMap.put("roleId", 3);
+        model.addObject("userList", userService.findList(queryMap));
         model.setViewName("subject/list");
         return model;
     }
@@ -48,11 +55,13 @@ public class SubjectController {
     @ResponseBody
     public Map<String, Object> list(
             @RequestParam(name = "name", defaultValue = "") String name,
+            @RequestParam(name = "userId", defaultValue = "") Long userId,
             Page page
     ) {
         Map<String, Object> ret = new HashMap<>();
         Map<String, Object> queryMap = new HashMap<>();
         queryMap.put("name", name);
+        queryMap.put("userId", userId);
         queryMap.put("offset", page.getOffset());
         queryMap.put("pageSize", page.getRows());
         ret.put("rows", subjectService.findList(queryMap));
