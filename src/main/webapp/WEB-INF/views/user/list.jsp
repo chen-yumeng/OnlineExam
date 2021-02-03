@@ -434,7 +434,76 @@
             {field: 'address', title: '地址', width: 200}
         ]],
         onLoadSuccess: function (data) {
+            $.each(data.rows, function(index, item){
+                if(item.id == 1 ){
+                    $("input[type='checkbox']")[index + 1].disabled = true;
+                }
+            });
             $('.authority-edit').linkbutton({text: '编辑权限', plain: true, iconCls: 'icon-edit'});
+        },
+        onClickRow: function(rowIndex, rowData){
+            //加载完毕后获取所有的checkbox遍历
+            $("input[type='checkbox']").each(function(index, el){
+                //如果当前的复选框不可选，则不让其选中
+                if (el.disabled == true) {
+                    $('#data-datagrid').datagrid('uncheckRow', index - 1);
+                    if ($("input[type='checkbox']")[0].checked){
+                        $("input[type='checkbox']")[0].checked = true;
+                    }
+                }
+            })
+        },
+        onDblClickRow: function(rowIndex, rowData) {
+            $("input[type='checkbox']").each(function(index, el){
+                //如果当前的复选框不可选，则不让其选中
+                if (el.disabled == true) {
+                    $('#data-datagrid').datagrid('uncheckRow', index - 1);
+                    if ($("input[type='checkbox']")[0].checked){
+                        $("input[type='checkbox']")[0].checked = true;
+                    }
+                }
+            })
+        },
+        onCheckAll:function (rows) {
+            let count = -1;
+            rows.forEach((value, index) => {
+                if (value.id == 1) {
+                    count = index + 1;
+                }
+            })
+            $("input[type='checkbox']").each(function (index, el) {
+                if (el.checked == true) {
+                    el.checked = false;
+                    $.each(rows, function (i, n) {
+                        $("#data-datagrid").datagrid('uncheckRow', i);  //此处参考其他人的代码，原代码为unselectRow
+                    });
+                }
+                else {
+                    el.checked = true;
+                    $.each(rows, function (i, n) {
+                        if (n.id == 1) {
+                            $("#data-datagrid").datagrid('uncheckRow', i);
+                        }
+                        else {
+                            $("#data-datagrid").datagrid('checkRow', i);
+                        }
+                    });
+                }
+            });
+            $("input[type='checkbox']")[0].checked = true;
+        },
+        onUncheckAll: function (rows) {
+            $("input[type='checkbox']").each(function (index, el) {
+                if (index == 0) {
+                    $("#data-datagrid").datagrid('uncheckRow', index);
+                }
+                if (el.checked == true) {
+                    el.checked = false;
+                    $.each(rows, function (i, n) {
+                        $("#data-datagrid").datagrid('uncheckRow', i);
+                    });
+                }
+            });
         }
     });
 </script>
