@@ -50,11 +50,13 @@
             </tr>
             <tr>
                 <td align="right">考生姓名:</td>
-                <td><input type="text" id="add-truename" name="trueName" class="wu-text"></td>
+                <td><input type="text" id="add-truename" name="trueName" class="wu-text easyui-validatebox"
+                           data-options="required:true, missingMessage:'请填写考生姓名'"></td>
             </tr>
             <tr>
                 <td align="right">考生手机:</td>
-                <td><input type="text" id="add-tel" name="tel" class="wu-text"></td>
+                <td><input type="text" id="add-tel" name="tel" class="wu-text easyui-validatebox"
+                           data-options="required:true, missingMessage:'请填写考生手机号'"></td>
             </tr>
         </table>
     </form>
@@ -88,11 +90,13 @@
             </tr>
             <tr>
                 <td align="right">考生姓名:</td>
-                <td><input type="text" id="edit-truename" name="trueName" class="wu-text"></td>
+                <td><input type="text" id="edit-truename" name="trueName" class="wu-text easyui-validatebox"
+                           data-options="required:true, missingMessage:'请填写考生姓名'"></td>
             </tr>
             <tr>
                 <td align="right">考生手机:</td>
-                <td><input type="text" id="edit-tel" name="tel" class="wu-text"></td>
+                <td><input type="text" id="edit-tel" name="tel" class="wu-text easyui-validatebox"
+                           data-options="required:true, missingMessage:'请填写考生手机号'"></td>
             </tr>
         </table>
     </form>
@@ -289,6 +293,7 @@
         idField: 'id',
         treeField: 'name',
         fit: true,
+        queryParams: {userId: ${admin.id}},
         columns: [[
             {field: 'chk', checkbox: true},
             {field: 'name', title: '登录名', width: 100, sortable: true},

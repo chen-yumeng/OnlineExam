@@ -1,6 +1,7 @@
 package com.cg.controller.admin;
 
 import com.cg.entity.admin.Student;
+import com.cg.entity.admin.Subject;
 import com.cg.page.admin.Page;
 import com.cg.service.admin.StudentService;
 import com.cg.service.admin.SubjectService;
@@ -33,13 +34,17 @@ public class StudentController {
      * 考生列表页面
      *
      * @param model
+     * @param userId
      * @return
      */
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public ModelAndView list(ModelAndView model) {
+    public ModelAndView list(ModelAndView model, @RequestParam(name = "userId") Long userId) {
         Map<String, Object> queryMap = new HashMap<String, Object>();
         queryMap.put("offset", 0);
         queryMap.put("pageSize", 99999);
+        if (userId != 1) {
+            queryMap.put("userId", userId);
+        }
         model.addObject("subjectList", subjectService.findList(queryMap));
         model.setViewName("student/list");
         return model;
@@ -50,6 +55,7 @@ public class StudentController {
      *
      * @param name
      * @param page
+     * @param userId
      * @return
      */
     @RequestMapping(value = "/list", method = RequestMethod.POST)
@@ -57,6 +63,7 @@ public class StudentController {
     public Map<String, Object> list(
             @RequestParam(name = "name", defaultValue = "") String name,
             @RequestParam(name = "subjectId", required = false) Long subjectId,
+            @RequestParam(name = "userId") Long userId,
             Page page
     ) {
         Map<String, Object> ret = new HashMap<String, Object>();
@@ -64,6 +71,10 @@ public class StudentController {
         queryMap.put("name", name);
         if (subjectId != null) {
             queryMap.put("subjectId", subjectId);
+        }
+        if (userId != 1) {
+            List<Subject> subjects = subjectService.findByUserId(userId);
+            queryMap.put("subjects", subjects);
         }
         queryMap.put("offset", page.getOffset());
         queryMap.put("pageSize", page.getRows());

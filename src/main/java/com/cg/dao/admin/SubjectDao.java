@@ -61,4 +61,5 @@ public interface SubjectDao {
      */
     Subject findById(Long id);
 
+    List<Subject> findByUserId(Long userId);
 }
