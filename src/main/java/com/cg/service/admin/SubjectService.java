@@ -58,4 +58,11 @@ public interface SubjectService {
      * @return
      */
     Subject findById(Long id);
+
+    /**
+     * 通过用户id获取学科信息
+     * @param userId
+     * @return
+     */
+    List<Subject> findByUserId(Long userId);
 }

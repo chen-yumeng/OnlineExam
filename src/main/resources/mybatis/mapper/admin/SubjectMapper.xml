@@ -42,4 +42,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			#{subject.id}
 		</foreach>
 	</delete>
+	<!-- 通过用户id获取学科信息 -->
+	<select id="findByUserId" resultType="com.cg.entity.admin.Subject">
+		select * from subject where userId=#{userId}
+	</select>
 </mapper>
