@@ -5,11 +5,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.cg.dao.admin.SubjectDao">
 	<!-- 学科专业插入操作 -->
 	<insert id="add" parameterType="com.cg.entity.admin.Subject">
-		insert into subject(id,name,teacherId,remark) values(null,#{name},#{teacherId},#{remark})
+		insert into subject(id,name,userId,remark) values(null,#{name},#{userId},#{remark})
 	</insert>
 	<!-- 学科专业更新操作 -->
 	<update id="edit" parameterType="com.cg.entity.admin.Subject">
-		update subject set name = #{name}, teacherId = #{teacherId}, remark = #{remark} where id = #{id}
+		update subject set name = #{name}, userId = #{userId}, remark = #{remark} where id = #{id}
 	</update>
 	<!-- 学科专业信息精确查询 -->
 	<select id="findById" parameterType="Long" resultType="com.cg.entity.admin.Subject">
@@ -22,7 +22,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			and name like '%${name}%'
 		</if>
 		<if test="userId != null">
-			and teacherId = ${userId}
+			and userId = ${userId}
 		</if>
 		<if test="offset != null and pageSize != null">
 			limit #{offset},#{pageSize}

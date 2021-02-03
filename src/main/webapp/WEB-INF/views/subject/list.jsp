@@ -39,7 +39,7 @@
             <tr>
                 <td align="right">任课教师:</td>
                 <td>
-                    <select id="add-userId" name="teacherId" class="easyui-combobox" panelHeight="auto"
+                    <select id="add-userId" name="userId" class="easyui-combobox" panelHeight="auto"
                             style="width:268px" data-options="required:true, missingMessage:'请选择任课教师'">
                         <c:forEach items="${userList }" var="user">
                             <option value="${user.id }">${user.username }</option>
@@ -68,7 +68,7 @@
             <tr>
                 <td align="right">任课教师:</td>
                 <td>
-                    <select id="edit-userId" name="teacherId" class="easyui-combobox" panelHeight="auto"
+                    <select id="edit-userId" name="userId" class="easyui-combobox" panelHeight="auto"
                             style="width:268px" data-options="required:true, missingMessage:'请选择任课教师'">
                         <c:forEach items="${userList }" var="user">
                             <option value="${user.id }">${user.username }</option>
@@ -236,7 +236,6 @@
     $("#search-btn").click(function () {
         var option = {name: $("#search-name").val()};
         var userId = $("#search-userId").combobox('getValue');
-        console.log(userId)
         if (userId != -1) {
             option.userId = userId;
         }
@@ -277,7 +276,7 @@
             {field: 'chk', checkbox: true},
             {field: 'name', title: '学科名称', width: 100, sortable: true},
             {
-                field: 'teacherId', title: '任课教师', width: 100, formatter: function (value, row, index) {
+                field: 'userId', title: '任课教师', width: 100, formatter: function (value, row, index) {
                     var userList = $("#search-userId").combobox('getData');
                     for (var i = 0; i < userList.length; i++) {
                         if (value == userList[i].value) return userList[i].text;
