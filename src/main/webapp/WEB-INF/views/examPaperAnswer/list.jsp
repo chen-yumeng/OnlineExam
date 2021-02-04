@@ -58,7 +58,7 @@
                     dataType: 'json',
                     type: 'post',
                     contentType: "application/json",
-                    data: JSON.stringify(item),
+                    data: JSON.stringify({examPaperAnswers: item, userId:${admin.id}}),
                     success: function (data) {
                         if (data.type == 'success') {
                             $.messager.alert('信息提示', '删除成功！', 'info');
