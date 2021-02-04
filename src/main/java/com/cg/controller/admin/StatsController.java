@@ -1,9 +1,10 @@
 package com.cg.controller.admin;
 
+import com.cg.entity.admin.Exam;
+import com.cg.entity.admin.Role;
 import com.cg.entity.admin.Subject;
-import com.cg.service.admin.ExamPaperService;
-import com.cg.service.admin.ExamService;
-import com.cg.service.admin.SubjectService;
+import com.cg.entity.admin.User;
+import com.cg.service.admin.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,6 +32,12 @@ public class StatsController {
     private ExamPaperService examPaperService;
     @Autowired
     private SubjectService subjectService;
+    @Autowired
+    private LogService logService;
+    @Autowired
+    private UserService userService;
+    @Autowired
+    private RoleService roleService;
 
     /**
      * 成绩统计页面
@@ -56,11 +63,12 @@ public class StatsController {
      * 根据考试信息统计结果
      *
      * @param examId
+     * @param userId
      * @return
      */
     @RequestMapping(value = "/get_stats", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> getStats(Integer examId) {
+    public Map<String, Object> getStats(Integer examId, Integer userId) {
         Map<String, Object> ret = new HashMap();
         if (examId == null) {
             ret.put("type", "error");
@@ -72,6 +80,10 @@ public class StatsController {
         ret.put("msg", "统计成功！");
         ret.put("studentList", getListByMap(examStats, "sname"));
         ret.put("studentScore", getListByMap(examStats, "score"));
+        User user = userService.findById(userId);
+        Role role = roleService.find(user.getRoleId());
+        Exam exam = examService.findById(examId);
+        logService.add("管理员{" + role.getName() + ":" + user.getUsername() + "} 查询了{" + exam.getName() + "，Id为" + exam.getId() + "}的考试图表数据!");
         return ret;
     }
 

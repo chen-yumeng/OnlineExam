@@ -46,7 +46,7 @@
             type: "POST",
             url: "get_stats",
             dataType: "json",
-            data: {"examId": examId},
+            data: {"examId": examId, "userId": ${admin.id}},
             success: function (data) {
                 if (data.type == 'success') {
                     var option = {
