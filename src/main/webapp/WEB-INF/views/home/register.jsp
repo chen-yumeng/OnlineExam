@@ -153,7 +153,8 @@
                 <tr>
                     <th>真实姓名</th>
                     <td>
-                        <input type="text" name="truename" class="tm_txt" size="50" maxlength="30" style="width:200px">
+                        <input type="text" name="truename" class="validate[required] tm_txt" size="50" maxlength="30" style="width:200px">
+                        <span class="tm_required">*</span>
                     </td>
                 </tr>
                 <tr>
@@ -171,7 +172,10 @@
 
                 <tr>
                     <th>手机号码</th>
-                    <td><input type="text" class="tm_txt" name="tel" maxlength="30" value="" style="width:200px"></td>
+                    <td>
+                        <input type="text" class="validate[required] tm_txt" name="tel" maxlength="30" value="" style="width:200px">
+                        <span class="tm_required">*</span>
+                    </td>
                 </tr>
 
                 <tr>
