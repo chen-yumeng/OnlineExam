@@ -3,6 +3,8 @@ package com.cg.controller.admin;
 import com.cg.entity.admin.*;
 import com.cg.page.admin.Page;
 import com.cg.service.admin.*;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -285,6 +287,8 @@ public class ExamController {
     public Map<String, String> delete(@RequestBody Map<String, Object> requestMap) {
         List<Exam> exams = (List<Exam>) requestMap.get("exams");
         Integer userId = (Integer) requestMap.get("userId");
+        ObjectMapper mapper = new ObjectMapper();
+        exams = mapper.convertValue(exams, new TypeReference<List<Exam>>() {});
         Map<String, String> ret = new HashMap<String, String>();
         if (exams == null || exams.size() <= 0) {
             ret.put("type", "error");

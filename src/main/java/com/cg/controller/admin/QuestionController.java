@@ -1,11 +1,10 @@
 package com.cg.controller.admin;
 
-import com.cg.entity.admin.Question;
-import com.cg.entity.admin.Role;
-import com.cg.entity.admin.Subject;
-import com.cg.entity.admin.User;
+import com.cg.entity.admin.*;
 import com.cg.page.admin.Page;
 import com.cg.service.admin.*;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.lang.StringUtils;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
@@ -209,6 +208,8 @@ public class QuestionController {
     public Map<String, String> delete(@RequestBody Map<String, Object> requestMap) {
         List<Question> questions = (List<Question>) requestMap.get("questions");
         Integer userId = (Integer) requestMap.get("userId");
+        ObjectMapper mapper = new ObjectMapper();
+        questions = mapper.convertValue(questions, new TypeReference<List<Question>>() {});
         Map<String, String> ret = new HashMap();
         if (questions == null || questions.size() <= 0) {
             ret.put("type", "error");

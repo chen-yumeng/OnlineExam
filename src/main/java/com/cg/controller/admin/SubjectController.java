@@ -8,6 +8,8 @@ import com.cg.service.admin.LogService;
 import com.cg.service.admin.RoleService;
 import com.cg.service.admin.SubjectService;
 import com.cg.service.admin.UserService;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -158,6 +160,8 @@ public class SubjectController {
     public Map<String, String> delete(@RequestBody Map<String, Object> requestMap) {
         List<Subject> subjects = (List<Subject>) requestMap.get("subjects");
         Integer userId = (Integer) requestMap.get("userId");
+        ObjectMapper mapper = new ObjectMapper();
+        subjects = mapper.convertValue(subjects, new TypeReference<List<Subject>>() {});
         Map<String, String> ret = new HashMap<String, String>();
         if (subjects == null || subjects.size() <= 0) {
             ret.put("type", "error");

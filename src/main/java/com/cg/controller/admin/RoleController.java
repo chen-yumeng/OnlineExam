@@ -1,11 +1,10 @@
 package com.cg.controller.admin;
 
-import com.cg.entity.admin.Authority;
-import com.cg.entity.admin.Menu;
-import com.cg.entity.admin.Role;
-import com.cg.entity.admin.User;
+import com.cg.entity.admin.*;
 import com.cg.page.admin.Page;
 import com.cg.service.admin.*;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -150,6 +149,8 @@ public class RoleController {
 	public Map<String, String> delete(@RequestBody Map<String, Object> requestMap){
 		List<Role> roles = (List<Role>) requestMap.get("roles");
 		Integer userId = (Integer) requestMap.get("userId");
+		ObjectMapper mapper = new ObjectMapper();
+		roles = mapper.convertValue(roles, new TypeReference<List<Role>>() {});
 		Map<String, String> ret = new HashMap<String, String>();
 		if(roles == null || roles.size() <= 0){
 			ret.put("type", "error");

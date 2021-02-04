@@ -1,11 +1,10 @@
 package com.cg.controller.admin;
 
-import com.cg.entity.admin.Role;
-import com.cg.entity.admin.Student;
-import com.cg.entity.admin.Subject;
-import com.cg.entity.admin.User;
+import com.cg.entity.admin.*;
 import com.cg.page.admin.Page;
 import com.cg.service.admin.*;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -205,6 +204,8 @@ public class StudentController {
     public Map<String, String> delete(@RequestBody Map<String, Object> requestMap) {
         Map<String, String> ret = new HashMap<String, String>();
         List<Student> students = (List<Student>) requestMap.get("students");
+        ObjectMapper mapper = new ObjectMapper();
+        students = mapper.convertValue(students, new TypeReference<List<Student>>() {});
         Integer userId = (Integer) requestMap.get("userId");
         if (students == null || students.size() <= 0) {
             ret.put("type", "error");
