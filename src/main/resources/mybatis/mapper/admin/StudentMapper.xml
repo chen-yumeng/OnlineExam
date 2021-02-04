@@ -46,6 +46,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="subjectId != null">
 				and subjectId = #{subjectId}
 			</if>
+			<if test="subjects != null">
+				and subjectId in
+				<foreach collection="subjects" item="subject" open="(" separator="," close=")">
+					#{subject.id}
+				</foreach>
+			</if>
 		</where>
 	</select>
 	<!-- 删除考生信息 -->
