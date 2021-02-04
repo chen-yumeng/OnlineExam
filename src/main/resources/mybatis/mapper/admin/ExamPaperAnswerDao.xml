@@ -41,16 +41,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 	<!-- 试卷答题信息搜索查询 -->
 	<select id="findList" parameterType="Map" resultType="com.cg.entity.admin.ExamPaperAnswer">
-		select * from examPaperAnswer where 1 = 1  
-		<if test="examId != null">
-			and examId = #{examId} 
-		</if>
-		<if test="studentId != null">
-			and studentId = #{studentId}  
-		</if>
-		<if test="questionId != null">
-			and questionId = #{questionId}  
-		</if>
+		select * from examPaperAnswer
+		<where>
+			<if test="examId != null">
+				and examId = #{examId}
+			</if>
+			<if test="studentId != null">
+				and studentId = #{studentId}
+			</if>
+			<if test="questionId != null">
+				and questionId = #{questionId}
+			</if>
+			<if test="exams != null">
+				and examId in
+				<foreach collection="exams" item="exam" open="(" separator="," close=")">
+					#{exam.id}
+				</foreach>
+			</if>
+		</where>
 		<if test="offset != null and pageSize != null">
 			limit #{offset},#{pageSize}
 		</if>
@@ -64,16 +72,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	<!-- 模糊搜索总条数 -->
 	<select id="getTotal" parameterType="Map" resultType="Integer">
-		select count(*) from examPaperAnswer where 1 = 1  
-		<if test="examId != null">
-			and examId = #{examId} 
-		</if>
-		<if test="studentId != null">
-			and studentId = #{studentId}  
-		</if>
-		<if test="questionId != null">
-			and questionId = #{questionId}  
-		</if>
+		select count(*) from examPaperAnswer
+		<where>
+			<if test="examId != null">
+				and examId = #{examId}
+			</if>
+			<if test="studentId != null">
+				and studentId = #{studentId}
+			</if>
+			<if test="questionId != null">
+				and questionId = #{questionId}
+			</if>
+			<if test="exams != null">
+				and examId in
+				<foreach collection="exams" item="exam" open="(" separator="," close=")">
+					#{exam.id}
+				</foreach>
+			</if>
+		</where>
 	</select>
 	<!-- 删除试卷答题信息 -->
 	<delete id="delete">

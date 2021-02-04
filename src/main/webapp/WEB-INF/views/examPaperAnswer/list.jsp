@@ -87,6 +87,7 @@
         if (questionId != -1) {
             option.questionId = questionId;
         }
+        option.userId = ${admin.id}
         $('#data-datagrid').datagrid('reload', option);
     });
 
@@ -106,6 +107,7 @@
         treeField: 'name',
         nowrap: false,
         fit: true,
+        queryParams: {userId: ${admin.id}},
         columns: [[
             {field: 'chk', checkbox: true},
             {
