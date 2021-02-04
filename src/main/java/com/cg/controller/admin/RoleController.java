@@ -3,10 +3,9 @@ package com.cg.controller.admin;
 import com.cg.entity.admin.Authority;
 import com.cg.entity.admin.Menu;
 import com.cg.entity.admin.Role;
+import com.cg.entity.admin.User;
 import com.cg.page.admin.Page;
-import com.cg.service.admin.AuthorityService;
-import com.cg.service.admin.MenuService;
-import com.cg.service.admin.RoleService;
+import com.cg.service.admin.*;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,6 +34,12 @@ public class RoleController {
 
 	@Autowired
 	private MenuService menuService;
+
+	@Autowired
+	private LogService logService;
+
+	@Autowired
+	private UserService userService;
 
 	/**
 	 * 角色列表页面
@@ -72,11 +77,12 @@ public class RoleController {
 	/**
 	 * 角色添加
 	 * @param role
+	 * @param userId
 	 * @return
 	 */
 	@RequestMapping(value="/add",method=RequestMethod.POST)
 	@ResponseBody
-	public Map<String, String> add(Role role){
+	public Map<String, String> add(Role role, Integer userId){
 		Map<String, String> ret = new HashMap<>();
 		if(role == null){
 			ret.put("type", "error");
@@ -95,17 +101,21 @@ public class RoleController {
 		}
 		ret.put("type", "success");
 		ret.put("msg", "角色添加成功！");
+		User user = userService.findById(userId);
+		Role adminRole = roleService.find(user.getRoleId());
+		logService.add("管理员{" + adminRole.getName() + ":" + user.getUsername() + "} 添加{" + role.getName() + "，Id为" + role.getId() + "}角色成功!");
 		return ret;
 	}
 
 	/**
 	 * 角色修改
 	 * @param role
+	 * @param userId
 	 * @return
 	 */
 	@RequestMapping(value="/edit",method=RequestMethod.POST)
 	@ResponseBody
-	public Map<String, String> edit(Role role){
+	public Map<String, String> edit(Role role, Integer userId){
 		Map<String, String> ret = new HashMap<String, String>();
 		if(role == null){
 			ret.put("type", "error");
@@ -124,17 +134,22 @@ public class RoleController {
 		}
 		ret.put("type", "success");
 		ret.put("msg", "角色修改成功！");
+		User user = userService.findById(userId);
+		Role adminRole = roleService.find(user.getRoleId());
+		logService.add("管理员{" + adminRole.getName() + ":" + user.getUsername() + "} 更新{" + role.getName() + "，Id为" + role.getId() + "}角色成功!");
 		return ret;
 	}
 
 	/**
 	 * 删除角色信息
-	 * @param roles
+	 * @param requestMap
 	 * @return
 	 */
 	@RequestMapping(value="/delete",method=RequestMethod.POST, headers = "Accept=application/json")
 	@ResponseBody
-	public Map<String, String> delete(@RequestBody List<Role> roles){
+	public Map<String, String> delete(@RequestBody Map<String, Object> requestMap){
+		List<Role> roles = (List<Role>) requestMap.get("roles");
+		Integer userId = (Integer) requestMap.get("userId");
 		Map<String, String> ret = new HashMap<String, String>();
 		if(roles == null || roles.size() <= 0){
 			ret.put("type", "error");
@@ -156,6 +171,11 @@ public class RoleController {
 		}
 		ret.put("type", "success");
 		ret.put("msg", "角色删除成功！");
+		User user = userService.findById(userId);
+		Role adminRole = roleService.find(user.getRoleId());
+		roles.forEach(role -> {
+			logService.add("管理员{" + adminRole.getName() + ":" + user.getUsername() + "} 删除{" + role.getName() + "，Id为" + role.getId() + "}角色成功!");
+		});
 		return ret;
 	}
 
@@ -175,13 +195,16 @@ public class RoleController {
 	/**
 	 * 编辑权限
 	 * @param ids
+	 * @param roleId
+	 * @param userId
 	 * @return
 	 */
 	@RequestMapping(value="/add_authority",method=RequestMethod.POST)
 	@ResponseBody
 	public Map<String, String> addAuthority(
 			@RequestParam(name="ids",required=true) String ids,
-			@RequestParam(name="roleId",required=true) Integer roleId
+			@RequestParam(name="roleId",required=true) Integer roleId,
+			@RequestParam(name = "userId",required = true) Integer userId
 	){
 		Map<String,String> ret = new HashMap<String, String>();
 		if(StringUtils.isEmpty(ids)){
@@ -210,6 +233,10 @@ public class RoleController {
 		}
 		ret.put("type", "success");
 		ret.put("msg", "权限编辑成功！");
+		User user = userService.findById(userId);
+		Role adminRole = roleService.find(user.getRoleId());
+		Role role = roleService.find(roleId);
+		logService.add("管理员{" + adminRole.getName() + ":" + user.getUsername() + "} 修改{" + role.getName() + "，Id为" + role.getId() + "}角色的权限为{权限ids为("+ids+")}!");
 		return ret;
 	}
 
@@ -220,9 +247,7 @@ public class RoleController {
 	 */
 	@RequestMapping(value="/get_role_authority",method=RequestMethod.POST)
 	@ResponseBody
-	public List<Authority> getRoleAuthority(
-			@RequestParam(name="roleId",required=true) Integer roleId
-	){
+	public List<Authority> getRoleAuthority(@RequestParam(name="roleId",required=true) Integer roleId){
 		return authorityService.findListByRoleId(roleId);
 	}
 }

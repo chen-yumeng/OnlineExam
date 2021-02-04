@@ -79,6 +79,7 @@
             return;
         }
         var data = $("#add-form").serialize();
+        data = data + "&userId=${admin.id}"
         $.ajax({
             url: '${APP_PATH}/admin/role/add',
             dataType: 'json',
@@ -141,6 +142,7 @@
             return;
         }
         var data = $("#edit-form").serialize();
+        data = data + "&userId=${admin.id}"
         $.ajax({
             url: '${APP_PATH}/admin/role/edit',
             dataType: 'json',
@@ -170,7 +172,7 @@
                     dataType: 'json',
                     type: 'post',
                     contentType: "application/json",
-                    data: JSON.stringify(item),
+                    data: JSON.stringify({roles:item,userId:${admin.id}}),
                     success: function (data) {
                         if (data.type == 'success') {
                             $.messager.alert('信息提示', '删除成功！', 'info');
@@ -334,7 +336,7 @@
                     $.ajax({
                         url: 'add_authority',
                         type: "post",
-                        data: {ids: ids, roleId: roleId},
+                        data: {ids: ids, roleId: roleId,userId: ${admin.id}},
                         dataType: 'json',
                         success: function (data) {
                             if (data.type == 'success') {
