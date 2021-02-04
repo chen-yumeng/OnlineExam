@@ -60,7 +60,12 @@ public class UserServiceImpl implements UserService {
         return userDao.findById(userId);
     }
 
-    @Override
+	@Override
+	public List<User> findUserListByIds(String ids) {
+		return userDao.findUserListByIds(ids);
+	}
+
+	@Override
 	public int editPassword(User user) {
 		// TODO Auto-generated method stub
 		return userDao.editPassword(user);

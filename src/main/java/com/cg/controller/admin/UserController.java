@@ -1,7 +1,9 @@
 package com.cg.controller.admin;
 
+import com.cg.entity.admin.Role;
 import com.cg.entity.admin.User;
 import com.cg.page.admin.Page;
+import com.cg.service.admin.LogService;
 import com.cg.service.admin.RoleService;
 import com.cg.service.admin.UserService;
 import org.apache.commons.lang.StringUtils;
@@ -18,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -32,6 +35,8 @@ public class UserController {
 	private UserService userService;
 	@Autowired
 	private RoleService roleService;
+	@Autowired
+	private LogService logService;
 
 	/**
 	 * 用户列表页面
@@ -76,11 +81,12 @@ public class UserController {
 	/**
 	 * 添加用户
 	 * @param user
+	 * @param userId
 	 * @return
 	 */
 	@RequestMapping(value="/add",method=RequestMethod.POST)
 	@ResponseBody
-	public Map<String, String> add(User user){
+	public Map<String, String> add(User user, Integer userId){
 		Map<String, String> ret = new HashMap<String, String>();
 		if(user == null){
 			ret.put("type", "error");
@@ -114,17 +120,22 @@ public class UserController {
 		}
 		ret.put("type", "success");
 		ret.put("msg", "角色添加成功！");
+		Role role = roleService.find(user.getRoleId());
+		User adminUser = userService.findById(userId);
+		Role adminRole = roleService.find(adminUser.getRoleId());
+		logService.add("管理员{" + adminRole.getName() + ":" + adminUser.getUsername() + "} 添加{" + user.getUsername() + "，Id为" + user.getId() + "，角色为" + role.getName() + "}的管理员成功!");
 		return ret;
 	}
 
 	/**
 	 * 编辑用户
 	 * @param user
+	 * @param userId
 	 * @return
 	 */
 	@RequestMapping(value="/edit",method=RequestMethod.POST)
 	@ResponseBody
-	public Map<String, String> edit(User user){
+	public Map<String, String> edit(User user, Integer userId){
 		Map<String, String> ret = new HashMap<String, String>();
 		if(user == null){
 			ret.put("type", "error");
@@ -158,17 +169,22 @@ public class UserController {
 		}
 		ret.put("type", "success");
 		ret.put("msg", "角色添加成功！");
+		Role role = roleService.find(user.getRoleId());
+		User adminUser = userService.findById(userId);
+		Role adminRole = roleService.find(adminUser.getRoleId());
+		logService.add("管理员{" + adminRole.getName() + ":" + adminUser.getUsername() + "} 更新{" + user.getUsername() + "，Id为" + user.getId() + "，角色为" + role.getName() + "}的管理员成功!");
 		return ret;
 	}
 
 	/**
 	 * 批量删除用户
 	 * @param ids
+	 * @param userId
 	 * @return
 	 */
 	@RequestMapping(value="/delete",method=RequestMethod.POST)
 	@ResponseBody
-	public Map<String, String> delete(String ids){
+	public Map<String, String> delete(String ids, Integer userId){
 		Map<String, String> ret = new HashMap<String, String>();
 		if(StringUtils.isEmpty(ids)){
 			ret.put("type", "error");
@@ -185,6 +201,13 @@ public class UserController {
 		}
 		ret.put("type", "success");
 		ret.put("msg", "用户删除成功！");
+		User adminUser = userService.findById(userId);
+		Role adminRole = roleService.find(adminUser.getRoleId());
+		List<User> users = userService.findUserListByIds(ids);
+		users.forEach(user -> {
+			Role role = roleService.find(user.getRoleId());
+			logService.add("管理员{" + adminRole.getName() + ":" + adminUser.getUsername() + "} 删除{" + user.getUsername() + "，Id为" + user.getId() + "，角色为" + role.getName() + "}的管理员成功!");
+		});
 		return ret;
 	}
 
@@ -233,8 +256,11 @@ public class UserController {
 			return ret;
 		}
 		ret.put("type", "success");
-		ret.put("msg", "用户删除成功！");
+		ret.put("msg", "照片上传成功！");
 		ret.put("filepath",request.getServletContext().getContextPath() + "/resources/upload/" + filename );
+		User user = userService.findById(((User)(request.getSession().getAttribute("admin"))).getId());
+		Role role = roleService.find(user.getRoleId());
+		logService.add("管理员{" + role.getName() + ":" + user.getUsername() + "} 上传了图片{" + filename + "，大小为" + photo.getSize()/1024/1024 + "M，保存地址为" + savePath + "}");
 		return ret;
 	}
 	/**

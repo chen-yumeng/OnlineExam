@@ -23,6 +23,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="delete" parameterType="String">
 		delete from user where id in(${value})
 	</delete>
+	<!-- 通过ids获取用户 -->
+	<select id="findUserListByIds" parameterType="String" resultType="com.cg.entity.admin.User">
+		select * from user where id in(${value})
+	</select>
 	<!-- 分页获取用户列表 -->
 	<select id="findList" parameterType="Map" resultType="com.cg.entity.admin.User">
 		select * from user where 1 = 1 

@@ -223,6 +223,7 @@
             return;
         }
         var data = $("#add-form").serialize();
+        data = data+"&userId=${admin.id}";
         $.ajax({
             url: 'add',
             dataType: 'json',
@@ -250,6 +251,7 @@
             return;
         }
         var data = $("#edit-form").serialize();
+        data = data+"&userId=${admin.id}";
         $.ajax({
             url: 'edit',
             dataType: 'json',
@@ -286,7 +288,7 @@
                     url: 'delete',
                     dataType: 'json',
                     type: 'post',
-                    data: {ids: ids},
+                    data: {ids: ids,userId: ${admin.id}},
                     success: function (data) {
                         if (data.type == 'success') {
                             $.messager.alert('信息提示', '删除成功！', 'info');
