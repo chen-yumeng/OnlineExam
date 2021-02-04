@@ -1,13 +1,8 @@
 package com.cg.controller.admin;
 
-import com.cg.entity.admin.Exam;
-import com.cg.entity.admin.ExamPaper;
-import com.cg.entity.admin.Subject;
+import com.cg.entity.admin.*;
 import com.cg.page.admin.Page;
-import com.cg.service.admin.ExamPaperService;
-import com.cg.service.admin.ExamService;
-import com.cg.service.admin.StudentService;
-import com.cg.service.admin.SubjectService;
+import com.cg.service.admin.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -35,6 +30,12 @@ public class ExamPaperController {
     private ExamService examService;
     @Autowired
     private SubjectService subjectService;
+    @Autowired
+    private LogService logService;
+    @Autowired
+    private UserService userService;
+    @Autowired
+    private RoleService roleService;
 
     /**
      * 试卷列表页面
@@ -104,11 +105,12 @@ public class ExamPaperController {
      * 添加试卷
      *
      * @param examPaper
+     * @param userId
      * @return
      */
     @RequestMapping(value = "add", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, String> add(ExamPaper examPaper) {
+    public Map<String, String> add(ExamPaper examPaper, Integer userId) {
         Map<String, String> ret = new HashMap<String, String>();
         if (examPaper == null) {
             ret.put("type", "error");
@@ -132,6 +134,9 @@ public class ExamPaperController {
         }
         ret.put("type", "success");
         ret.put("msg", "添加成功!");
+        User user = userService.findById(userId);
+        Role role = roleService.find(user.getRoleId());
+        logService.add("管理员{" + role.getName() + ":" + user.getUsername() + "} 添加试卷{Id为"+examPaper.getId()+"}成功!");
         return ret;
     }
 
@@ -139,11 +144,12 @@ public class ExamPaperController {
      * 编辑试卷
      *
      * @param examPaper
+     * @param userId
      * @return
      */
     @RequestMapping(value = "edit", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, String> edit(ExamPaper examPaper) {
+    public Map<String, String> edit(ExamPaper examPaper, Integer userId) {
         Map<String, String> ret = new HashMap<String, String>();
         if (examPaper == null) {
             ret.put("type", "error");
@@ -167,18 +173,23 @@ public class ExamPaperController {
         }
         ret.put("type", "success");
         ret.put("msg", "编辑成功!");
+        User user = userService.findById(userId);
+        Role role = roleService.find(user.getRoleId());
+        logService.add("管理员{" + role.getName() + ":" + user.getUsername() + "} 更新试卷{Id为"+examPaper.getId()+"}成功!");
         return ret;
     }
 
     /**
      * 删除试卷
      *
-     * @param examPapers
+     * @param requestMap
      * @return
      */
     @RequestMapping(value = "delete", method = RequestMethod.POST, headers = "Accept=application/json")
     @ResponseBody
-    public Map<String, String> delete(@RequestBody List<ExamPaper> examPapers) {
+    public Map<String, String> delete(@RequestBody Map<String, Object> requestMap) {
+        List<ExamPaper> examPapers = (List<ExamPaper>) requestMap.get("examPapers");
+        Integer userId = (Integer) requestMap.get("userId");
         Map<String, String> ret = new HashMap<String, String>();
         if (examPapers == null || examPapers.size() <= 0) {
             ret.put("type", "error");
@@ -199,6 +210,11 @@ public class ExamPaperController {
 
         ret.put("type", "success");
         ret.put("msg", "删除成功!");
+        User user = userService.findById(userId);
+        Role role = roleService.find(user.getRoleId());
+        examPapers.forEach(examPaper -> {
+            logService.add("管理员{" + role.getName() + ":" + user.getUsername() + "} 删除试卷{Id为"+examPaper.getId()+"}成功!");
+        });
         return ret;
     }
 }
