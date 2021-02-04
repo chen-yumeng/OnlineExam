@@ -323,6 +323,7 @@
         if (endTime != null && startTime != '') {
             option.endTime = endTime;
         }
+        option.userId = ${admin.id}
         $('#data-datagrid').datagrid('reload', option);
     });
 

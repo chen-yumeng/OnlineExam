@@ -418,6 +418,7 @@
         if (subjectId != -1) {
             option.subjectId = subjectId;
         }
+        option.userId = ${admin.id}
         $('#data-datagrid').datagrid('reload', option);
     });
 
