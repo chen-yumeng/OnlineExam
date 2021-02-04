@@ -60,5 +60,5 @@ public interface RoleService {
 	 * @param id
 	 * @return
 	 */
-	Role find(Long id);
+	Role find(Integer id);
 }

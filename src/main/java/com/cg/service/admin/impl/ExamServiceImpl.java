@@ -62,7 +62,7 @@ public class ExamServiceImpl implements ExamService {
     }
 
     @Override
-    public Exam findById(Long id) {
+    public Exam findById(Integer id) {
         // TODO Auto-generated method stub
         return examDao.findById(id);
     }

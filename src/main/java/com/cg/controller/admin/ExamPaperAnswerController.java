@@ -40,7 +40,7 @@ public class ExamPaperAnswerController {
      * @return
      */
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public ModelAndView list(ModelAndView model, @RequestParam(name = "userId") Long userId) {
+    public ModelAndView list(ModelAndView model, @RequestParam(name = "userId") Integer userId) {
         Map<String, Object> queryMap = new HashMap<String, Object>();
         queryMap.put("offset", 0);
         queryMap.put("pageSize", 99999);
@@ -98,10 +98,10 @@ public class ExamPaperAnswerController {
     @RequestMapping(value = "/list", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> list(
-            @RequestParam(name = "examId", required = false) Long examId,
-            @RequestParam(name = "studentId", required = false) Long studentId,
-            @RequestParam(name = "questionId", required = false) Long questionId,
-            @RequestParam(name = "userId") Long userId,
+            @RequestParam(name = "examId", required = false) Integer examId,
+            @RequestParam(name = "studentId", required = false) Integer studentId,
+            @RequestParam(name = "questionId", required = false) Integer questionId,
+            @RequestParam(name = "userId") Integer userId,
             Page page
     ) {
         Map<String, Object> ret = new HashMap();

@@ -16,7 +16,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from question where title = #{value}  
 	</select>
 	<!-- 试题信息按id查询 -->
-	<select id="findById" parameterType="Long" resultType="com.cg.entity.admin.Question">
+	<select id="findById" parameterType="Integer" resultType="com.cg.entity.admin.Question">
 		select * from question where id = #{value}  
 	</select>
 	<!-- 试题信息搜索查询 -->

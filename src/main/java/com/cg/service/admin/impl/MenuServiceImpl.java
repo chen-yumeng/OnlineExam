@@ -47,13 +47,13 @@ public class MenuServiceImpl implements MenuService {
 	}
 
 	@Override
-	public int delete(Long id) {
+	public int delete(Integer id) {
 		// TODO Auto-generated method stub
 		return menuDao.delete(id);
 	}
 
 	@Override
-	public List<Menu> findChildernList(Long parentId) {
+	public List<Menu> findChildernList(Integer parentId) {
 		// TODO Auto-generated method stub
 		return menuDao.findChildernList(parentId);
 	}

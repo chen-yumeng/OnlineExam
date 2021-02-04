@@ -7,17 +7,17 @@ package com.cg.entity.admin;
  */
 public class Menu {
 
-    private Long id;
+    private Integer id;
 
     /**
      * 父类id
      */
-    private Long parentId;
+    private Integer parentId;
 
     /**
      * 父类id,用来匹配easyui的父类id
      */
-    private Long _parentId;
+    private Integer _parentId;
 
     /**
      * 菜单名称
@@ -34,19 +34,19 @@ public class Menu {
      */
     private String icon;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public Long getParentId() {
+    public Integer getParentId() {
         return parentId;
     }
 
-    public void setParentId(Long parentId) {
+    public void setParentId(Integer parentId) {
         this.parentId = parentId;
     }
 
@@ -74,12 +74,12 @@ public class Menu {
         this.icon = icon;
     }
 
-    public Long get_parentId() {
+    public Integer get_parentId() {
         _parentId = parentId;
         return _parentId;
     }
 
-    public void set_parentId(Long _parentId) {
+    public void set_parentId(Integer _parentId) {
         this._parentId = _parentId;
     }
 }

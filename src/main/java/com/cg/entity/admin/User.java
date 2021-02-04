@@ -9,7 +9,7 @@ public class User {
     /**
      * 用户id，设置自增
      */
-    private Long id;
+    private Integer id;
     /**
      * 用户名，登录名
      */
@@ -21,7 +21,7 @@ public class User {
     /**
      * 所属角色id
      */
-    private Long roleId;
+    private Integer roleId;
     /**
      * 头像照片地址
      */
@@ -39,11 +39,11 @@ public class User {
      */
     private String address;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -95,11 +95,11 @@ public class User {
         this.address = address;
     }
 
-    public Long getRoleId() {
+    public Integer getRoleId() {
         return roleId;
     }
 
-    public void setRoleId(Long roleId) {
+    public void setRoleId(Integer roleId) {
         this.roleId = roleId;
     }
 

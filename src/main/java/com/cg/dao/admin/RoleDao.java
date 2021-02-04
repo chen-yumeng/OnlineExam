@@ -60,5 +60,5 @@ public interface RoleDao {
      * @param id
      * @return
      */
-    Role find(Long id);
+    Role find(Integer id);
 }

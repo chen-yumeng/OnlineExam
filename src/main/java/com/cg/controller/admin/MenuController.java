@@ -119,7 +119,7 @@ public class MenuController {
 			return ret;
 		}
 		if(menu.getParentId() == null){
-			menu.setParentId(0L);
+			menu.setParentId(0);
 		}
 		if(menuService.add(menu) <= 0){
 			ret.put("type", "error");
@@ -156,7 +156,7 @@ public class MenuController {
 			return ret;
 		}
 		if(menu.getParentId() == null){
-			menu.setParentId(0l);
+			menu.setParentId(0);
 		}
 		if(menuService.edit(menu) <= 0){
 			ret.put("type", "error");
@@ -176,7 +176,7 @@ public class MenuController {
 	@RequestMapping(value="/delete",method=RequestMethod.POST)
 	@ResponseBody
 	public Map<String, String> delete(
-			@RequestParam(name="id",required=true) Long id
+			@RequestParam(name="id",required=true) Integer id
 	){
 		Map<String, String> ret = new HashMap<>();
 		if(id == null){

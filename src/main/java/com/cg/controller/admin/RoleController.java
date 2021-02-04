@@ -181,7 +181,7 @@ public class RoleController {
 	@ResponseBody
 	public Map<String, String> addAuthority(
 			@RequestParam(name="ids",required=true) String ids,
-			@RequestParam(name="roleId",required=true) Long roleId
+			@RequestParam(name="roleId",required=true) Integer roleId
 	){
 		Map<String,String> ret = new HashMap<String, String>();
 		if(StringUtils.isEmpty(ids)){
@@ -204,7 +204,7 @@ public class RoleController {
 		}
 		for(String id:idArr){
 			Authority authority = new Authority();
-			authority.setMenuId(Long.valueOf(id));
+			authority.setMenuId(Integer.valueOf(id));
 			authority.setRoleId(roleId);
 			authorityService.add(authority);
 		}
@@ -221,7 +221,7 @@ public class RoleController {
 	@RequestMapping(value="/get_role_authority",method=RequestMethod.POST)
 	@ResponseBody
 	public List<Authority> getRoleAuthority(
-			@RequestParam(name="roleId",required=true) Long roleId
+			@RequestParam(name="roleId",required=true) Integer roleId
 	){
 		return authorityService.findListByRoleId(roleId);
 	}

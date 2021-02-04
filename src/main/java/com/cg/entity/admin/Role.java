@@ -7,7 +7,7 @@ package com.cg.entity.admin;
  */
 public class Role {
 
-    private Long id;
+    private Integer id;
 
     private String name;
 
@@ -16,11 +16,11 @@ public class Role {
      */
     private String remark;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

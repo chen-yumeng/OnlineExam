@@ -35,7 +35,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from menu where parentId = 0
 	</select>
 	<!-- 获取某一分类的子菜单信息 -->
-	<select id="findChildernList" parameterType="Long" resultType="com.cg.entity.admin.Menu">
+	<select id="findChildernList" parameterType="Integer" resultType="com.cg.entity.admin.Menu">
 		select * from menu where parentId = #{parentId}
 	</select>
 	<!-- 根据菜单id获取菜单信息 -->
@@ -47,7 +47,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update menu set name = #{name},parentId = #{parentId},url = #{url},icon = #{icon} where id = #{id}
 	</update>
 	<!-- 删除菜单信息 -->
-	<delete id="delete" parameterType="Long">
+	<delete id="delete" parameterType="Integer">
 		delete from menu where id = #{id}
 	</delete>
 </mapper>

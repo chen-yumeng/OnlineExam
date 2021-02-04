@@ -47,7 +47,7 @@ public class RoleServiceImpl implements RoleService {
 	}
 
 	@Override
-	public Role find(Long id) {
+	public Role find(Integer id) {
 		// TODO Auto-generated method stub
 		return roleDao.find(id);
 	}

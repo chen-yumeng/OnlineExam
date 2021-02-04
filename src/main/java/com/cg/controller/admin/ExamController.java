@@ -40,7 +40,7 @@ public class ExamController {
      * @return
      */
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public ModelAndView list(ModelAndView model, @RequestParam(name = "userId") Long userId) {
+    public ModelAndView list(ModelAndView model, @RequestParam(name = "userId") Integer userId) {
         Map<String, Object> queryMap = new HashMap<>();
         queryMap.put("offset", 0);
         queryMap.put("pageSize", 99999);
@@ -66,10 +66,10 @@ public class ExamController {
     @ResponseBody
     public Map<String, Object> list(
             @RequestParam(name = "name", defaultValue = "") String name,
-            @RequestParam(name = "subjectId", required = false) Long subjectId,
+            @RequestParam(name = "subjectId", required = false) Integer subjectId,
             @RequestParam(name = "startTime", required = false) String startTime,
             @RequestParam(name = "endTime", required = false) String endTime,
-            @RequestParam(name = "userId") Long userId,
+            @RequestParam(name = "userId") Integer userId,
             Page page
     ) {
         Map<String, Object> ret = new HashMap<String, Object>();
@@ -143,8 +143,8 @@ public class ExamController {
         exam.setCreateTime(new Date());
         //此时去查询所填写的题型数量是否满足
         //获取单选题总数
-        Map<String, Long> queryMap = new HashMap<String, Long>();
-        queryMap.put("questionType", Long.valueOf(Question.QUESTION_TYPE_SINGLE));
+        Map<String, Integer> queryMap = new HashMap<String, Integer>();
+        queryMap.put("questionType", Integer.valueOf(Question.QUESTION_TYPE_SINGLE));
         queryMap.put("subjectId", exam.getSubjectId());
         int singleQuestionTotalNum = questionService.getQuestionNumByType(queryMap);
         if (exam.getSingleQuestionNum() > singleQuestionTotalNum) {
@@ -153,7 +153,7 @@ public class ExamController {
             return ret;
         }
         //获取多选题总数
-        queryMap.put("questionType", Long.valueOf(Question.QUESTION_TYPE_MUILT));
+        queryMap.put("questionType", Integer.valueOf(Question.QUESTION_TYPE_MUILT));
         int muiltQuestionTotalNum = questionService.getQuestionNumByType(queryMap);
         if (exam.getMuiltQuestionNum() > muiltQuestionTotalNum) {
             ret.put("type", "error");
@@ -161,7 +161,7 @@ public class ExamController {
             return ret;
         }
         //获取判断题总数
-        queryMap.put("questionType", Long.valueOf(Question.QUESTION_TYPE_CHARGE));
+        queryMap.put("questionType", Integer.valueOf(Question.QUESTION_TYPE_CHARGE));
         int chargeQuestionTotalNum = questionService.getQuestionNumByType(queryMap);
         if (exam.getChargeQuestionNum() > chargeQuestionTotalNum) {
             ret.put("type", "error");
@@ -227,8 +227,8 @@ public class ExamController {
         }
         //此时去查询所填写的题型数量是否满足
         //获取单选题总数
-        Map<String, Long> queryMap = new HashMap<String, Long>();
-        queryMap.put("questionType", Long.valueOf(Question.QUESTION_TYPE_SINGLE));
+        Map<String, Integer> queryMap = new HashMap<String, Integer>();
+        queryMap.put("questionType", Integer.valueOf(Question.QUESTION_TYPE_SINGLE));
         queryMap.put("subjectId", exam.getSubjectId());
         int singleQuestionTotalNum = questionService.getQuestionNumByType(queryMap);
         if (exam.getSingleQuestionNum() > singleQuestionTotalNum) {
@@ -237,7 +237,7 @@ public class ExamController {
             return ret;
         }
         //获取多选题总数
-        queryMap.put("questionType", Long.valueOf(Question.QUESTION_TYPE_MUILT));
+        queryMap.put("questionType", Integer.valueOf(Question.QUESTION_TYPE_MUILT));
         int muiltQuestionTotalNum = questionService.getQuestionNumByType(queryMap);
         if (exam.getMuiltQuestionNum() > muiltQuestionTotalNum) {
             ret.put("type", "error");
@@ -245,7 +245,7 @@ public class ExamController {
             return ret;
         }
         //获取判断题总数
-        queryMap.put("questionType", Long.valueOf(Question.QUESTION_TYPE_CHARGE));
+        queryMap.put("questionType", Integer.valueOf(Question.QUESTION_TYPE_CHARGE));
         int chargeQuestionTotalNum = questionService.getQuestionNumByType(queryMap);
         if (exam.getChargeQuestionNum() > chargeQuestionTotalNum) {
             ret.put("type", "error");

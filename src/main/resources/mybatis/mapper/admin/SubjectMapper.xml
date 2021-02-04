@@ -12,7 +12,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update subject set name = #{name}, userId = #{userId}, remark = #{remark} where id = #{id}
 	</update>
 	<!-- 学科专业信息精确查询 -->
-	<select id="findById" parameterType="Long" resultType="com.cg.entity.admin.Subject">
+	<select id="findById" parameterType="Integer" resultType="com.cg.entity.admin.Subject">
 		select * from subject where id = #{value}
 	</select>
 	<!-- 学科专业信息搜索查询 -->

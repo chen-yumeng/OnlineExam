@@ -60,12 +60,12 @@ public interface QuestionDao {
      * @param queryMap
      * @return
      */
-    int getQuestionNumByType(Map<String, Long> queryMap);
+    int getQuestionNumByType(Map<String, Integer> queryMap);
 
     /**
      * 试题信息按id查询
      * @param id
      * @return
      */
-    Question findById(Long id);
+    Question findById(Integer id);
 }

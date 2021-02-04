@@ -59,7 +59,7 @@ public interface SubjectDao {
      * @param id
      * @return
      */
-    Subject findById(Long id);
+    Subject findById(Integer id);
 
-    List<Subject> findByUserId(Long userId);
+    List<Subject> findByUserId(Integer userId);
 }

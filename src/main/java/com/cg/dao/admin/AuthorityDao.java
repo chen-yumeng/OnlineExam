@@ -26,7 +26,7 @@ public interface AuthorityDao {
      * @param roleId
      * @return
      */
-    int deleteByRoleId(Long roleId);
+    int deleteByRoleId(Integer roleId);
 
     /**
      * 权限信息搜索查询
@@ -34,5 +34,5 @@ public interface AuthorityDao {
      * @param roleId
      * @return
      */
-    List<Authority> findListByRoleId(Long roleId);
+    List<Authority> findListByRoleId(Integer roleId);
 }

@@ -9,7 +9,7 @@ import java.util.Date;
  */
 public class Log {
 
-    private Long id;
+    private Integer id;
 
     /**
      * 日志内容
@@ -21,11 +21,11 @@ public class Log {
      */
     private Date createTime;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

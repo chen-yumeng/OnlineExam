@@ -40,7 +40,7 @@ public class HomeExamController {
      */
     @RequestMapping(value = "/statr_exam", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, String> startExam(Long examId, HttpServletRequest request) {
+    public Map<String, String> startExam(Integer examId, HttpServletRequest request) {
         Map<String, String> ret = new HashMap();
         Exam exam = examService.findById(examId);
         if (exam == null) {
@@ -78,8 +78,8 @@ public class HomeExamController {
         //此时，说明符合考试条件，随机生成试卷试题
         //要做判断，看是否满足生成试卷的条件
         //获取单选题总数
-        Map<String, Long> qMap = new HashMap();
-        qMap.put("questionType", Long.valueOf(Question.QUESTION_TYPE_SINGLE));
+        Map<String, Integer> qMap = new HashMap();
+        qMap.put("questionType", Integer.valueOf(Question.QUESTION_TYPE_SINGLE));
         qMap.put("subjectId", exam.getSubjectId());
         int singleQuestionTotalNum = questionService.getQuestionNumByType(qMap);
         if (exam.getSingleQuestionNum() > singleQuestionTotalNum) {
@@ -88,7 +88,7 @@ public class HomeExamController {
             return ret;
         }
         //获取多选题总数
-        qMap.put("questionType", Long.valueOf(Question.QUESTION_TYPE_MUILT));
+        qMap.put("questionType", Integer.valueOf(Question.QUESTION_TYPE_MUILT));
         int muiltQuestionTotalNum = questionService.getQuestionNumByType(qMap);
         if (exam.getMuiltQuestionNum() > muiltQuestionTotalNum) {
             ret.put("type", "error");
@@ -96,7 +96,7 @@ public class HomeExamController {
             return ret;
         }
         //获取判断题总数
-        qMap.put("questionType", Long.valueOf(Question.QUESTION_TYPE_CHARGE));
+        qMap.put("questionType", Integer.valueOf(Question.QUESTION_TYPE_CHARGE));
         int chargeQuestionTotalNum = questionService.getQuestionNumByType(qMap);
         if (exam.getChargeQuestionNum() > chargeQuestionTotalNum) {
             ret.put("type", "error");
@@ -163,7 +163,7 @@ public class HomeExamController {
      * @return
      */
     @RequestMapping(value = "/examing", method = RequestMethod.GET)
-    public ModelAndView index(ModelAndView model, Long examId, HttpServletRequest request) {
+    public ModelAndView index(ModelAndView model, Integer examId, HttpServletRequest request) {
         Student student = (Student) request.getSession().getAttribute("student");
         Exam exam = examService.findById(examId);
         if (exam == null) {
@@ -308,7 +308,7 @@ public class HomeExamController {
 
     @RequestMapping(value = "/submit_exam", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, String> submitExam(Long examId, Long examPaperId, HttpServletRequest request) {
+    public Map<String, String> submitExam(Integer examId, Integer examPaperId, HttpServletRequest request) {
         Map<String, String> ret = new HashMap<>();
         Exam exam = examService.findById(examId);
         if (exam == null) {
@@ -412,7 +412,7 @@ public class HomeExamController {
      * @param examPaperId
      * @param studentId
      */
-    private void insertQuestionAnswer(List<Question> questionList, Long examId, Long examPaperId, Long studentId) {
+    private void insertQuestionAnswer(List<Question> questionList, Integer examId, Integer examPaperId, Integer studentId) {
         for (Question question : questionList) {
             ExamPaperAnswer examPaperAnswer = new ExamPaperAnswer();
             examPaperAnswer.setExamId(examId);

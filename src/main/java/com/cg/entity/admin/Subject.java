@@ -7,7 +7,7 @@ package com.cg.entity.admin;
  */
 public class Subject {
 
-    private Long id;
+    private Integer id;
 
     /**
      * 学科名称
@@ -17,18 +17,18 @@ public class Subject {
     /**
      * 学科任课教师
      */
-    private Long userId;
+    private Integer userId;
 
     /**
      * 学科备注
      */
     private String remark;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -40,11 +40,11 @@ public class Subject {
         this.name = name;
     }
 
-    public Long getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 

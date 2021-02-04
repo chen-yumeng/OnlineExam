@@ -16,7 +16,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update exam set paperNum = #{paperNum},examedNum = #{examedNum},passNum = #{passNum} where id = #{id}
 	</update>
 	<!-- 考试信息按题目查询 -->
-	<select id="findById" parameterType="Long" resultType="com.cg.entity.admin.Exam">
+	<select id="findById" parameterType="Integer" resultType="com.cg.entity.admin.Exam">
 		select * from exam where id = #{value}  
 	</select>
 	<!-- 考试信息搜索查询 -->

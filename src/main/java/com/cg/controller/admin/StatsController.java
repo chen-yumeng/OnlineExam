@@ -39,7 +39,7 @@ public class StatsController {
      * @return
      */
     @RequestMapping(value = "/exam_stats", method = RequestMethod.GET)
-    public ModelAndView stats(ModelAndView model, @RequestParam(name = "userId") Long userId) {
+    public ModelAndView stats(ModelAndView model, @RequestParam(name = "userId") Integer userId) {
         Map<String, Object> queryMap = new HashMap();
         queryMap.put("offset", 0);
         queryMap.put("pageSize", 99999);
@@ -60,7 +60,7 @@ public class StatsController {
      */
     @RequestMapping(value = "/get_stats", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> getStats(Long examId) {
+    public Map<String, Object> getStats(Integer examId) {
         Map<String, Object> ret = new HashMap();
         if (examId == null) {
             ret.put("type", "error");

@@ -75,7 +75,7 @@ public interface ExamDao {
      * @param id
      * @return
      */
-    Exam findById(Long id);
+    Exam findById(Integer id);
 
     /**
      * 考试统计数据更新操作

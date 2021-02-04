@@ -42,7 +42,7 @@ public class QuestionController {
      * @return
      */
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public ModelAndView list(ModelAndView model, @RequestParam(name = "userId") Long userId) {
+    public ModelAndView list(ModelAndView model, @RequestParam(name = "userId") Integer userId) {
         Map<String, Object> queryMap = new HashMap<String, Object>();
         queryMap.put("offset", 0);
         queryMap.put("pageSize", 99999);
@@ -66,8 +66,8 @@ public class QuestionController {
     public Map<String, Object> list(
             @RequestParam(name = "title", defaultValue = "") String title,
             @RequestParam(name = "questionType", required = false) Integer questionType,
-            @RequestParam(name = "subjectId", required = false) Long subjectId,
-            @RequestParam(name = "userId") Long userId,
+            @RequestParam(name = "subjectId", required = false) Integer subjectId,
+            @RequestParam(name = "userId") Integer userId,
             Page page
     ) {
         Map<String, Object> ret = new HashMap<>();
@@ -223,7 +223,7 @@ public class QuestionController {
      */
     @RequestMapping(value = "upload_file", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, String> uploadFile(MultipartFile excelFile, Long subjectId) {
+    public Map<String, String> uploadFile(MultipartFile excelFile, Integer subjectId) {
         Map<String, String> ret = new HashMap<>();
         if (excelFile == null) {
             ret.put("type", "error");
@@ -266,7 +266,7 @@ public class QuestionController {
      * @param fileInputStream
      * @return
      */
-    private String readExcel(InputStream fileInputStream, Long subjectId) {
+    private String readExcel(InputStream fileInputStream, Integer subjectId) {
         String msg = "";
         try {
             HSSFWorkbook hssfWorkbook = new HSSFWorkbook(fileInputStream);

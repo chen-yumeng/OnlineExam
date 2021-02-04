@@ -57,12 +57,12 @@ public interface SubjectService {
      * @param id
      * @return
      */
-    Subject findById(Long id);
+    Subject findById(Integer id);
 
     /**
      * 通过用户id获取学科信息
      * @param userId
      * @return
      */
-    List<Subject> findByUserId(Long userId);
+    List<Subject> findByUserId(Integer userId);
 }

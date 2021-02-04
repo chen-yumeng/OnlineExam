@@ -24,7 +24,7 @@ public interface AuthorityService {
      *
      * @param roleId
      */
-    void deleteByRoleId(Long roleId);
+    void deleteByRoleId(Integer roleId);
 
     /**
      * 权限信息搜索查询
@@ -32,5 +32,5 @@ public interface AuthorityService {
      * @param roleId
      * @return
      */
-    List<Authority> findListByRoleId(Long roleId);
+    List<Authority> findListByRoleId(Integer roleId);
 }

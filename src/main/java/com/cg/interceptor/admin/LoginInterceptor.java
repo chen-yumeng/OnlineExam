@@ -60,7 +60,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 		//获取菜单id
 		String mid = request.getParameter("_mid");
 		if(!StringUtils.isEmpty(mid)){
-			List<Menu> allThirdMenu = MenuUtil.getAllThirdMenu((List<Menu>)request.getSession().getAttribute("userMenus"), Long.valueOf(mid));
+			List<Menu> allThirdMenu = MenuUtil.getAllThirdMenu((List<Menu>)request.getSession().getAttribute("userMenus"), Integer.valueOf(mid));
 			request.setAttribute("thirdMenuList", allThirdMenu);
 		}
 		return true;

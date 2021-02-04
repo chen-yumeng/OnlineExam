@@ -25,7 +25,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</if>
 	</select>
 	<!-- 根据id获取角色 -->
-	<select id="find" parameterType="Long" resultType="com.cg.entity.admin.Role">
+	<select id="find" parameterType="Integer" resultType="com.cg.entity.admin.Role">
 		select * from role where id = #{id}
 	</select>
 	<!-- 修改角色信息 -->

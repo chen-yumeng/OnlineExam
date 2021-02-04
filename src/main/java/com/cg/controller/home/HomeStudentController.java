@@ -280,7 +280,7 @@ public class HomeStudentController {
      * @return
      */
     @RequestMapping(value = "/review_exam", method = RequestMethod.GET)
-    public ModelAndView index(ModelAndView model, Long examId, Long examPaperId, HttpServletRequest request) {
+    public ModelAndView index(ModelAndView model, Integer examId, Integer examPaperId, HttpServletRequest request) {
         Student student = (Student) request.getSession().getAttribute("student");
         Exam exam = examService.findById(examId);
         if (exam == null) {

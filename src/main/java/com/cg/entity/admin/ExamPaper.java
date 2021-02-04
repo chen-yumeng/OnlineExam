@@ -9,15 +9,15 @@ import java.util.Date;
 
 public class ExamPaper {
 
-    private Long id;
+    private Integer id;
     /**
      * 所属考试ID
      */
-    private Long examId;
+    private Integer examId;
     /**
      * 所属学生ID
      */
-    private Long studentId;
+    private Integer studentId;
     /**
      * 试卷状态：0：未考，1：已考
      */
@@ -51,19 +51,19 @@ public class ExamPaper {
      */
     private Exam exam;
 
-    public Long getExamId() {
+    public Integer getExamId() {
         return examId;
     }
 
-    public void setExamId(Long examId) {
+    public void setExamId(Integer examId) {
         this.examId = examId;
     }
 
-    public Long getStudentId() {
+    public Integer getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(Long studentId) {
+    public void setStudentId(Integer studentId) {
         this.studentId = studentId;
     }
 
@@ -75,11 +75,11 @@ public class ExamPaper {
         this.status = status;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

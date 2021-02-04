@@ -11,7 +11,7 @@ import java.util.Date;
 
 public class Exam {
 
-    private Long id;
+    private Integer id;
     /**
      * 考试名称
      */
@@ -19,7 +19,7 @@ public class Exam {
     /**
      * 所属学科专业ID
      */
-    private Long subjectId;
+    private Integer subjectId;
     /**
      * 考试开始时间
      */
@@ -73,11 +73,11 @@ public class Exam {
      */
     private Date createTime;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -89,11 +89,11 @@ public class Exam {
         this.name = name;
     }
 
-    public Long getSubjectId() {
+    public Integer getSubjectId() {
         return subjectId;
     }
 
-    public void setSubjectId(Long subjectId) {
+    public void setSubjectId(Integer subjectId) {
         this.subjectId = subjectId;
     }
 

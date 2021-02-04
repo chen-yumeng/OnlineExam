@@ -55,7 +55,7 @@ public class SubjectController {
     @ResponseBody
     public Map<String, Object> list(
             @RequestParam(name = "name", defaultValue = "") String name,
-            @RequestParam(name = "userId", defaultValue = "") Long userId,
+            @RequestParam(name = "userId", defaultValue = "") Integer userId,
             Page page
     ) {
         Map<String, Object> ret = new HashMap<>();

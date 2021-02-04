@@ -59,7 +59,7 @@ public interface MenuService {
 	 * @param id
 	 * @return
 	 */
-	int delete(Long id);
+	int delete(Integer id);
 
 	/**
 	 * 获取某一分类的子菜单信息
@@ -67,7 +67,7 @@ public interface MenuService {
 	 * @param parentId
 	 * @return
 	 */
-	List<Menu> findChildernList(Long parentId);
+	List<Menu> findChildernList(Integer parentId);
 
 	/**
 	 * 根据菜单id获取菜单信息

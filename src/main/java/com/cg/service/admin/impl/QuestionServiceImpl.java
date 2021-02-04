@@ -55,13 +55,13 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     @Override
-    public int getQuestionNumByType(Map<String, Long> queryMap) {
+    public int getQuestionNumByType(Map<String, Integer> queryMap) {
         // TODO Auto-generated method stub
         return questionDao.getQuestionNumByType(queryMap);
     }
 
     @Override
-    public Question findById(Long id) {
+    public Question findById(Integer id) {
         // TODO Auto-generated method stub
         return questionDao.findById(id);
     }

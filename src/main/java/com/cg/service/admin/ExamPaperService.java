@@ -92,6 +92,6 @@ public interface ExamPaperService {
      * @param examId
      * @return
      */
-    List<Map<String, Object>> getExamStats(Long examId);
+    List<Map<String, Object>> getExamStats(Integer examId);
 
 }

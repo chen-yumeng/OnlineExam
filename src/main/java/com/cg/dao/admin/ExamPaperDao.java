@@ -91,6 +91,6 @@ public interface ExamPaperDao {
      * @param examId
      * @return
      */
-    List<Map<String, Object>> getExamStats(Long examId);
+    List<Map<String, Object>> getExamStats(Integer examId);
 
 }

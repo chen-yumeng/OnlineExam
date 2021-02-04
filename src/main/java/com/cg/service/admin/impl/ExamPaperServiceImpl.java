@@ -73,7 +73,7 @@ public class ExamPaperServiceImpl implements ExamPaperService {
     }
 
     @Override
-    public List<Map<String, Object>> getExamStats(Long examId) {
+    public List<Map<String, Object>> getExamStats(Integer examId) {
         // TODO Auto-generated method stub
         return examPaperDao.getExamStats(examId);
     }

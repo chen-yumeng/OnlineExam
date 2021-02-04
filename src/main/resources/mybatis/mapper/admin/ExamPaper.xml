@@ -156,7 +156,7 @@
         </if>
     </select>
     <!-- 考试信息统计 -->
-    <select id="getExamStats" parameterType="Long" resultType="Map">
+    <select id="getExamStats" parameterType="Integer" resultType="Map">
 		select ep.score as score,ep.totalScore as totalScore,s.name as sname  from examPaper ep,student s where ep.examId = #{value} and ep.studentId = s.id 
 	</select>
 </mapper>

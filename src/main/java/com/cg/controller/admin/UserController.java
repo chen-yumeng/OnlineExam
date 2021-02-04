@@ -58,7 +58,7 @@ public class UserController {
 	@ResponseBody
 	public Map<String, Object> getList(Page page,
 									   @RequestParam(name="username",required=false,defaultValue="") String username,
-									   @RequestParam(name="roleId",required=false) Long roleId,
+									   @RequestParam(name="roleId",required=false) Integer roleId,
 									   @RequestParam(name="sex",required=false) Integer sex
 	){
 		Map<String, Object> ret = new HashMap<String, Object>();
@@ -102,7 +102,7 @@ public class UserController {
 			ret.put("msg", "请选择所属角色！");
 			return ret;
 		}
-		if(isExist(user.getUsername(), 0l)){
+		if(isExist(user.getUsername(), 0)){
 			ret.put("type", "error");
 			ret.put("msg", "该用户名已经存在，请重新输入！");
 			return ret;
@@ -243,7 +243,7 @@ public class UserController {
 	 * @param id
 	 * @return
 	 */
-	private boolean isExist(String username,Long id){
+	private boolean isExist(String username,Integer id){
 		User user = userService.findByUsername(username);
 		if(user == null)return false;
 		if(user.getId().longValue() == id.longValue())return false;

@@ -8,7 +8,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into authority(id,roleId,menuId) values(null,#{roleId},#{menuId})
 	</insert>
 	<!-- 权限信息搜索查询 -->
-	<select id="findListByRoleId" parameterType="Long" resultType="com.cg.entity.admin.Authority">
+	<select id="findListByRoleId" parameterType="Integer" resultType="com.cg.entity.admin.Authority">
 		select * from authority 
 		<if test="_parameter != null">
 			where roleId = #{roleId} 
@@ -16,7 +16,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<!-- 删除权限信息 -->
-	<delete id="deleteByRoleId" parameterType="Long">
+	<delete id="deleteByRoleId" parameterType="Integer">
 		delete from authority where roleId = #{roleId}
 	</delete>
 </mapper>

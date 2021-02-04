@@ -36,11 +36,11 @@ public class Question {
      */
     public static int QUESTION_TYPE_CHARGE_SCORE = 2;
 
-    private Long id;
+    private Integer id;
     /**
      * 学科专业类型
      */
-    private Long subjectId;
+    private Integer subjectId;
     /**
      * 试题类型
      */
@@ -86,11 +86,11 @@ public class Question {
         this.score = score;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -158,11 +158,11 @@ public class Question {
         this.createTime = createTime;
     }
 
-    public Long getSubjectId() {
+    public Integer getSubjectId() {
         return subjectId;
     }
 
-    public void setSubjectId(Long subjectId) {
+    public void setSubjectId(Integer subjectId) {
         this.subjectId = subjectId;
     }
 

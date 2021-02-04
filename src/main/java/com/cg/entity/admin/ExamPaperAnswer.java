@@ -7,23 +7,23 @@ package com.cg.entity.admin;
 
 public class ExamPaperAnswer {
 
-    private Long id;
+    private Integer id;
     /**
      * 所属学生ID
      */
-    private Long studentId;
+    private Integer studentId;
     /**
      * 所属考试ID
      */
-    private Long examId;
+    private Integer examId;
     /**
      * 所属试卷ID
      */
-    private Long examPaperId;
+    private Integer examPaperId;
     /**
      * 所属试题ID
      */
-    private Long questionId;
+    private Integer questionId;
     /**
      * 提交答案
      */
@@ -37,35 +37,35 @@ public class ExamPaperAnswer {
      */
     private Question question;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public Long getStudentId() {
+    public Integer getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(Long studentId) {
+    public void setStudentId(Integer studentId) {
         this.studentId = studentId;
     }
 
-    public Long getExamPaperId() {
+    public Integer getExamPaperId() {
         return examPaperId;
     }
 
-    public void setExamPaperId(Long examPaperId) {
+    public void setExamPaperId(Integer examPaperId) {
         this.examPaperId = examPaperId;
     }
 
-    public Long getQuestionId() {
+    public Integer getQuestionId() {
         return questionId;
     }
 
-    public void setQuestionId(Long questionId) {
+    public void setQuestionId(Integer questionId) {
         this.questionId = questionId;
     }
 
@@ -85,11 +85,11 @@ public class ExamPaperAnswer {
         this.isCorrect = isCorrect;
     }
 
-    public Long getExamId() {
+    public Integer getExamId() {
         return examId;
     }
 
-    public void setExamId(Long examId) {
+    public void setExamId(Integer examId) {
         this.examId = examId;
     }
 

@@ -51,10 +51,10 @@ public class MenuUtil {
 	 * @param secondMenuId
 	 * @return
 	 */
-	public static List<Menu> getAllThirdMenu(List<Menu> menuList,Long secondMenuId){
+	public static List<Menu> getAllThirdMenu(List<Menu> menuList,Integer secondMenuId){
 		List<Menu> ret = new ArrayList<Menu>();
 		for(Menu menu:menuList){
-			if(menu.getParentId() == secondMenuId){
+			if(menu.getParentId().equals(secondMenuId)){
 				ret.add(menu);
 			}
 		}
