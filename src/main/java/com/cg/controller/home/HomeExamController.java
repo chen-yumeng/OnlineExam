@@ -1,10 +1,7 @@
 package com.cg.controller.home;
 
 import com.cg.entity.admin.*;
-import com.cg.service.admin.ExamPaperAnswerService;
-import com.cg.service.admin.ExamPaperService;
-import com.cg.service.admin.ExamService;
-import com.cg.service.admin.QuestionService;
+import com.cg.service.admin.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,6 +28,10 @@ public class HomeExamController {
     private ExamPaperAnswerService examPaperAnswerService;
     @Autowired
     private QuestionService questionService;
+    @Autowired
+    private LogService logService;
+    @Autowired
+    private  StudentService studentService;
 
     /**
      * 开始考试前检查合法性，随机生成试题
@@ -151,6 +152,7 @@ public class HomeExamController {
         examService.updateExam(exam);
         ret.put("type", "success");
         ret.put("msg", "试卷生成成功!");
+        logService.add("{姓名为"+student.getTrueName()+"，Id为"+student.getId()+"，学号为"+student.getStudentId()+"}考生的试卷已生成，试卷id为"+examId+"");
         return ret;
     }
 
@@ -303,6 +305,7 @@ public class HomeExamController {
         }
         ret.put("type", "success");
         ret.put("msg", "答题成功!");
+        logService.add("{姓名为"+student.getTrueName()+"，Id为"+student.getId()+"，学号为"+student.getStudentId()+"}考生已提交答案，试卷id为"+exam.getId()+"");
         return ret;
     }
 
@@ -373,6 +376,7 @@ public class HomeExamController {
         examService.updateExam(exam);
         ret.put("type", "success");
         ret.put("msg", "提交成功!");
+        logService.add("{姓名为"+student.getTrueName()+"，Id为"+student.getId()+"，学号为"+student.getStudentId()+"}考生已提交试卷，试卷id为"+exam.getId()+",分数为"+score+"");
         return ret;
     }
 

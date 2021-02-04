@@ -30,9 +30,10 @@ public class HomeStudentController {
     private ExamService examService;
     @Autowired
     private ExamPaperService examPaperService;
-
     @Autowired
     private ExamPaperAnswerService examPaperAnswerService;
+    @Autowired
+    private LogService logService;
 
     private int pageSize = 10;
 
@@ -138,6 +139,7 @@ public class HomeStudentController {
         request.getSession().setAttribute("student", onlineStudent);
         ret.put("type", "success");
         ret.put("msg", "获取成功！");
+        logService.add("{姓名为"+student.getTrueName()+"，Id为"+student.getId()+"，学号为"+student.getStudentId()+"}考生修改信息");
         return ret;
     }
 
@@ -149,7 +151,9 @@ public class HomeStudentController {
      */
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logout(HttpServletRequest request) {
+        Student student = (Student) request.getSession().getAttribute("student");
         request.getSession().setAttribute("student", null);
+        logService.add("{姓名为"+student.getTrueName()+"，Id为"+student.getId()+"，学号为"+student.getStudentId()+"}考生退出登录");
         return "redirect:login";
     }
 
@@ -195,6 +199,7 @@ public class HomeStudentController {
         request.getSession().setAttribute("student", onlineStudent);
         ret.put("type", "success");
         ret.put("msg", "获取成功！");
+        logService.add("{姓名为"+student.getTrueName()+"，Id为"+student.getId()+"，学号为"+student.getStudentId()+"}考生修改密码");
         return ret;
     }
 

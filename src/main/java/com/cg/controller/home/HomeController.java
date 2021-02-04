@@ -178,7 +178,7 @@ public class HomeController {
         request.getSession().setAttribute("student", existStudent);
         ret.put("type", "success");
         ret.put("msg", "登录成功！");
-        logService.add("{"+existStudent.getTrueName()+"}，Id为{"+existStudent.getId()+"}，学号为{"+existStudent.getStudentId()+"}的考生登录成功!");
+        logService.add("{姓名为"+existStudent.getTrueName()+"，Id为"+existStudent.getId()+"，学号为"+existStudent.getStudentId()+"}的考生登录成功!");
         return ret;
     }
 }
