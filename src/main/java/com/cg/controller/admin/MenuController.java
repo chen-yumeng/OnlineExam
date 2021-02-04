@@ -1,8 +1,13 @@
 package com.cg.controller.admin;
 
 import com.cg.entity.admin.Menu;
+import com.cg.entity.admin.Role;
+import com.cg.entity.admin.User;
 import com.cg.page.admin.Page;
+import com.cg.service.admin.LogService;
 import com.cg.service.admin.MenuService;
+import com.cg.service.admin.RoleService;
+import com.cg.service.admin.UserService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,6 +35,12 @@ public class MenuController {
 
 	@Autowired
 	private MenuService menuService;
+	@Autowired
+	private LogService logService;
+	@Autowired
+	private UserService userService;
+	@Autowired
+	private RoleService roleService;
 
 
 	/**
@@ -97,11 +108,12 @@ public class MenuController {
 	/**
 	 * 菜单添加
 	 * @param menu
+	 * @param userId
 	 * @return
 	 */
 	@RequestMapping(value="/add",method=RequestMethod.POST)
 	@ResponseBody
-	public Map<String, String> add(Menu menu){
+	public Map<String, String> add(Menu menu, Integer userId){
 		Map<String, String> ret = new HashMap<>();
 		if(menu == null){
 			ret.put("type", "error");
@@ -128,17 +140,21 @@ public class MenuController {
 		}
 		ret.put("type", "success");
 		ret.put("msg", "添加成功!");
+		User user = userService.findById(userId);
+		Role role = roleService.find(user.getRoleId());
+		logService.add("管理员{" + role.getName() + ":" + user.getUsername() + "} 添加菜单{"+menu.getName()+"，Id为"+menu.getId()+"}成功!");
 		return ret;
 	}
 
 	/**
 	 * 菜单修改
 	 * @param menu
+	 * @param userId
 	 * @return
 	 */
 	@RequestMapping(value="/edit",method=RequestMethod.POST)
 	@ResponseBody
-	public Map<String, String> edit(Menu menu){
+	public Map<String, String> edit(Menu menu, Integer userId){
 		Map<String, String> ret = new HashMap<String, String>();
 		if(menu == null){
 			ret.put("type", "error");
@@ -165,6 +181,9 @@ public class MenuController {
 		}
 		ret.put("type", "success");
 		ret.put("msg", "修改成功!");
+		User user = userService.findById(userId);
+		Role role = roleService.find(user.getRoleId());
+		logService.add("管理员{" + role.getName() + ":" + user.getUsername() + "} 更新菜单{"+menu.getName()+"，Id为"+menu.getId()+"}成功!");
 		return ret;
 	}
 
@@ -175,9 +194,7 @@ public class MenuController {
 	 */
 	@RequestMapping(value="/delete",method=RequestMethod.POST)
 	@ResponseBody
-	public Map<String, String> delete(
-			@RequestParam(name="id",required=true) Integer id
-	){
+	public Map<String, String> delete(@RequestParam(name="id",required=true) Integer id, @RequestParam(name = "userId") Integer userId){
 		Map<String, String> ret = new HashMap<>();
 		if(id == null){
 			ret.put("type", "error");
@@ -198,6 +215,10 @@ public class MenuController {
 		}
 		ret.put("type", "success");
 		ret.put("msg", "删除成功!");
+		User user = userService.findById(userId);
+		Role role = roleService.find(user.getRoleId());
+		Menu menu = menuService.findById(id);
+		logService.add("管理员{" + role.getName() + ":" + user.getUsername() + "} 更新菜单{"+menu.getName()+"，Id为"+menu.getId()+"}成功!");
 		return ret;
 	}
 }

@@ -139,6 +139,7 @@
 			return;
 		}
 		var data = $("#add-form").serialize();
+		data = data + "&userId=${admin.id}"
 		$.ajax({
 			url:'${APP_PATH}/admin/menu/add',
 			dataType:'json',
@@ -227,6 +228,7 @@
 			return;
 		}
 		var data = $("#edit-form").serialize();
+		data = data + "&userId=${admin.id}"
 		$.ajax({
 			url:'${APP_PATH}/admin/menu/edit',
 			dataType:'json',
@@ -248,14 +250,14 @@
 	* 删除记录
 	*/
 	function remove(){
-		$.messager.confirm('信息提示','确定要删除该记录？', function(result){
+		$.messager.confirm('信息提示','确定要删除该菜单？', function(result){
 			if(result){
 				var item = $('#data-datagrid').datagrid('getSelected');
 				$.ajax({
 					url:'${APP_PATH}/admin/menu/delete',
 					dataType:'json',
 					type:'post',
-					data:{id:item.id},
+					data:{id:item.id, userId: ${admin.id}},
 					success:function(data){
 						if(data.type == 'success'){
 							$.messager.alert('信息提示','删除成功！','info');

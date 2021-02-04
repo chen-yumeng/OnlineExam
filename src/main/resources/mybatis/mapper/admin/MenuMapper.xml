@@ -50,4 +50,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="delete" parameterType="Integer">
 		delete from menu where id = #{id}
 	</delete>
+	<!-- 通过id获取菜单信息 -->
+	<select id="findById" resultType="com.cg.entity.admin.Menu">
+		select * from menu where id = #{id}
+	</select>
 </mapper>

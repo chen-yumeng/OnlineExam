@@ -75,4 +75,12 @@ public interface MenuDao {
      * @return
      */
     List<Menu> findListByIds(String ids);
+
+    /**
+     * 通过id获取菜单信息
+     *
+     * @param id
+     * @return
+     */
+    Menu findById(Integer id);
 }
