@@ -2,6 +2,7 @@ package com.cg.controller.admin;
 
 import com.cg.entity.admin.Exam;
 import com.cg.entity.admin.Question;
+import com.cg.entity.admin.Subject;
 import com.cg.page.admin.Page;
 import com.cg.service.admin.ExamService;
 import com.cg.service.admin.QuestionService;
@@ -39,10 +40,13 @@ public class ExamController {
      * @return
      */
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public ModelAndView list(ModelAndView model) {
+    public ModelAndView list(ModelAndView model, @RequestParam(name = "userId") Long userId) {
         Map<String, Object> queryMap = new HashMap<>();
         queryMap.put("offset", 0);
         queryMap.put("pageSize", 99999);
+        if (userId != 1) {
+            queryMap.put("userId", userId);
+        }
         model.addObject("subjectList", subjectService.findList(queryMap));
         model.addObject("singleScore", Question.QUESTION_TYPE_SINGLE_SCORE);
         model.addObject("muiltScore", Question.QUESTION_TYPE_MUILT_SCORE);
@@ -65,6 +69,7 @@ public class ExamController {
             @RequestParam(name = "subjectId", required = false) Long subjectId,
             @RequestParam(name = "startTime", required = false) String startTime,
             @RequestParam(name = "endTime", required = false) String endTime,
+            @RequestParam(name = "userId") Long userId,
             Page page
     ) {
         Map<String, Object> ret = new HashMap<String, Object>();
@@ -81,6 +86,10 @@ public class ExamController {
         }
         queryMap.put("offset", page.getOffset());
         queryMap.put("pageSize", page.getRows());
+        if (userId != 1) {
+            List<Subject> subjects = subjectService.findByUserId(userId);
+            queryMap.put("subjects", subjects);
+        }
         ret.put("rows", examService.findList(queryMap));
         ret.put("total", examService.getTotal(queryMap));
         return ret;
