@@ -1,8 +1,6 @@
 package com.cg.controller.admin;
 
-import com.cg.entity.admin.Exam;
-import com.cg.entity.admin.ExamPaperAnswer;
-import com.cg.entity.admin.Subject;
+import com.cg.entity.admin.*;
 import com.cg.page.admin.Page;
 import com.cg.service.admin.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +30,12 @@ public class ExamPaperAnswerController {
     private QuestionService questionService;
     @Autowired
     private SubjectService subjectService;
+    @Autowired
+    private UserService userService;
+    @Autowired
+    private RoleService roleService;
+    @Autowired
+    private LogService logService;
 
     /**
      * 试卷答题列表页面
@@ -57,12 +61,14 @@ public class ExamPaperAnswerController {
     /**
      * 删除答题信息
      *
-     * @param examPaperAnswers
+     * @param requestMap
      * @return
      */
     @RequestMapping(value = "delete", method = RequestMethod.POST, headers = "Accept=application/json")
     @ResponseBody
-    public Map<String, String> delete(@RequestBody List<ExamPaperAnswer> examPaperAnswers) {
+    public Map<String, String> delete(@RequestBody Map<String, Object> requestMap) {
+        List<ExamPaperAnswer> examPaperAnswers = (List<ExamPaperAnswer>) requestMap.get("examPaperAnswers");
+        Integer userId = (Integer) requestMap.get("userId");
         Map<String, String> ret = new HashMap<String, String>();
         if (examPaperAnswers == null || examPaperAnswers.size() <= 0) {
             ret.put("type", "error");
@@ -83,6 +89,11 @@ public class ExamPaperAnswerController {
 
         ret.put("type", "success");
         ret.put("msg", "删除成功!");
+        User user = userService.findById(userId);
+        Role role = roleService.find(user.getRoleId());
+        examPaperAnswers.forEach(examPaperAnswer -> {
+            logService.add("管理员{" + role.getName() + ":" + user.getUsername() + "} 删除{Id为" + examPaperAnswer.getId() + "}的考生答题项成功!");
+        });
         return ret;
     }
 
