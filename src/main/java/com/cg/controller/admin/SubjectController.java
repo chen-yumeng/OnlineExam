@@ -1,7 +1,11 @@
 package com.cg.controller.admin;
 
+import com.cg.entity.admin.Role;
 import com.cg.entity.admin.Subject;
+import com.cg.entity.admin.User;
 import com.cg.page.admin.Page;
+import com.cg.service.admin.LogService;
+import com.cg.service.admin.RoleService;
 import com.cg.service.admin.SubjectService;
 import com.cg.service.admin.UserService;
 import org.apache.commons.lang.StringUtils;
@@ -28,6 +32,12 @@ public class SubjectController {
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    private LogService logService;
+
+    @Autowired
+    private RoleService roleService;
 
     /**
      * 学科专业列表页面
@@ -73,11 +83,12 @@ public class SubjectController {
      * 添加学科专业
      *
      * @param subject
+     * @param userId
      * @return
      */
     @RequestMapping(value = "add", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, String> add(Subject subject) {
+    public Map<String, String> add(Subject subject, Integer userId) {
         Map<String, String> ret = new HashMap<String, String>();
         if (subject == null) {
             ret.put("type", "error");
@@ -96,6 +107,9 @@ public class SubjectController {
         }
         ret.put("type", "success");
         ret.put("msg", "添加成功!");
+        User user = userService.findById(userId);
+        Role role = roleService.find(user.getRoleId());
+        logService.add("管理员{" + role.getName() + ":" + user.getUsername() + "} 添加{" + subject.getName() + "，Id为" + subject.getId() + "}学科成功!");
         return ret;
     }
 
@@ -103,11 +117,12 @@ public class SubjectController {
      * 编辑学科专业
      *
      * @param subject
+     * @param userId
      * @return
      */
     @RequestMapping(value = "edit", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, String> edit(Subject subject) {
+    public Map<String, String> edit(Subject subject, Integer userId) {
         Map<String, String> ret = new HashMap<String, String>();
         if (subject == null) {
             ret.put("type", "error");
@@ -126,18 +141,23 @@ public class SubjectController {
         }
         ret.put("type", "success");
         ret.put("msg", "编辑成功!");
+        User user = userService.findById(userId);
+        Role role = roleService.find(user.getRoleId());
+        logService.add("管理员{" + role.getName() + ":" + user.getUsername() + "} 更新{" + subject.getName() + "，Id为" + subject.getId() + "}学科成功!");
         return ret;
     }
 
     /**
      * 删除学科专业
      *
-     * @param subjects
+     * @param requestMap
      * @return
      */
     @RequestMapping(value = "delete", method = RequestMethod.POST, headers = "Accept=application/json")
     @ResponseBody
-    public Map<String, String> delete(@RequestBody List<Subject> subjects) {
+    public Map<String, String> delete(@RequestBody Map<String, Object> requestMap) {
+        List<Subject> subjects = (List<Subject>) requestMap.get("subjects");
+        Integer userId = (Integer) requestMap.get("userId");
         Map<String, String> ret = new HashMap<String, String>();
         if (subjects == null || subjects.size() <= 0) {
             ret.put("type", "error");
@@ -158,6 +178,11 @@ public class SubjectController {
 
         ret.put("type", "success");
         ret.put("msg", "删除成功!");
+        User user = userService.findById(userId);
+        Role role = roleService.find(user.getRoleId());
+        subjects.forEach(subject -> {
+            logService.add("管理员{" + role.getName() + ":" + user.getUsername() + "} 删除{" + subject.getName() + "，Id为" + subject.getId() + "}学科成功!");
+        });
         return ret;
     }
 
