@@ -1,11 +1,14 @@
 package com.cg.controller.admin;
 
+import com.cg.entity.admin.Subject;
 import com.cg.service.admin.ExamPaperService;
 import com.cg.service.admin.ExamService;
+import com.cg.service.admin.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -26,6 +29,8 @@ public class StatsController {
     private ExamService examService;
     @Autowired
     private ExamPaperService examPaperService;
+    @Autowired
+    private SubjectService subjectService;
 
     /**
      * 成绩统计页面
@@ -34,10 +39,14 @@ public class StatsController {
      * @return
      */
     @RequestMapping(value = "/exam_stats", method = RequestMethod.GET)
-    public ModelAndView stats(ModelAndView model) {
+    public ModelAndView stats(ModelAndView model, @RequestParam(name = "userId") Long userId) {
         Map<String, Object> queryMap = new HashMap();
         queryMap.put("offset", 0);
         queryMap.put("pageSize", 99999);
+        if (userId != 1) {
+            List<Subject> subjects = subjectService.findByUserId(userId);
+            queryMap.put("subjects", subjects);
+        }
         model.addObject("examList", examService.findList(queryMap));
         model.setViewName("stats/exam_stats");
         return model;
