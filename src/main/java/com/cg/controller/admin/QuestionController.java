@@ -1,6 +1,7 @@
 package com.cg.controller.admin;
 
 import com.cg.entity.admin.Question;
+import com.cg.entity.admin.Subject;
 import com.cg.page.admin.Page;
 import com.cg.service.admin.QuestionService;
 import com.cg.service.admin.SubjectService;
@@ -41,10 +42,13 @@ public class QuestionController {
      * @return
      */
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public ModelAndView list(ModelAndView model) {
+    public ModelAndView list(ModelAndView model, @RequestParam(name = "userId") Long userId) {
         Map<String, Object> queryMap = new HashMap<String, Object>();
         queryMap.put("offset", 0);
         queryMap.put("pageSize", 99999);
+        if (userId != 1) {
+            queryMap.put("userId", userId);
+        }
         model.addObject("subjectList", subjectService.findList(queryMap));
         model.setViewName("question/list");
         return model;
@@ -63,11 +67,16 @@ public class QuestionController {
             @RequestParam(name = "title", defaultValue = "") String title,
             @RequestParam(name = "questionType", required = false) Integer questionType,
             @RequestParam(name = "subjectId", required = false) Long subjectId,
+            @RequestParam(name = "userId") Long userId,
             Page page
     ) {
         Map<String, Object> ret = new HashMap<>();
         Map<String, Object> queryMap = new HashMap<>();
         queryMap.put("title", title);
+        if (userId != 1) {
+            List<Subject> subjects = subjectService.findByUserId(userId);
+            queryMap.put("subjects", subjects);
+        }
         if (questionType != null) {
             queryMap.put("questionType", questionType);
         }

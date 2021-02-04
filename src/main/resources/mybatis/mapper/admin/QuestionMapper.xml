@@ -21,35 +21,48 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	<!-- 试题信息搜索查询 -->
 	<select id="findList" parameterType="Map" resultType="com.cg.entity.admin.Question">
-		select * from question where 1 = 1  
-		<if test="title != null">
-			and title like '%${title}%' 
-		</if>
-		<if test="questionType != null">
-			and questionType = #{questionType}  
-		</if>
-		<if test="subjectId != null">
-			and subjectId = #{subjectId}  
-		</if>
+		select * from question
+		<where>
+			<if test="title != null">
+				and title like '%${title}%'
+			</if>
+			<if test="questionType != null">
+				and questionType = #{questionType}
+			</if>
+			<if test="subjectId != null">
+				and subjectId = #{subjectId}
+			</if>
+			<if test="subjects != null">
+				and subjectId in
+				<foreach collection="subjects" item="subject" open="(" separator="," close=")">
+					#{subject.id}
+				</foreach>
+			</if>
+		</where>
 		<if test="offset != null and pageSize != null">
 			limit #{offset},#{pageSize}
 		</if>
 	</select>
 	<!-- 模糊搜索总条数 -->
 	<select id="getTotal" parameterType="Map" resultType="Integer">
-		select count(*) from question where 1 = 1  
-		<if test="title != null">
-			and title like '%${title}%' 
-		</if>
-		<if test="questionType != null">
-			and questionType = #{questionType}  
-		</if>
-		<if test="subjectId != null">
-			and subjectId = #{subjectId}  
-		</if>
-		<if test="subjectId != null">
-			and subjectId = #{subjectId}  
-		</if>
+		select count(*) from question
+		<where>
+			<if test="title != null">
+				and title like '%${title}%'
+			</if>
+			<if test="questionType != null">
+				and questionType = #{questionType}
+			</if>
+			<if test="subjectId != null">
+				and subjectId = #{subjectId}
+			</if>
+			<if test="subjects != null">
+				and subjectId in
+				<foreach collection="subjects" item="subject" open="(" separator="," close=")">
+					#{subject.id}
+				</foreach>
+			</if>
+		</where>
 	</select>
 	<!-- 根据试题类型获取试题数量 -->
 	<select id="getQuestionNumByType" parameterType="Map" resultType="Integer">

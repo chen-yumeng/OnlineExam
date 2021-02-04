@@ -452,6 +452,7 @@
         treeField: 'name',
         nowrap: false,
         fit: true,
+        queryParams: {userId: ${admin.id}},
         columns: [[
             {field: 'chk', checkbox: true},
             {field: 'title', title: '试题题目', width: 300, sortable: true},
