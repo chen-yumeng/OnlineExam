@@ -58,4 +58,13 @@ public interface StudentService {
      * @return
      */
     Student findByName(String name);
+
+    /**
+     * 考生信息按学号查询
+     *
+     * @param StudentId
+     * @return
+     */
+    Student findByStudentId(Integer StudentId);
+
 }

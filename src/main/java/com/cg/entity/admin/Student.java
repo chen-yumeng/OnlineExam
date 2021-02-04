@@ -9,12 +9,17 @@ import java.util.Date;
 
 public class Student {
 
-    private Long id;
+    private Integer id;
+
+    /**
+     * 考生学号
+     */
+    private Integer studentId;
 
     /**
      * 所属学科专业ID
      */
-    private Long subjectId;
+    private Integer subjectId;
 
     /**
      * 登录名
@@ -41,19 +46,27 @@ public class Student {
      */
     private Date createTime;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public Long getSubjectId() {
+    public Integer getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(Integer studentId) {
+        this.studentId = studentId;
+    }
+
+    public Integer getSubjectId() {
         return subjectId;
     }
 
-    public void setSubjectId(Long subjectId) {
+    public void setSubjectId(Integer subjectId) {
         this.subjectId = subjectId;
     }
 

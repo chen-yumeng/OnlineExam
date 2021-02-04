@@ -60,4 +60,12 @@ public interface StudentDao {
      * @return
      */
     Student findByName(String name);
+
+    /**
+     * 考生信息按学号查询
+     *
+     * @param studentId
+     * @return
+     */
+    Student findByStudentId(Integer studentId);
 }

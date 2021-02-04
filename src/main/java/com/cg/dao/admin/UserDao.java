@@ -68,4 +68,11 @@ public interface UserDao {
      * @return
      */
     int getTotal(Map<String, Object> queryMap);
+
+    /**
+     * 根据用户id查找用户
+     * @param userId
+     * @return
+     */
+    User findById(Integer userId);
 }

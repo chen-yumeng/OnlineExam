@@ -1,6 +1,7 @@
 package com.cg.controller.home;
 
 import com.cg.entity.admin.Student;
+import com.cg.service.admin.LogService;
 import com.cg.service.admin.StudentService;
 import com.cg.service.admin.SubjectService;
 import org.apache.commons.lang.StringUtils;
@@ -29,6 +30,9 @@ public class HomeController {
 
     @Autowired
     private StudentService studentService;
+
+    @Autowired
+    private LogService logService;
 
     /**
      * 前台首页
@@ -86,6 +90,11 @@ public class HomeController {
             ret.put("msg", "请填写正确的考生信息！");
             return ret;
         }
+        if (student.getStudentId() == null) {
+            ret.put("type", "error");
+            ret.put("msg", "请填写考生学号！");
+            return ret;
+        }
         if (StringUtils.isEmpty(student.getName())) {
             ret.put("type", "error");
             ret.put("msg", "请填写考生登录名！");
@@ -121,6 +130,7 @@ public class HomeController {
         }
         ret.put("type", "success");
         ret.put("msg", "注册成功！");
+        logService.add("{"+existStudent.getTrueName()+"}，Id为{"+existStudent.getId()+"}，学号为{"+existStudent.getStudentId()+"}的考生前台注册成功!");
         return ret;
     }
 
@@ -149,7 +159,12 @@ public class HomeController {
             ret.put("msg", "请填写考生登录密码！");
             return ret;
         }
-        Student existStudent = studentService.findByName(student.getName());
+        Student existStudent = null;
+        try {
+            existStudent = studentService.findByStudentId(Integer.parseInt(student.getName()));
+        } catch (NumberFormatException e) {
+            existStudent = studentService.findByName(student.getName());
+        }
         if (existStudent == null) {
             ret.put("type", "error");
             ret.put("msg", "该用户名不存在！");
@@ -163,6 +178,7 @@ public class HomeController {
         request.getSession().setAttribute("student", existStudent);
         ret.put("type", "success");
         ret.put("msg", "登录成功！");
+        logService.add("{"+existStudent.getTrueName()+"}，Id为{"+existStudent.getId()+"}，学号为{"+existStudent.getStudentId()+"}的考生登录成功!");
         return ret;
     }
 }

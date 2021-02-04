@@ -110,7 +110,7 @@
         <table border="0" cellpadding="5" cellspacing="0" class="tm_login_table">
             <tbody>
             <tr>
-                <th>用户名</th>
+                <th>用户名或学号</th>
                 <td><input type="text" class="tm_txt" name="name" maxlength="20" value="" style="width:255px"></td>
             </tr>
             <tr>

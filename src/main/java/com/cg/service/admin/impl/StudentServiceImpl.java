@@ -21,7 +21,10 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public int add(Student student) {
-        return studentDao.add(student);
+        if (studentDao.findByStudentId(student.getStudentId()) == null) {
+            return studentDao.add(student);
+        }
+        return 0;
     }
 
     @Override
@@ -47,5 +50,10 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public Student findByName(String name) {
         return studentDao.findByName(name);
+    }
+
+    @Override
+    public Student findByStudentId(Integer StudentId) {
+        return studentDao.findByStudentId(StudentId);
     }
 }

@@ -33,6 +33,11 @@
                            data-options="required:true, missingMessage:'请填写考生账号'"></td>
             </tr>
             <tr>
+                <td align="right">考生学号:</td>
+                <td><input type="text" id="add-studentId" name="studentId" class="wu-text easyui-validatebox"
+                           data-options="required:true, missingMessage:'请填写考生学号'"></td>
+            </tr>
+            <tr>
                 <td align="right">所属学科:</td>
                 <td>
                     <select name="subjectId" class="easyui-combobox" panelHeight="auto" style="width:268px"
@@ -71,6 +76,11 @@
                 <td align="right">考生账号:</td>
                 <td><input type="text" id="edit-name" name="name" class="wu-text easyui-validatebox"
                            data-options="required:true, missingMessage:'请填写考生账号'"></td>
+            </tr>
+            <tr>
+                <td align="right">考生学号:</td>
+                <td><input type="text" id="edit-studentId" name="studentId" class="wu-text easyui-validatebox"
+                           data-options="required:true, missingMessage:'请填写考生学号'"></td>
             </tr>
             <tr>
                 <td align="right">所属学科:</td>
@@ -116,7 +126,14 @@
             $.messager.alert("消息提醒", "请检查你输入的数据!", "warning");
             return;
         }
+        let tel = $("#add-tel").val();
+        var reg = /^[1][3,4,5,7,8][0-9]{9}$/;
+        if(!reg.test(tel)) {
+            $.messager.alert("消息提醒", "请填写正确的手机号!", "warning");
+            return;
+        }
         var data = $("#add-form").serialize();
+        data = data+"&userId=${admin.id}";
         $.ajax({
             url: 'add',
             dataType: 'json',
@@ -144,7 +161,14 @@
             $.messager.alert("消息提醒", "请检查你输入的数据!", "warning");
             return;
         }
+        let tel = $("#edit-tel").val();
+        var reg = /^[1][3,4,5,7,8][0-9]{9}$/;
+        if(!reg.test(tel)) {
+            $.messager.alert("消息提醒", "请填写正确的手机号!", "warning");
+            return;
+        }
         var data = $("#edit-form").serialize();
+        data = data+"&userId=${admin.id}";
         $.ajax({
             url: 'edit',
             dataType: 'json',
@@ -180,7 +204,7 @@
                     dataType: 'json',
                     type: 'post',
                     contentType: "application/json",
-                    data: JSON.stringify(item),
+                    data: JSON.stringify({students:item,userId:${admin.id}}),
                     success: function (data) {
                         if (data.type == 'success') {
                             $.messager.alert('信息提示', '删除成功！', 'info');
@@ -220,6 +244,7 @@
             }],
             onBeforeOpen: function () {
                 $("#edit-id").val(item.id);
+                $("#edit-studentId").val(item.studentId);
                 $("#edit-name").val(item.name);
                 $("#edit-password").val(item.password);
                 $("#edit-truename").val(item.trueName);
@@ -297,7 +322,8 @@
         queryParams: {userId: ${admin.id}},
         columns: [[
             {field: 'chk', checkbox: true},
-            {field: 'name', title: '登录名', width: 100, sortable: true},
+            {field: 'studentId', title: '学号', width: 100, sortable: true},
+            {field: 'name', title: '登录名', width: 100},
             {
                 field: 'subjectId', title: '所属学科', width: 100, formatter: function (value, index, row) {
                     var subjectList = $("#search-subject").combobox('getData');

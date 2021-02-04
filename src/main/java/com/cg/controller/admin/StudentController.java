@@ -1,10 +1,11 @@
 package com.cg.controller.admin;
 
+import com.cg.entity.admin.Role;
 import com.cg.entity.admin.Student;
 import com.cg.entity.admin.Subject;
+import com.cg.entity.admin.User;
 import com.cg.page.admin.Page;
-import com.cg.service.admin.StudentService;
-import com.cg.service.admin.SubjectService;
+import com.cg.service.admin.*;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,10 +26,19 @@ import java.util.Map;
 public class StudentController {
 
     @Autowired
-    StudentService studentService;
+    private StudentService studentService;
 
     @Autowired
-    SubjectService subjectService;
+    private SubjectService subjectService;
+
+    @Autowired
+    private LogService logService;
+
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private RoleService roleService;
 
     /**
      * 考生列表页面
@@ -38,7 +48,7 @@ public class StudentController {
      * @return
      */
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public ModelAndView list(ModelAndView model, @RequestParam(name = "userId") Long userId) {
+    public ModelAndView list(ModelAndView model, @RequestParam(name = "userId") Integer userId) {
         Map<String, Object> queryMap = new HashMap<String, Object>();
         queryMap.put("offset", 0);
         queryMap.put("pageSize", 99999);
@@ -62,8 +72,8 @@ public class StudentController {
     @ResponseBody
     public Map<String, Object> list(
             @RequestParam(name = "name", defaultValue = "") String name,
-            @RequestParam(name = "subjectId", required = false) Long subjectId,
-            @RequestParam(name = "userId") Long userId,
+            @RequestParam(name = "subjectId", required = false) Integer subjectId,
+            @RequestParam(name = "userId") Integer userId,
             Page page
     ) {
         Map<String, Object> ret = new HashMap<String, Object>();
@@ -87,11 +97,12 @@ public class StudentController {
      * 添加考生
      *
      * @param student
+     * @param userId
      * @return
      */
     @RequestMapping(value = "add", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, String> add(Student student) {
+    public Map<String, String> add(Student student, Integer userId) {
         Map<String, String> ret = new HashMap<String, String>();
         if (student == null) {
             ret.put("type", "error");
@@ -115,7 +126,7 @@ public class StudentController {
         }
         student.setCreateTime(new Date());
         //添加之前判断登录名是否存在
-        if (isExistName(student.getName(), -1l)) {
+        if (isExistName(student.getName(), -1)) {
             ret.put("type", "error");
             ret.put("msg", "该登录账号已经存在!");
             return ret;
@@ -127,6 +138,9 @@ public class StudentController {
         }
         ret.put("type", "success");
         ret.put("msg", "添加成功!");
+        User user = userService.findById(userId);
+        Role role = roleService.find(user.getRoleId());
+        logService.add("管理员{" + role.getName() + ":" + user.getUsername() + "} 添加{" + student.getTrueName() + "}，Id为{" + student.getId() + "}，学号为{" + student.getStudentId() + "}的考生成功!");
         return ret;
     }
 
@@ -134,11 +148,12 @@ public class StudentController {
      * 编辑考生
      *
      * @param student
+     * @param userId
      * @return
      */
     @RequestMapping(value = "edit", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, String> edit(Student student) {
+    public Map<String, String> edit(Student student, Integer userId) {
         Map<String, String> ret = new HashMap<String, String>();
         if (student == null) {
             ret.put("type", "error");
@@ -173,19 +188,24 @@ public class StudentController {
         }
         ret.put("type", "success");
         ret.put("msg", "编辑成功!");
+        User user = userService.findById(userId);
+        Role role = roleService.find(user.getRoleId());
+        logService.add("管理员{" + role.getName() + ":" + user.getUsername() + "} 更新{" + student.getTrueName() + "}，Id为{" + student.getId() + "}，学号为{" + student.getStudentId() + "}的考生成功!");
         return ret;
     }
 
     /**
      * 删除考生
      *
-     * @param students
+     * @param requestMap
      * @return
      */
     @RequestMapping(value = "delete", method = RequestMethod.POST, headers = "Accept=application/json")
     @ResponseBody
-    public Map<String, String> delete(@RequestBody List<Student> students) {
+    public Map<String, String> delete(@RequestBody Map<String, Object> requestMap) {
         Map<String, String> ret = new HashMap<String, String>();
+        List<Student> students = (List<Student>) requestMap.get("students");
+        Integer userId = (Integer) requestMap.get("userId");
         if (students == null || students.size() <= 0) {
             ret.put("type", "error");
             ret.put("msg", "请选择要删除的数据!");
@@ -205,6 +225,11 @@ public class StudentController {
 
         ret.put("type", "success");
         ret.put("msg", "删除成功!");
+        User user = userService.findById(userId);
+        Role role = roleService.find(user.getRoleId());
+        students.forEach(student -> {
+            logService.add("管理员{" + role.getName() + ":" + user.getUsername() + "} 删除{" + student.getTrueName() + "}，Id为{" + student.getId() + "}，学号为{" + student.getStudentId() + "}的考生成功!");
+        });
         return ret;
     }
 
@@ -215,7 +240,7 @@ public class StudentController {
      * @param id
      * @return
      */
-    private boolean isExistName(String name, Long id) {
+    private boolean isExistName(String name, Integer id) {
         Student student = studentService.findByName(name);
         if (student == null) {
             return false;

@@ -21,6 +21,10 @@
                         <td>${student.name}</td>
                     </tr>
                     <tr>
+                        <th width="120">学号 : </th>
+                        <td>${student.studentId}</td>
+                    </tr>
+                    <tr>
                         <th width="120">所属学科: </th>
                         <td>${subject.name}</td>
                     </tr>
@@ -35,7 +39,11 @@
 					
 					<tr>
                         <th>联系电话 : </th>
-                        <td><input type="text" id="tel" name="tel" class="tm_txt" size="50" maxlength="30" value="${student.tel}" /></td>
+                        <td>
+                            <input type="text" id="tel" name="tel" class="validate[required] tm_txt" size="50" maxlength="30" value="${student.tel}" />
+                            <span class="tm_required">*</span>
+                            <span class="tm_tip">填写正确的手机号</span>
+                        </td>
                     </tr>
 					
                 </tbody>
@@ -57,6 +65,13 @@
 		var tmProfile = {
 			doUpdate : function(){
 				var formcheck = $("#form_user_load").validationEngine('validate');
+                var u_tel = $("input[name='tel']").val();
+                var reg = /^[1][3,4,5,7,8][0-9]{9}$/;
+
+                if(!reg.test(u_tel)) {
+                    alert('请填写正确的手机号');
+                    return;
+                }
 				if(formcheck){
 					var wcm = window.confirm('确认修改？');
 					if(!wcm){

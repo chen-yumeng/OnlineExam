@@ -5,15 +5,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.cg.dao.admin.StudentDao">
 	<!-- 考生插入操作 -->
 	<insert id="add" parameterType="com.cg.entity.admin.Student">
-		insert into student(id,subjectId,name,password,trueName,tel,createTime) values(null,#{subjectId},#{name},#{password},#{trueName},#{tel},#{createTime})
+		insert into student(id,studentId,subjectId,name,password,trueName,tel,createTime) values(null,#{studentId},#{subjectId},#{name},#{password},#{trueName},#{tel},#{createTime})
 	</insert>
 	<!-- 考生更新操作 -->
 	<update id="edit" parameterType="com.cg.entity.admin.Student">
-		update student set name = #{name},subjectId = #{subjectId},password = #{password},trueName = #{trueName},tel = #{tel} where id = #{id}
+		update student set studentId = #{studentId}, name = #{name},subjectId = #{subjectId},password = #{password},trueName = #{trueName},tel = #{tel} where id = #{id}
 	</update>
 	<!-- 考生信息按登录名查询 -->
 	<select id="findByName" parameterType="String" resultType="com.cg.entity.admin.Student">
 		select * from student where name = #{value}  
+	</select>
+	<!-- 考生信息按学号查询 -->
+	<select id="findByStudentId" parameterType="String" resultType="com.cg.entity.admin.Student">
+		select * from student where studentId = #{value}
 	</select>
 	<!-- 考生信息搜索查询 -->
 	<select id="findList" parameterType="Map" resultType="com.cg.entity.admin.Student">
@@ -21,6 +25,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<where>
 			<if test="name != null and name!= ''">
 				and name like '%${name}%'
+			</if>
+			<if test="studentId != null">
+				and studentId = ${studentId}
 			</if>
 			<if test="subjectId != null">
 				and subjectId = ${subjectId}
@@ -42,6 +49,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<where>
 			<if test="name != null">
 				and name like '%${name}%'
+			</if>
+			<if test="studentId != null">
+				and studentId = ${studentId}
 			</if>
 			<if test="subjectId != null">
 				and subjectId = #{subjectId}

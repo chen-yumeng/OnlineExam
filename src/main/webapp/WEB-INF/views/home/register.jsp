@@ -151,6 +151,13 @@
                     </td>
                 </tr>
                 <tr>
+                    <th>学 &nbsp; 号</th>
+                    <td>
+                        <input type="text" name="studentId" class="validate[required] tm_txt" size="50" maxlength="30" style="width:200px">
+                        <span class="tm_required">*</span>
+                    </td>
+                </tr>
+                <tr>
                     <th>真实姓名</th>
                     <td>
                         <input type="text" name="truename" class="validate[required] tm_txt" size="50" maxlength="30" style="width:200px">
@@ -231,6 +238,12 @@
 
             var u_subjectId = $("select[name='subjectId']").val();
             var u_tel = $("input[name='tel']").val();
+            var reg = /^[1][3,4,5,7,8][0-9]{9}$/;
+
+            if(!reg.test(u_tel)) {
+                alert('请填写正确的手机号');
+                return;
+            }
 
             if (baseutil.isEmpty(u_username)) {
                 alert('没有填写用户名');

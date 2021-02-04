@@ -55,7 +55,12 @@ public class UserServiceImpl implements UserService {
 		return userDao.getTotal(queryMap);
 	}
 
-	@Override
+    @Override
+    public User findById(Integer userId) {
+        return userDao.findById(userId);
+    }
+
+    @Override
 	public int editPassword(User user) {
 		// TODO Auto-generated method stub
 		return userDao.editPassword(user);
