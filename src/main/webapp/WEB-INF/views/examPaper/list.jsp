@@ -44,7 +44,7 @@
             <tr>
                 <td align="right">所属考试:</td>
                 <td>
-                    <select id="edit-examId" name="examId" class="easyui-combobox easyui-validatebox" panelHeight="auto"
+                    <select id="edit-examId" <c:if test="${admin.id!=1}">disabled</c:if> name="examId" class="easyui-combobox easyui-validatebox" panelHeight="auto"
                             style="width:268px" data-options="required:true, missingMessage:'请选择试卷科目'">
                         <c:forEach items="${examList}" var="exam">
                             <option value="${exam.id}">${exam.name}</option>
@@ -55,13 +55,20 @@
             <tr>
                 <td align="right">所属学生:</td>
                 <td>
-                    <select id="edit-studentId" name="studentId" class="easyui-combobox easyui-validatebox"
+                    <select id="edit-studentId" <c:if test="${admin.id!=1}">disabled</c:if> name="studentId" class="easyui-combobox easyui-validatebox"
                             panelHeight="auto" style="width:268px"
                             data-options="required:true, missingMessage:'请选择试卷科目'">
                         <c:forEach items="${studentList}" var="student">
                             <option value="${student.id}">${student.name}</option>
                         </c:forEach>
                     </select>
+                </td>
+            </tr>
+            <tr>
+                <td align="right">试卷得分:</td>
+                <td>
+                    <input type="text" id="edit-score" name="score" class="wu-text easyui-validatebox"
+                           data-options="required:true, missingMessage:'请填写考生得分'">
                 </td>
             </tr>
         </table>
@@ -153,6 +160,7 @@
             }],
             onBeforeOpen: function () {
                 $("#edit-id").val(item.id);
+                $("#edit-score").val(item.score);
                 $("#edit-examId").combobox('setValue', item.examId);
                 $("#edit-studentId").combobox('setValue', item.studentId);
             }
@@ -175,6 +183,7 @@
         if (status != -1) {
             option.status = status;
         }
+        option.userId = ${admin.id}
         $('#data-datagrid').datagrid('reload', option);
     });
 
@@ -209,6 +218,7 @@
         treeField: 'name',
         nowrap: false,
         fit: true,
+        queryParams: {userId: ${admin.id}},
         columns: [[
             {field: 'chk', checkbox: true},
             {

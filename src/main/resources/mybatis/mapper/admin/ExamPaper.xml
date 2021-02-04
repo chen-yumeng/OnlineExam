@@ -49,16 +49,24 @@
 	</update>
     <!-- 试卷信息搜索查询 -->
     <select id="findList" parameterType="Map" resultType="com.cg.entity.admin.ExamPaper">
-        select * from examPaper where 1 = 1
-        <if test="examId != null">
-            and examId = #{examId}
-        </if>
-        <if test="studentId != null">
-            and studentId = #{studentId}
-        </if>
-        <if test="status != null">
-            and status = #{status}
-        </if>
+        select * from examPaper
+        <where>
+            <if test="examId != null">
+                and examId = #{examId}
+            </if>
+            <if test="studentId != null">
+                and studentId = #{studentId}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="exams != null">
+                and examId in
+                <foreach collection="exams" item="exam" open="(" separator="," close=")">
+                    #{exam.id}
+                </foreach>
+            </if>
+        </where>
         <if test="offset != null and pageSize != null">
             limit #{offset},#{pageSize}
         </if>
@@ -69,16 +77,24 @@
 	</select>
     <!-- 模糊搜索总条数 -->
     <select id="getTotal" parameterType="Map" resultType="Integer">
-        select count(*) from examPaper where 1 = 1
-        <if test="examId != null">
-            and examId = #{examId}
-        </if>
-        <if test="studentId != null">
-            and studentId = #{studentId}
-        </if>
-        <if test="status != null">
-            and status = #{status}
-        </if>
+        select count(*) from examPaper
+        <where>
+            <if test="examId != null">
+                and examId = #{examId}
+            </if>
+            <if test="studentId != null">
+                and studentId = #{studentId}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="exams != null">
+                and examId in
+                <foreach collection="exams" item="exam" open="(" separator="," close=")">
+                    #{exam.id}
+                </foreach>
+            </if>
+        </where>
     </select>
     <!-- 删除试卷信息 -->
     <delete id="delete">

@@ -1,10 +1,13 @@
 package com.cg.controller.admin;
 
+import com.cg.entity.admin.Exam;
 import com.cg.entity.admin.ExamPaper;
+import com.cg.entity.admin.Subject;
 import com.cg.page.admin.Page;
 import com.cg.service.admin.ExamPaperService;
 import com.cg.service.admin.ExamService;
 import com.cg.service.admin.StudentService;
+import com.cg.service.admin.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -30,6 +33,8 @@ public class ExamPaperController {
     private StudentService studentService;
     @Autowired
     private ExamService examService;
+    @Autowired
+    private SubjectService subjectService;
 
     /**
      * 试卷列表页面
@@ -38,10 +43,14 @@ public class ExamPaperController {
      * @return
      */
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public ModelAndView list(ModelAndView model) {
+    public ModelAndView list(ModelAndView model, @RequestParam(name = "userId") Long userId) {
         Map<String, Object> queryMap = new HashMap<String, Object>();
         queryMap.put("offset", 0);
         queryMap.put("pageSize", 99999);
+        if (userId != 1) {
+            List<Subject> subjects = subjectService.findByUserId(userId);
+            queryMap.put("subjects", subjects);
+        }
         model.addObject("examList", examService.findList(queryMap));
         model.addObject("studentList", studentService.findList(queryMap));
         model.setViewName("examPaper/list");
@@ -63,6 +72,7 @@ public class ExamPaperController {
             @RequestParam(name = "examId", required = false) Long examId,
             @RequestParam(name = "studentId", required = false) Long studentId,
             @RequestParam(name = "status", required = false) Integer status,
+            @RequestParam(name = "userId") Long userId,
             Page page
     ) {
         Map<String, Object> ret = new HashMap<String, Object>();
@@ -75,6 +85,13 @@ public class ExamPaperController {
         }
         if (status != null) {
             queryMap.put("status", status);
+        }
+        if (userId != 1) {
+            Map<String, Object> map = new HashMap<String, Object>();
+            List<Subject> subjects = subjectService.findByUserId(userId);
+            map.put("subjects", subjects);
+            List<Exam> exams = examService.findList(map);
+            queryMap.put("exams", exams);
         }
         queryMap.put("offset", page.getOffset());
         queryMap.put("pageSize", page.getRows());
