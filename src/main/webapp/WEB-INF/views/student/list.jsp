@@ -309,7 +309,9 @@
                     return (value);
                 }
             },
-            {field: 'password', title: '登录密码', width: 200},
+            {field: 'password', title: '登录密码', width: 200, formatter: function (value, index, row) {
+                    return "******"
+                }},
             {field: 'trueName', title: '姓名', width: 200},
             {field: 'tel', title: '手机号码', width: 200},
             {
