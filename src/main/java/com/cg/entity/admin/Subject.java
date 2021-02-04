@@ -17,7 +17,7 @@ public class Subject {
     /**
      * 学科任课教师
      */
-    private Long teacherId;
+    private Long userId;
 
     /**
      * 学科备注
@@ -40,12 +40,12 @@ public class Subject {
         this.name = name;
     }
 
-    public Long getTeacherId() {
-        return teacherId;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setTeacherId(Long teacherId) {
-        this.teacherId = teacherId;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public String getRemark() {
