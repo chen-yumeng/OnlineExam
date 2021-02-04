@@ -1,10 +1,11 @@
 package com.cg.controller.admin;
 
 import com.cg.entity.admin.Question;
+import com.cg.entity.admin.Role;
 import com.cg.entity.admin.Subject;
+import com.cg.entity.admin.User;
 import com.cg.page.admin.Page;
-import com.cg.service.admin.QuestionService;
-import com.cg.service.admin.SubjectService;
+import com.cg.service.admin.*;
 import org.apache.commons.lang.StringUtils;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
@@ -34,6 +35,12 @@ public class QuestionController {
     private QuestionService questionService;
     @Autowired
     private SubjectService subjectService;
+    @Autowired
+    private LogService logService;
+    @Autowired
+    private UserService userService;
+    @Autowired
+    private RoleService roleService;
 
     /**
      * 试题列表页面
@@ -94,11 +101,12 @@ public class QuestionController {
      * 添加试题
      *
      * @param question
+     * @param userId
      * @return
      */
     @RequestMapping(value = "add", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, String> add(Question question) {
+    public Map<String, String> add(Question question, Integer userId) {
         Map<String, String> ret = new HashMap<>();
         if (question == null) {
             ret.put("type", "error");
@@ -134,6 +142,9 @@ public class QuestionController {
         }
         ret.put("type", "success");
         ret.put("msg", "添加成功!");
+        User user = userService.findById(userId);
+        Role role = roleService.find(user.getRoleId());
+        logService.add("管理员{" + role.getName() + ":" + user.getUsername() + "} 添加试题{Id为" + question.getId() + "}成功!");
         return ret;
     }
 
@@ -141,11 +152,12 @@ public class QuestionController {
      * 编辑试题
      *
      * @param question
+     * @param userId
      * @return
      */
     @RequestMapping(value = "edit", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, String> edit(Question question) {
+    public Map<String, String> edit(Question question, Integer userId) {
         Map<String, String> ret = new HashMap<>();
         if (question == null) {
             ret.put("type", "error");
@@ -180,18 +192,23 @@ public class QuestionController {
         }
         ret.put("type", "success");
         ret.put("msg", "编辑成功!");
+        User user = userService.findById(userId);
+        Role role = roleService.find(user.getRoleId());
+        logService.add("管理员{" + role.getName() + ":" + user.getUsername() + "} 编辑试题{Id为" + question.getId() + "}成功!");
         return ret;
     }
 
     /**
      * 删除试题
      *
-     * @param questions
+     * @param requestMap
      * @return
      */
     @RequestMapping(value = "delete", method = RequestMethod.POST, headers = "Accept=application/json")
     @ResponseBody
-    public Map<String, String> delete(@RequestBody List<Question> questions) {
+    public Map<String, String> delete(@RequestBody Map<String, Object> requestMap) {
+        List<Question> questions = (List<Question>) requestMap.get("questions");
+        Integer userId = (Integer) requestMap.get("userId");
         Map<String, String> ret = new HashMap();
         if (questions == null || questions.size() <= 0) {
             ret.put("type", "error");
@@ -212,6 +229,11 @@ public class QuestionController {
 
         ret.put("type", "success");
         ret.put("msg", "删除成功!");
+        User user = userService.findById(userId);
+        Role role = roleService.find(user.getRoleId());
+        questions.forEach(question -> {
+            logService.add("管理员{" + role.getName() + ":" + user.getUsername() + "} 删除试题{Id为" + question.getId() + "}成功!");
+        });
         return ret;
     }
 
