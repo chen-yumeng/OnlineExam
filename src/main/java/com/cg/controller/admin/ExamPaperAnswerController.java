@@ -96,7 +96,7 @@ public class ExamPaperAnswerController {
         User user = userService.findById(userId);
         Role role = roleService.find(user.getRoleId());
         examPaperAnswers.forEach(examPaperAnswer -> {
-            logService.add("管理员{" + role.getName() + ":" + user.getUsername() + "} 删除{Id为" + examPaperAnswer.getId() + "}的考生答题项成功!");
+            logService.add("管理员 { " + role.getName() + " : " + user.getUsername() + " } 删除考生答题项 { " + examPaperAnswer + " }");
         });
         return ret;
     }

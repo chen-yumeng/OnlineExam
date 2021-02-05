@@ -160,7 +160,7 @@ public class SystemController {
 		request.getSession().setAttribute("userMenus", userMenus);
 		ret.put("type", "success");
 		ret.put("msg", "登录成功！");
-		logService.add("用户名为{"+user.getUsername()+"}，角色为{"+role.getName()+"}的用户登录成功!");
+		logService.add("用户名为 { " + user.getUsername() + " }，角色为 { " + role.getName() + " } 的管理员登录");
 		return ret;
 	}
 
@@ -171,10 +171,13 @@ public class SystemController {
 	 */
 	@RequestMapping(value="/logout",method=RequestMethod.GET)
 	public String logout(HttpServletRequest request){
+		User user = (User) request.getSession().getAttribute("admin");
 		HttpSession session = request.getSession();
 		session.setAttribute("admin", null);
 		session.setAttribute("role", null);
 		request.getSession().setAttribute("userMenus", null);
+		Role role = roleService.find(user.getRoleId());
+		logService.add("用户名为 { " + user.getUsername() + " }，角色为 { " + role.getName() + " } 的管理员退出!");
 		return "redirect:login";
 	}
 
@@ -212,7 +215,7 @@ public class SystemController {
 		}
 		ret.put("type", "success");
 		ret.put("msg", "密码修改成功！");
-		logService.add("用户名为{"+user.getUsername()+"}，的用户成功修改密码!");
+		logService.add("用户名为 { " + user.getUsername() + " } 的管理员修改密码!");
 		return ret;
 	}
 

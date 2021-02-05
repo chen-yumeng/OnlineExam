@@ -93,4 +93,10 @@ public interface ExamPaperDao {
      */
     List<Map<String, Object>> getExamStats(Integer examId);
 
+    /**
+     * 通过id获取试卷信息
+     * @param id
+     * @return
+     */
+    ExamPaper findById(Integer id);
 }

@@ -128,6 +128,7 @@ public class HomeStudentController {
     public Map<String, String> updateInfo(Student student, HttpServletRequest request) {
         Map<String, String> ret = new HashMap();
         Student onlineStudent = (Student) request.getSession().getAttribute("student");
+        Student oldStudent = studentService.findById(onlineStudent.getId());
         onlineStudent.setTel(student.getTel());
         onlineStudent.setTrueName(student.getTrueName());
         if (studentService.edit(onlineStudent) <= 0) {
@@ -138,8 +139,8 @@ public class HomeStudentController {
         //重置session中的用户信息
         request.getSession().setAttribute("student", onlineStudent);
         ret.put("type", "success");
-        ret.put("msg", "获取成功！");
-        logService.add("{姓名为"+student.getTrueName()+"，Id为"+student.getId()+"，学号为"+student.getStudentId()+"}考生修改信息");
+        ret.put("msg", "修改信息成功！");
+        logService.add("考生 { " + oldStudent + " } 修改个人信息为 { " + studentService.findById(onlineStudent.getId()) + " }");
         return ret;
     }
 
@@ -153,7 +154,7 @@ public class HomeStudentController {
     public String logout(HttpServletRequest request) {
         Student student = (Student) request.getSession().getAttribute("student");
         request.getSession().setAttribute("student", null);
-        logService.add("{姓名为"+student.getTrueName()+"，Id为"+student.getId()+"，学号为"+student.getStudentId()+"}考生退出登录");
+        logService.add("考生 { " + student + " } 退出登录");
         return "redirect:login";
     }
 
@@ -198,8 +199,8 @@ public class HomeStudentController {
         //重置session中的用户信息
         request.getSession().setAttribute("student", onlineStudent);
         ret.put("type", "success");
-        ret.put("msg", "获取成功！");
-        logService.add("{姓名为"+student.getTrueName()+"，Id为"+student.getId()+"，学号为"+student.getStudentId()+"}考生修改密码");
+        ret.put("msg", "修改密码成功！");
+        logService.add("考生 { " + onlineStudent + " } 修改密码");
         return ret;
     }
 

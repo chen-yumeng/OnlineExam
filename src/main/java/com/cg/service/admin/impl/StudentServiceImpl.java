@@ -53,7 +53,12 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public Student findByStudentId(Integer StudentId) {
+    public Student findByStudentId(String StudentId) {
         return studentDao.findByStudentId(StudentId);
+    }
+
+    @Override
+    public Student findById(Integer id) {
+        return studentDao.findById(id);
     }
 }

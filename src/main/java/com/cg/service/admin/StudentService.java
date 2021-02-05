@@ -65,6 +65,13 @@ public interface StudentService {
      * @param StudentId
      * @return
      */
-    Student findByStudentId(Integer StudentId);
+    Student findByStudentId(String StudentId);
 
+    /**
+     * 通过id获取考生信息
+     *
+     * @param id
+     * @return
+     */
+    Student findById(Integer id);
 }

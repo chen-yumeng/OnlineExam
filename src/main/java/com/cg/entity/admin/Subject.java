@@ -56,4 +56,13 @@ public class Subject {
         this.remark = remark;
     }
 
+    @Override
+    public String toString() {
+        return "Subject{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", userId=" + userId +
+                ", remark='" + remark + '\'' +
+                '}';
+    }
 }

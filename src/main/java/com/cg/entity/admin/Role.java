@@ -40,4 +40,12 @@ public class Role {
         this.remark = remark;
     }
 
+    @Override
+    public String toString() {
+        return "Role{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", remark='" + remark + '\'' +
+                '}';
+    }
 }

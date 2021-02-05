@@ -91,7 +91,10 @@
                     data: {password: $("#new_password").val(), oldPassword: $("#old_password").val()},
                     success: function (data) {
                         if (data.type == 'success') {
-                            window.location.reload();
+                            alert(data.msg);
+                            setTimeout(() =>{
+                                window.location.reload();
+                            }, 2000)
                         } else {
                             alert(data.msg);
                         }

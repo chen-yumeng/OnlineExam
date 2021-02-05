@@ -40,7 +40,7 @@
             <tr>
                 <td align="right">所属学科:</td>
                 <td>
-                    <select name="subjectId" class="easyui-combobox" panelHeight="auto" style="width:268px"
+                    <select id="add-subjectId" name="subjectId" class="easyui-combobox" panelHeight="auto" style="width:268px"
                             data-options="required:true, missingMessage:'请选择学科'">
                         <c:forEach items="${subjectList }" var="subject">
                             <option value="${subject.id }">${subject.name }</option>
@@ -132,13 +132,20 @@
             $.messager.alert("消息提醒", "请填写正确的手机号!", "warning");
             return;
         }
-        var data = $("#add-form").serialize();
-        data = data+"&userId=${admin.id}";
+        let item = {
+            name: $("#add-name").val(),
+            studentId: $("#add-studentId").val(),
+            subjectId: $("#add-subjectId").val(),
+            password: $("#add-password").val(),
+            trueName: $("#add-truename").val(),
+            tel: $("#add-tel").val()
+        }
         $.ajax({
             url: 'add',
             dataType: 'json',
             type: 'post',
-            data: data,
+            contentType: "application/json",
+            data: JSON.stringify({student: item, userId: ${admin.id}}),
             success: function (data) {
                 if (data.type == 'success') {
                     $.messager.alert('信息提示', '添加成功！', 'info');
@@ -167,13 +174,21 @@
             $.messager.alert("消息提醒", "请填写正确的手机号!", "warning");
             return;
         }
-        var data = $("#edit-form").serialize();
-        data = data+"&userId=${admin.id}";
+        let item = {
+            id: $("#edit-id").val(),
+            name: $("#edit-name").val(),
+            studentId: $("#edit-studentId").val(),
+            subjectId: $("#edit-subjectId").val(),
+            password: $("#edit-password").val(),
+            trueName: $("#edit-truename").val(),
+            tel: $("#edit-tel").val()
+        }
         $.ajax({
             url: 'edit',
             dataType: 'json',
             type: 'post',
-            data: data,
+            contentType: "application/json",
+            data: JSON.stringify({student: item, userId: ${admin.id}}),
             success: function (data) {
                 if (data.type == 'success') {
                     $.messager.alert('信息提示', '修改成功！', 'info');

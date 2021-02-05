@@ -111,7 +111,7 @@ public class SubjectController {
         ret.put("msg", "添加成功!");
         User user = userService.findById(userId);
         Role role = roleService.find(user.getRoleId());
-        logService.add("管理员{" + role.getName() + ":" + user.getUsername() + "} 添加{" + subject.getName() + "，Id为" + subject.getId() + "}学科成功!");
+        logService.add("管理员 { " + role.getName() + " : " + user.getUsername() + " } 添加学科 { " + subject + " }");
         return ret;
     }
 
@@ -126,6 +126,7 @@ public class SubjectController {
     @ResponseBody
     public Map<String, String> edit(Subject subject, Integer userId) {
         Map<String, String> ret = new HashMap<String, String>();
+        Subject oldSubject = subjectService.findById(subject.getId());
         if (subject == null) {
             ret.put("type", "error");
             ret.put("msg", "请填写正确的学科信息!");
@@ -145,7 +146,7 @@ public class SubjectController {
         ret.put("msg", "编辑成功!");
         User user = userService.findById(userId);
         Role role = roleService.find(user.getRoleId());
-        logService.add("管理员{" + role.getName() + ":" + user.getUsername() + "} 更新{" + subject.getName() + "，Id为" + subject.getId() + "}学科成功!");
+        logService.add("管理员 { " + role.getName() + " : " + user.getUsername() + " } 更新学科 { " + oldSubject + " } 为 { " + subjectService.findById(subject.getId()) + " }");
         return ret;
     }
 
@@ -185,7 +186,7 @@ public class SubjectController {
         User user = userService.findById(userId);
         Role role = roleService.find(user.getRoleId());
         subjects.forEach(subject -> {
-            logService.add("管理员{" + role.getName() + ":" + user.getUsername() + "} 删除{" + subject.getName() + "，Id为" + subject.getId() + "}学科成功!");
+            logService.add("管理员 { " + role.getName() + " : " + user.getUsername() + " } 删除学科 { " + subject + " }");
         });
         return ret;
     }

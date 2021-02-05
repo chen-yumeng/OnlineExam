@@ -1,5 +1,8 @@
 package com.cg.entity.admin;
 
+import com.cg.util.DateFormatUtil;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 /**
@@ -76,6 +79,7 @@ public class Question {
     /**
      * 添加时间
      */
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Date createTime;
 
     public int getScore() {
@@ -179,5 +183,22 @@ public class Question {
         if (questionType == QUESTION_TYPE_CHARGE) {
             score = QUESTION_TYPE_CHARGE_SCORE;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Question{" +
+                "id=" + id +
+                ", subjectId=" + subjectId +
+                ", questionType=" + questionType +
+                ", title='" + title + '\'' +
+                ", score=" + score +
+                ", attrA='" + attrA + '\'' +
+                ", attrB='" + attrB + '\'' +
+                ", attrC='" + attrC + '\'' +
+                ", attrD='" + attrD + '\'' +
+                ", answer='" + answer + '\'' +
+                ", createTime=" + DateFormatUtil.getDate(createTime) +
+                '}';
     }
 }

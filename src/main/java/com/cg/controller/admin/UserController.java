@@ -123,7 +123,7 @@ public class UserController {
 		Role role = roleService.find(user.getRoleId());
 		User adminUser = userService.findById(userId);
 		Role adminRole = roleService.find(adminUser.getRoleId());
-		logService.add("管理员{" + adminRole.getName() + ":" + adminUser.getUsername() + "} 添加{" + user.getUsername() + "，Id为" + user.getId() + "，角色为" + role.getName() + "}的管理员成功!");
+		logService.add("管理员 { " + adminRole.getName() + " : " + adminUser.getUsername() + " } 添加管理员 { " + user + " } 角色为 { " + role + " }");
 		return ret;
 	}
 
@@ -137,6 +137,8 @@ public class UserController {
 	@ResponseBody
 	public Map<String, String> edit(User user, Integer userId){
 		Map<String, String> ret = new HashMap<String, String>();
+		User oldUser = userService.findById(user.getId());
+		Role oldRole = roleService.find(user.getRoleId());
 		if(user == null){
 			ret.put("type", "error");
 			ret.put("msg", "请填写正确的用户信息！");
@@ -172,7 +174,7 @@ public class UserController {
 		Role role = roleService.find(user.getRoleId());
 		User adminUser = userService.findById(userId);
 		Role adminRole = roleService.find(adminUser.getRoleId());
-		logService.add("管理员{" + adminRole.getName() + ":" + adminUser.getUsername() + "} 更新{" + user.getUsername() + "，Id为" + user.getId() + "，角色为" + role.getName() + "}的管理员成功!");
+		logService.add("管理员 { " + adminRole.getName() + " : " + adminUser.getUsername() + " } 更新管理员 { " + oldUser + " ，角色为 " + oldRole + " } 为 { " + userService.findById(user.getId()) + " ，角色为 " + roleService.find(role.getId()) + " }");
 		return ret;
 	}
 
@@ -194,6 +196,7 @@ public class UserController {
 		if(ids.contains(",")){
 			ids = ids.substring(0,ids.length()-1);
 		}
+		List<User> users = userService.findUserListByIds(ids);
 		if(userService.delete(ids) <= 0){
 			ret.put("type", "error");
 			ret.put("msg", "用户删除失败，请联系管理员！");
@@ -203,10 +206,9 @@ public class UserController {
 		ret.put("msg", "用户删除成功！");
 		User adminUser = userService.findById(userId);
 		Role adminRole = roleService.find(adminUser.getRoleId());
-		List<User> users = userService.findUserListByIds(ids);
 		users.forEach(user -> {
 			Role role = roleService.find(user.getRoleId());
-			logService.add("管理员{" + adminRole.getName() + ":" + adminUser.getUsername() + "} 删除{" + user.getUsername() + "，Id为" + user.getId() + "，角色为" + role.getName() + "}的管理员成功!");
+			logService.add("管理员 { " + adminRole.getName() + " : " + adminUser.getUsername() + " } 删除管理员 { " + user + " } 角色为 { " + role + " }");
 		});
 		return ret;
 	}
@@ -260,7 +262,7 @@ public class UserController {
 		ret.put("filepath",request.getServletContext().getContextPath() + "/resources/upload/" + filename );
 		User user = userService.findById(((User)(request.getSession().getAttribute("admin"))).getId());
 		Role role = roleService.find(user.getRoleId());
-		logService.add("管理员{" + role.getName() + ":" + user.getUsername() + "} 上传了图片{" + filename + "，大小为" + photo.getSize()/1024/1024 + "M，保存地址为" + savePath + "}");
+		logService.add("管理员 { " + role.getName() + " : " + user.getUsername() + " } 上传了图片 { " + filename + "，大小为 (" + photo.getSize()/1024/1024/1024 + "kb)，保存地址为 ( " + savePath + " ) }");
 		return ret;
 	}
 	/**

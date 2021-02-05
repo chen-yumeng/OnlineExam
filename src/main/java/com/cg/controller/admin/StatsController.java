@@ -83,7 +83,7 @@ public class StatsController {
         User user = userService.findById(userId);
         Role role = roleService.find(user.getRoleId());
         Exam exam = examService.findById(examId);
-        logService.add("管理员{" + role.getName() + ":" + user.getUsername() + "} 查询了{" + exam.getName() + "，Id为" + exam.getId() + "}的考试图表数据!");
+        logService.add("管理员 { " + role.getName() + " : " + user.getUsername() + " } 查询了考试 { " + exam + " } 的图表数据!");
         return ret;
     }
 

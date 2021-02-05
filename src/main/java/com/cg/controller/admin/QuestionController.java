@@ -143,7 +143,7 @@ public class QuestionController {
         ret.put("msg", "添加成功!");
         User user = userService.findById(userId);
         Role role = roleService.find(user.getRoleId());
-        logService.add("管理员{" + role.getName() + ":" + user.getUsername() + "} 添加试题{Id为" + question.getId() + "}成功!");
+        logService.add("管理员 { " + role.getName() + " : " + user.getUsername() + " } 添加试题 { " + question + " }");
         return ret;
     }
 
@@ -158,6 +158,7 @@ public class QuestionController {
     @ResponseBody
     public Map<String, String> edit(Question question, Integer userId) {
         Map<String, String> ret = new HashMap<>();
+        Question oldQuestion = questionService.findById(question.getId());
         if (question == null) {
             ret.put("type", "error");
             ret.put("msg", "请填写正确的试题信息!");
@@ -193,7 +194,7 @@ public class QuestionController {
         ret.put("msg", "编辑成功!");
         User user = userService.findById(userId);
         Role role = roleService.find(user.getRoleId());
-        logService.add("管理员{" + role.getName() + ":" + user.getUsername() + "} 编辑试题{Id为" + question.getId() + "}成功!");
+        logService.add("管理员 { " + role.getName() + " : " + user.getUsername() + " } 更新试题 { " + oldQuestion + "} 为 { " + questionService.findById(question.getId()) + " }");
         return ret;
     }
 
@@ -233,7 +234,7 @@ public class QuestionController {
         User user = userService.findById(userId);
         Role role = roleService.find(user.getRoleId());
         questions.forEach(question -> {
-            logService.add("管理员{" + role.getName() + ":" + user.getUsername() + "} 删除试题{Id为" + question.getId() + "}成功!");
+            logService.add("管理员 { " + role.getName() + " : " + user.getUsername() + " } 删除试题 { " + question + " }");
         });
         return ret;
     }

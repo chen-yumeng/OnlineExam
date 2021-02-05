@@ -64,7 +64,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</if>
 		</where>
 	</select>
-	<!-- 删除考生信息 -->
+	<!--通过id获取考生信息-->
+    <select id="findById" resultType="com.cg.entity.admin.Student">
+		select * from student where id=#{id}
+	</select>
+    <!-- 删除考生信息 -->
 	<delete id="delete">
 		delete from student where id in
 		<foreach collection="students" item="student" open="(" separator="," close=")">

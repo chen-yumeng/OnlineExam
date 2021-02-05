@@ -67,5 +67,13 @@ public interface StudentDao {
      * @param studentId
      * @return
      */
-    Student findByStudentId(Integer studentId);
+    Student findByStudentId(String studentId);
+
+    /**
+     * 通过id获取考生信息
+     *
+     * @param id
+     * @return
+     */
+    Student findById(Integer id);
 }

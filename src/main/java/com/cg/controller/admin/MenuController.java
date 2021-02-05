@@ -142,7 +142,7 @@ public class MenuController {
 		ret.put("msg", "添加成功!");
 		User user = userService.findById(userId);
 		Role role = roleService.find(user.getRoleId());
-		logService.add("管理员{" + role.getName() + ":" + user.getUsername() + "} 添加菜单{"+menu.getName()+"，Id为"+menu.getId()+"}成功!");
+		logService.add("管理员 { " + role.getName() + " : " + user.getUsername() + " } 添加菜单 { " + menu + " }");
 		return ret;
 	}
 
@@ -156,6 +156,7 @@ public class MenuController {
 	@ResponseBody
 	public Map<String, String> edit(Menu menu, Integer userId){
 		Map<String, String> ret = new HashMap<String, String>();
+		Menu oldMenu = menuService.findById(menu.getId());
 		if(menu == null){
 			ret.put("type", "error");
 			ret.put("msg", "请选择正确的菜单信息!");
@@ -183,7 +184,7 @@ public class MenuController {
 		ret.put("msg", "修改成功!");
 		User user = userService.findById(userId);
 		Role role = roleService.find(user.getRoleId());
-		logService.add("管理员{" + role.getName() + ":" + user.getUsername() + "} 更新菜单{"+menu.getName()+"，Id为"+menu.getId()+"}成功!");
+		logService.add("管理员 { " + role.getName() + " : " + user.getUsername() + " } 更新菜单 { " + oldMenu + " } 为 { " + menuService.findById(menu.getId()) + " }");
 		return ret;
 	}
 
@@ -218,7 +219,7 @@ public class MenuController {
 		User user = userService.findById(userId);
 		Role role = roleService.find(user.getRoleId());
 		Menu menu = menuService.findById(id);
-		logService.add("管理员{" + role.getName() + ":" + user.getUsername() + "} 更新菜单{"+menu.getName()+"，Id为"+menu.getId()+"}成功!");
+		logService.add("管理员 { " + role.getName() + " : " + user.getUsername() + " } 删除菜单 { " + menu + " }");
 		return ret;
 	}
 }

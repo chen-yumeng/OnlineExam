@@ -77,4 +77,9 @@ public class ExamPaperServiceImpl implements ExamPaperService {
         // TODO Auto-generated method stub
         return examPaperDao.getExamStats(examId);
     }
+
+    @Override
+    public ExamPaper findById(Integer id) {
+        return examPaperDao.findById(id);
+    }
 }

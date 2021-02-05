@@ -1,5 +1,8 @@
 package com.cg.entity.admin;
 
+import com.cg.util.DateFormatUtil;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 /**
@@ -33,10 +36,12 @@ public class ExamPaper {
     /**
      * 开始考试时间
      */
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Date startExamTime;
     /**
      * 结束考试时间
      */
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Date endExamTime;
     /**
      * 考试用时
@@ -45,6 +50,7 @@ public class ExamPaper {
     /**
      * 添加时间
      */
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Date createTime;
     /**
      * 考试实体
@@ -137,5 +143,21 @@ public class ExamPaper {
 
     public void setExam(Exam exam) {
         this.exam = exam;
+    }
+
+    @Override
+    public String toString() {
+        return "ExamPaper{" +
+                "id=" + id +
+                ", examId=" + examId +
+                ", studentId=" + studentId +
+                ", status=" + status +
+                ", totalScore=" + totalScore +
+                ", score=" + score +
+                ", startExamTime=" + DateFormatUtil.getDate(startExamTime) +
+                ", endExamTime=" + DateFormatUtil.getDate(endExamTime) +
+                ", useTime=" + useTime +
+                ", createTime=" + DateFormatUtil.getDate(createTime) +
+                '}';
     }
 }

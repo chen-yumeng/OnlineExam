@@ -95,14 +95,16 @@ public class StudentController {
     /**
      * 添加考生
      *
-     * @param student
-     * @param userId
+     * @param requestMap
      * @return
      */
-    @RequestMapping(value = "add", method = RequestMethod.POST)
+    @RequestMapping(value = "add", method = RequestMethod.POST, headers = "Accept=application/json")
     @ResponseBody
-    public Map<String, String> add(Student student, Integer userId) {
+    public Map<String, String> add(@RequestBody Map<String, Object> requestMap) {
         Map<String, String> ret = new HashMap<String, String>();
+        ObjectMapper mapper = new ObjectMapper();
+        Student student = mapper.convertValue(requestMap.get("student"), new TypeReference<Student>() {});
+        Integer userId = (Integer) requestMap.get("userId");
         if (student == null) {
             ret.put("type", "error");
             ret.put("msg", "请填写正确的考生信息!");
@@ -139,21 +141,24 @@ public class StudentController {
         ret.put("msg", "添加成功!");
         User user = userService.findById(userId);
         Role role = roleService.find(user.getRoleId());
-        logService.add("管理员{" + role.getName() + ":" + user.getUsername() + "} 添加{" + student.getTrueName() + "}，Id为{" + student.getId() + "}，学号为{" + student.getStudentId() + "}的考生成功!");
+        logService.add("管理员 { " + role.getName() + " : " + user.getUsername() + " } 添加考生 { " + student + " }");
         return ret;
     }
 
     /**
      * 编辑考生
      *
-     * @param student
-     * @param userId
+     * @param requestMap
      * @return
      */
-    @RequestMapping(value = "edit", method = RequestMethod.POST)
+    @RequestMapping(value = "edit", method = RequestMethod.POST, headers = "Accept=application/json")
     @ResponseBody
-    public Map<String, String> edit(Student student, Integer userId) {
+    public Map<String, String> edit(@RequestBody Map<String, Object> requestMap) {
         Map<String, String> ret = new HashMap<String, String>();
+        ObjectMapper mapper = new ObjectMapper();
+        Student student = mapper.convertValue(requestMap.get("student"), new TypeReference<Student>() {});
+        Integer userId = (Integer) requestMap.get("userId");
+        Student oldStudent = studentService.findById(student.getId());
         if (student == null) {
             ret.put("type", "error");
             ret.put("msg", "请填写正确的学科信息!");
@@ -189,7 +194,7 @@ public class StudentController {
         ret.put("msg", "编辑成功!");
         User user = userService.findById(userId);
         Role role = roleService.find(user.getRoleId());
-        logService.add("管理员{" + role.getName() + ":" + user.getUsername() + "} 更新{" + student.getTrueName() + "}，Id为{" + student.getId() + "}，学号为{" + student.getStudentId() + "}的考生成功!");
+        logService.add("管理员 { " + role.getName() + " : " + user.getUsername() + " } 更新考生 { " + oldStudent + " } 为 { " + studentService.findById(student.getId()) + " }");
         return ret;
     }
 
@@ -229,7 +234,7 @@ public class StudentController {
         User user = userService.findById(userId);
         Role role = roleService.find(user.getRoleId());
         students.forEach(student -> {
-            logService.add("管理员{" + role.getName() + ":" + user.getUsername() + "} 删除{" + student.getTrueName() + "}，Id为{" + student.getId() + "}，学号为{" + student.getStudentId() + "}的考生成功!");
+            logService.add("管理员 { " + role.getName() + " : " + user.getUsername() + " } 删除考生 {" + student + " }");
         });
         return ret;
     }

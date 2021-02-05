@@ -100,4 +100,17 @@ public class ExamPaperAnswer {
     public void setQuestion(Question question) {
         this.question = question;
     }
+
+    @Override
+    public String toString() {
+        return "ExamPaperAnswer{" +
+                "id=" + id +
+                ", studentId=" + studentId +
+                ", examId=" + examId +
+                ", examPaperId=" + examPaperId +
+                ", questionId=" + questionId +
+                ", answer='" + answer + '\'' +
+                ", isCorrect=" + isCorrect +
+                '}';
+    }
 }

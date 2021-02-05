@@ -42,4 +42,12 @@ public class Authority {
         this.menuId = menuId;
     }
 
+    @Override
+    public String toString() {
+        return "Authority{" +
+                "id=" + id +
+                ", roleId=" + roleId +
+                ", menuId=" + menuId +
+                '}';
+    }
 }

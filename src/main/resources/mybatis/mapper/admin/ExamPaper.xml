@@ -33,15 +33,13 @@
             <result column="e_createTime" property="createTime"/>
         </association>
     </resultMap>
-
-
     <!-- 试卷插入操作 -->
     <insert id="add" useGeneratedKeys="true" keyProperty="id" parameterType="com.cg.entity.admin.ExamPaper">
 		insert into examPaper(id,examId,studentId,status,totalScore,score,createTime) values(null,#{examId},#{studentId},#{status},#{totalScore},#{score},#{createTime})
 	</insert>
     <!-- 试卷更新操作 -->
     <update id="edit" parameterType="com.cg.entity.admin.ExamPaper">
-		update examPaper set examId = #{examId},studentId = #{studentId} where id = #{id}
+		update examPaper set examId = #{examId},score = #{score},studentId = #{studentId} where id = #{id}
 	</update>
     <!-- 交卷操作 -->
     <update id="submitPaper" parameterType="com.cg.entity.admin.ExamPaper">
@@ -159,4 +157,8 @@
     <select id="getExamStats" parameterType="Integer" resultType="Map">
 		select ep.score as score,ep.totalScore as totalScore,s.name as sname  from examPaper ep,student s where ep.examId = #{value} and ep.studentId = s.id 
 	</select>
+    <!-- 通过id获取试卷信息 -->
+    <select id="findById" resultType="com.cg.entity.admin.ExamPaper">
+        select * from examPaper where id=#{id}
+    </select>
 </mapper>

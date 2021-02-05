@@ -130,7 +130,7 @@ public class HomeController {
         }
         ret.put("type", "success");
         ret.put("msg", "注册成功！");
-        logService.add("{"+existStudent.getTrueName()+"}，Id为{"+existStudent.getId()+"}，学号为{"+existStudent.getStudentId()+"}的考生前台注册成功!");
+        logService.add("考生 { " + existStudent + " } 注册");
         return ret;
     }
 
@@ -159,16 +159,14 @@ public class HomeController {
             ret.put("msg", "请填写考生登录密码！");
             return ret;
         }
-        Student existStudent = null;
-        try {
-            existStudent = studentService.findByStudentId(Integer.parseInt(student.getName()));
-        } catch (NumberFormatException e) {
-            existStudent = studentService.findByName(student.getName());
-        }
+        Student existStudent = studentService.findByStudentId(student.getName());
         if (existStudent == null) {
-            ret.put("type", "error");
-            ret.put("msg", "该用户名不存在！");
-            return ret;
+            existStudent = studentService.findByName(student.getName());
+            if (existStudent == null) {
+                ret.put("type", "error");
+                ret.put("msg", "该用户名不存在！");
+                return ret;
+            }
         }
         if (!student.getPassword().equals(existStudent.getPassword())) {
             ret.put("type", "error");
@@ -178,7 +176,7 @@ public class HomeController {
         request.getSession().setAttribute("student", existStudent);
         ret.put("type", "success");
         ret.put("msg", "登录成功！");
-        logService.add("{姓名为"+existStudent.getTrueName()+"，Id为"+existStudent.getId()+"，学号为"+existStudent.getStudentId()+"}的考生登录成功!");
+        logService.add("考生 { " + existStudent + " } 登录");
         return ret;
     }
 }

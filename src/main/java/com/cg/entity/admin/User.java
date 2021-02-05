@@ -103,4 +103,16 @@ public class User {
         this.roleId = roleId;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", roleId=" + roleId +
+                ", photo='" + photo + '\'' +
+                ", sex=" + sex +
+                ", age=" + age +
+                ", address='" + address + '\'' +
+                '}';
+    }
 }

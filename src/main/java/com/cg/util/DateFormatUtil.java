@@ -19,4 +19,9 @@ public class DateFormatUtil {
 		SimpleDateFormat sdf = new SimpleDateFormat(pattern);
 		return sdf.format(date);
 	}
+
+	public static String getDate(Date date){
+		return getDate("yyyy-MM-dd HH:mm:ss", date);
+	}
+
 }

@@ -1,5 +1,8 @@
 package com.cg.entity.admin;
 
+import com.cg.util.DateFormatUtil;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 /**
@@ -14,7 +17,7 @@ public class Student {
     /**
      * 考生学号
      */
-    private Integer studentId;
+    private String studentId;
 
     /**
      * 所属学科专业ID
@@ -44,6 +47,7 @@ public class Student {
     /**
      * 注册时间
      */
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Date createTime;
 
     public Integer getId() {
@@ -54,11 +58,11 @@ public class Student {
         this.id = id;
     }
 
-    public Integer getStudentId() {
+    public String getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(Integer studentId) {
+    public void setStudentId(String studentId) {
         this.studentId = studentId;
     }
 
@@ -108,5 +112,18 @@ public class Student {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", studentId=" + studentId +
+                ", subjectId=" + subjectId +
+                ", name='" + name + '\'' +
+                ", trueName='" + trueName + '\'' +
+                ", tel='" + tel + '\'' +
+                ", createTime=" + DateFormatUtil.getDate(createTime) +
+                '}';
     }
 }

@@ -152,7 +152,7 @@ public class HomeExamController {
         examService.updateExam(exam);
         ret.put("type", "success");
         ret.put("msg", "试卷生成成功!");
-        logService.add("{姓名为"+student.getTrueName()+"，Id为"+student.getId()+"，学号为"+student.getStudentId()+"}考生的试卷已生成，试卷id为"+examId+"");
+        logService.add("考生 { " + student + " } 试卷已生成，试卷为 { " + exam + " }");
         return ret;
     }
 
@@ -305,7 +305,7 @@ public class HomeExamController {
         }
         ret.put("type", "success");
         ret.put("msg", "答题成功!");
-        logService.add("{姓名为"+student.getTrueName()+"，Id为"+student.getId()+"，学号为"+student.getStudentId()+"}考生已提交答案，试卷id为"+exam.getId()+"");
+        logService.add("考生 { " + student + " } 已提交答案，试卷为 { " + exam + " }");
         return ret;
     }
 
@@ -376,7 +376,7 @@ public class HomeExamController {
         examService.updateExam(exam);
         ret.put("type", "success");
         ret.put("msg", "提交成功!");
-        logService.add("{姓名为"+student.getTrueName()+"，Id为"+student.getId()+"，学号为"+student.getStudentId()+"}考生已提交试卷，试卷id为"+exam.getId()+",分数为"+score+"");
+        logService.add("考生 { " + student + " } 已提交试卷，试卷为 { " + exam + " },分数为 { " + score + " }");
         return ret;
     }
 

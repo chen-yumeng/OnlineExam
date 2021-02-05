@@ -138,7 +138,7 @@ public class ExamPaperController {
         ret.put("msg", "添加成功!");
         User user = userService.findById(userId);
         Role role = roleService.find(user.getRoleId());
-        logService.add("管理员{" + role.getName() + ":" + user.getUsername() + "} 添加试卷{Id为"+examPaper.getId()+"}成功!");
+        logService.add("管理员 { " + role.getName() + " : " + user.getUsername() + " } 添加试卷 { " + examPaper + " }");
         return ret;
     }
 
@@ -153,6 +153,7 @@ public class ExamPaperController {
     @ResponseBody
     public Map<String, String> edit(ExamPaper examPaper, Integer userId) {
         Map<String, String> ret = new HashMap<String, String>();
+        ExamPaper oldExamPaper = examPaperService.findById(examPaper.getId());
         if (examPaper == null) {
             ret.put("type", "error");
             ret.put("msg", "请填写正确的试卷信息!");
@@ -177,7 +178,7 @@ public class ExamPaperController {
         ret.put("msg", "编辑成功!");
         User user = userService.findById(userId);
         Role role = roleService.find(user.getRoleId());
-        logService.add("管理员{" + role.getName() + ":" + user.getUsername() + "} 更新试卷{Id为"+examPaper.getId()+"}成功!");
+        logService.add("管理员 { " + role.getName() + " : " + user.getUsername() + " } 更新试卷 { " + oldExamPaper + " } 为 { " + examPaperService.findById(examPaper.getId()) + " }");
         return ret;
     }
 
@@ -193,7 +194,8 @@ public class ExamPaperController {
         List<ExamPaper> examPapers = (List<ExamPaper>) requestMap.get("examPapers");
         Integer userId = (Integer) requestMap.get("userId");
         ObjectMapper mapper = new ObjectMapper();
-        examPapers = mapper.convertValue(examPapers, new TypeReference<List<ExamPaper>>() {});
+        examPapers = mapper.convertValue(examPapers, new TypeReference<List<ExamPaper>>() {
+        });
         Map<String, String> ret = new HashMap<String, String>();
         if (examPapers == null || examPapers.size() <= 0) {
             ret.put("type", "error");
@@ -217,7 +219,7 @@ public class ExamPaperController {
         User user = userService.findById(userId);
         Role role = roleService.find(user.getRoleId());
         examPapers.forEach(examPaper -> {
-            logService.add("管理员{" + role.getName() + ":" + user.getUsername() + "} 删除试卷{Id为"+examPaper.getId()+"}成功!");
+            logService.add("管理员 { " + role.getName() + " : " + user.getUsername() + " } 删除试卷 { " + examPaper + " }");
         });
         return ret;
     }

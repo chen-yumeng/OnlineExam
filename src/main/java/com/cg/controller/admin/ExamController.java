@@ -184,7 +184,7 @@ public class ExamController {
         ret.put("msg", "添加成功!");
         User user = userService.findById(userId);
         Role role = roleService.find(user.getRoleId());
-        logService.add("管理员{" + role.getName() + ":" + user.getUsername() + "} 添加考试{" + exam.getName() + ", Id为" + exam.getId() + "}成功!");
+        logService.add("管理员 { " + role.getName() + " : " + user.getUsername() + " } 添加考试 { " + exam + " }");
         return ret;
     }
 
@@ -199,6 +199,7 @@ public class ExamController {
     @ResponseBody
     public Map<String, String> edit(Exam exam, Integer userId) {
         Map<String, String> ret = new HashMap<String, String>();
+        Exam oldExam = examService.findById(exam.getId());
         if (exam == null) {
             ret.put("type", "error");
             ret.put("msg", "请选择正确的考试信息进行编辑!");
@@ -272,7 +273,7 @@ public class ExamController {
         ret.put("msg", "编辑成功!");
         User user = userService.findById(userId);
         Role role = roleService.find(user.getRoleId());
-        logService.add("管理员{" + role.getName() + ":" + user.getUsername() + "} 更新考试{" + exam.getName() + ", Id为" + exam.getId() + "}成功!");
+        logService.add("管理员 { " + role.getName() + ":" + user.getUsername() + " } 更新考试 { " + oldExam + " } 为 { " + examService.findById(exam.getId()) + " }");
         return ret;
     }
 
@@ -288,7 +289,8 @@ public class ExamController {
         List<Exam> exams = (List<Exam>) requestMap.get("exams");
         Integer userId = (Integer) requestMap.get("userId");
         ObjectMapper mapper = new ObjectMapper();
-        exams = mapper.convertValue(exams, new TypeReference<List<Exam>>() {});
+        exams = mapper.convertValue(exams, new TypeReference<List<Exam>>() {
+        });
         Map<String, String> ret = new HashMap<String, String>();
         if (exams == null || exams.size() <= 0) {
             ret.put("type", "error");
@@ -312,7 +314,7 @@ public class ExamController {
         User user = userService.findById(userId);
         Role role = roleService.find(user.getRoleId());
         exams.forEach(exam -> {
-            logService.add("管理员{" + role.getName() + ":" + user.getUsername() + "} 添加考试{" + exam.getName() + ", Id为" + exam.getId() + "}成功!");
+            logService.add("管理员 { " + role.getName() + " : " + user.getUsername() + "} 删除考试 { " + exam + " }");
         });
         return ret;
     }

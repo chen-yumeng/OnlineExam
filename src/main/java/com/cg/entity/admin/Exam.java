@@ -1,5 +1,8 @@
 package com.cg.entity.admin;
 
+import com.cg.util.DateFormatUtil;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -23,10 +26,12 @@ public class Exam {
     /**
      * 考试开始时间
      */
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Date startTime;
     /**
      * 考试结束时间
      */
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Date endTime;
     /**
      * 考试所需时间
@@ -71,6 +76,7 @@ public class Exam {
     /**
      * 添加时间
      */
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Date createTime;
 
     public Integer getId() {
@@ -209,5 +215,27 @@ public class Exam {
 
     public void setAvaliableTime(int avaliableTime) {
         this.avaliableTime = avaliableTime;
+    }
+
+    @Override
+    public String toString() {
+        return "Exam{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", subjectId=" + subjectId +
+                ", startTime=" + DateFormatUtil.getDate(startTime) +
+                ", endTime=" + DateFormatUtil.getDate(endTime) +
+                ", avaliableTime=" + avaliableTime +
+                ", questionNum=" + questionNum +
+                ", totalScore=" + totalScore +
+                ", passScore=" + passScore +
+                ", singleQuestionNum=" + singleQuestionNum +
+                ", muiltQuestionNum=" + muiltQuestionNum +
+                ", chargeQuestionNum=" + chargeQuestionNum +
+                ", paperNum=" + paperNum +
+                ", examedNum=" + examedNum +
+                ", passNum=" + passNum +
+                ", createTime=" + DateFormatUtil.getDate(createTime) +
+                '}';
     }
 }

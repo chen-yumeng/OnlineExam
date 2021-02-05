@@ -102,7 +102,7 @@ public class RoleController {
 		ret.put("msg", "角色添加成功！");
 		User user = userService.findById(userId);
 		Role adminRole = roleService.find(user.getRoleId());
-		logService.add("管理员{" + adminRole.getName() + ":" + user.getUsername() + "} 添加{" + role.getName() + "，Id为" + role.getId() + "}角色成功!");
+		logService.add("管理员 { " + adminRole.getName() + " : " + user.getUsername() + " } 添加角色 { " + role + " }");
 		return ret;
 	}
 
@@ -116,6 +116,7 @@ public class RoleController {
 	@ResponseBody
 	public Map<String, String> edit(Role role, Integer userId){
 		Map<String, String> ret = new HashMap<String, String>();
+		Role oldRole = roleService.find(role.getId());
 		if(role == null){
 			ret.put("type", "error");
 			ret.put("msg", "请填写正确的角色信息！");
@@ -135,7 +136,7 @@ public class RoleController {
 		ret.put("msg", "角色修改成功！");
 		User user = userService.findById(userId);
 		Role adminRole = roleService.find(user.getRoleId());
-		logService.add("管理员{" + adminRole.getName() + ":" + user.getUsername() + "} 更新{" + role.getName() + "，Id为" + role.getId() + "}角色成功!");
+		logService.add("管理员 { " + adminRole.getName() + " : " + user.getUsername() + " } 更新角色 { " + oldRole + " } 为 { " + roleService.find(role.getId()) + " }");
 		return ret;
 	}
 
@@ -175,7 +176,7 @@ public class RoleController {
 		User user = userService.findById(userId);
 		Role adminRole = roleService.find(user.getRoleId());
 		roles.forEach(role -> {
-			logService.add("管理员{" + adminRole.getName() + ":" + user.getUsername() + "} 删除{" + role.getName() + "，Id为" + role.getId() + "}角色成功!");
+			logService.add("管理员 { " + adminRole.getName() + " : " + user.getUsername() + " } 删除角色 { " + role + " }");
 		});
 		return ret;
 	}
@@ -237,7 +238,7 @@ public class RoleController {
 		User user = userService.findById(userId);
 		Role adminRole = roleService.find(user.getRoleId());
 		Role role = roleService.find(roleId);
-		logService.add("管理员{" + adminRole.getName() + ":" + user.getUsername() + "} 修改{" + role.getName() + "，Id为" + role.getId() + "}角色的权限为{权限ids为("+ids+")}!");
+		logService.add("管理员 { " + adminRole.getName() + " : " + user.getUsername() + " } 修改 { " + role.getName() + "，Id为 " + role.getId() + " 角色的权限ids为 ( " + ids + " ) }");
 		return ret;
 	}
 
