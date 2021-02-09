@@ -116,6 +116,11 @@ public class HomeController {
             ret.put("msg", "该用户名已存在！");
             return ret;
         }
+        if (studentService.findByStudentId(student.getStudentId()) != null) {
+            ret.put("type", "error");
+            ret.put("msg", "该用学号已注册！");
+            return ret;
+        }
         student.setCreateTime(new Date());
         try {
             if (studentService.add(student) <= 0) {
