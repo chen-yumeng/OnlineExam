@@ -1,7 +1,7 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : mysql
+ Source Server         : localhost
  Source Server Type    : MySQL
  Source Server Version : 50726
  Source Host           : localhost:3306
@@ -11,7 +11,7 @@
  Target Server Version : 50726
  File Encoding         : 65001
 
- Date: 07/03/2020 12:50:57
+ Date: 31/05/2021 10:09:52
 */
 
 SET NAMES utf8mb4;
@@ -30,67 +30,88 @@ CREATE TABLE `authority`  (
   INDEX `menuId`(`menuId`) USING BTREE,
   CONSTRAINT `authority_ibfk_1` FOREIGN KEY (`roleId`) REFERENCES `role` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `authority_ibfk_2` FOREIGN KEY (`menuId`) REFERENCES `menu` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 630 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '权限表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1057 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '权限表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of authority
 -- ----------------------------
-INSERT INTO `authority` VALUES (574, 2, 35);
-INSERT INTO `authority` VALUES (575, 2, 36);
-INSERT INTO `authority` VALUES (576, 2, 25);
-INSERT INTO `authority` VALUES (577, 2, 1);
-INSERT INTO `authority` VALUES (578, 2, 14);
-INSERT INTO `authority` VALUES (579, 2, 15);
-INSERT INTO `authority` VALUES (580, 1, 1);
-INSERT INTO `authority` VALUES (581, 1, 5);
-INSERT INTO `authority` VALUES (582, 1, 17);
-INSERT INTO `authority` VALUES (583, 1, 18);
-INSERT INTO `authority` VALUES (584, 1, 19);
-INSERT INTO `authority` VALUES (585, 1, 20);
-INSERT INTO `authority` VALUES (586, 1, 13);
-INSERT INTO `authority` VALUES (587, 1, 21);
-INSERT INTO `authority` VALUES (588, 1, 22);
-INSERT INTO `authority` VALUES (589, 1, 23);
-INSERT INTO `authority` VALUES (590, 1, 35);
-INSERT INTO `authority` VALUES (591, 1, 36);
-INSERT INTO `authority` VALUES (592, 1, 14);
-INSERT INTO `authority` VALUES (593, 1, 15);
-INSERT INTO `authority` VALUES (594, 1, 24);
-INSERT INTO `authority` VALUES (595, 1, 25);
-INSERT INTO `authority` VALUES (596, 1, 26);
-INSERT INTO `authority` VALUES (597, 1, 31);
-INSERT INTO `authority` VALUES (598, 1, 32);
-INSERT INTO `authority` VALUES (599, 1, 33);
-INSERT INTO `authority` VALUES (600, 1, 34);
-INSERT INTO `authority` VALUES (601, 1, 37);
-INSERT INTO `authority` VALUES (602, 1, 38);
-INSERT INTO `authority` VALUES (603, 1, 39);
-INSERT INTO `authority` VALUES (604, 1, 40);
-INSERT INTO `authority` VALUES (605, 1, 41);
-INSERT INTO `authority` VALUES (606, 1, 42);
-INSERT INTO `authority` VALUES (607, 1, 43);
-INSERT INTO `authority` VALUES (608, 1, 44);
-INSERT INTO `authority` VALUES (609, 1, 45);
-INSERT INTO `authority` VALUES (610, 1, 46);
-INSERT INTO `authority` VALUES (611, 1, 47);
-INSERT INTO `authority` VALUES (612, 1, 48);
-INSERT INTO `authority` VALUES (613, 1, 49);
-INSERT INTO `authority` VALUES (614, 1, 50);
-INSERT INTO `authority` VALUES (615, 1, 51);
-INSERT INTO `authority` VALUES (616, 1, 64);
-INSERT INTO `authority` VALUES (617, 1, 52);
-INSERT INTO `authority` VALUES (618, 1, 53);
-INSERT INTO `authority` VALUES (619, 1, 54);
-INSERT INTO `authority` VALUES (620, 1, 55);
-INSERT INTO `authority` VALUES (621, 1, 56);
-INSERT INTO `authority` VALUES (622, 1, 57);
-INSERT INTO `authority` VALUES (623, 1, 58);
-INSERT INTO `authority` VALUES (624, 1, 60);
-INSERT INTO `authority` VALUES (625, 1, 61);
-INSERT INTO `authority` VALUES (626, 1, 62);
-INSERT INTO `authority` VALUES (627, 1, 63);
-INSERT INTO `authority` VALUES (628, 1, 65);
-INSERT INTO `authority` VALUES (629, 1, 66);
+INSERT INTO `authority` VALUES (807, 1, 1);
+INSERT INTO `authority` VALUES (808, 1, 5);
+INSERT INTO `authority` VALUES (809, 1, 17);
+INSERT INTO `authority` VALUES (810, 1, 18);
+INSERT INTO `authority` VALUES (811, 1, 19);
+INSERT INTO `authority` VALUES (812, 1, 20);
+INSERT INTO `authority` VALUES (813, 1, 13);
+INSERT INTO `authority` VALUES (814, 1, 21);
+INSERT INTO `authority` VALUES (815, 1, 22);
+INSERT INTO `authority` VALUES (816, 1, 23);
+INSERT INTO `authority` VALUES (817, 1, 35);
+INSERT INTO `authority` VALUES (818, 1, 36);
+INSERT INTO `authority` VALUES (819, 1, 14);
+INSERT INTO `authority` VALUES (820, 1, 15);
+INSERT INTO `authority` VALUES (821, 1, 24);
+INSERT INTO `authority` VALUES (822, 1, 25);
+INSERT INTO `authority` VALUES (823, 1, 26);
+INSERT INTO `authority` VALUES (824, 1, 31);
+INSERT INTO `authority` VALUES (825, 1, 32);
+INSERT INTO `authority` VALUES (826, 1, 33);
+INSERT INTO `authority` VALUES (827, 1, 34);
+INSERT INTO `authority` VALUES (828, 1, 37);
+INSERT INTO `authority` VALUES (829, 1, 38);
+INSERT INTO `authority` VALUES (830, 1, 39);
+INSERT INTO `authority` VALUES (831, 1, 40);
+INSERT INTO `authority` VALUES (832, 1, 41);
+INSERT INTO `authority` VALUES (833, 1, 42);
+INSERT INTO `authority` VALUES (834, 1, 43);
+INSERT INTO `authority` VALUES (835, 1, 44);
+INSERT INTO `authority` VALUES (836, 1, 45);
+INSERT INTO `authority` VALUES (837, 1, 46);
+INSERT INTO `authority` VALUES (838, 1, 47);
+INSERT INTO `authority` VALUES (839, 1, 48);
+INSERT INTO `authority` VALUES (840, 1, 49);
+INSERT INTO `authority` VALUES (841, 1, 50);
+INSERT INTO `authority` VALUES (842, 1, 51);
+INSERT INTO `authority` VALUES (843, 1, 64);
+INSERT INTO `authority` VALUES (844, 1, 52);
+INSERT INTO `authority` VALUES (845, 1, 53);
+INSERT INTO `authority` VALUES (846, 1, 54);
+INSERT INTO `authority` VALUES (847, 1, 55);
+INSERT INTO `authority` VALUES (848, 1, 56);
+INSERT INTO `authority` VALUES (849, 1, 57);
+INSERT INTO `authority` VALUES (850, 1, 58);
+INSERT INTO `authority` VALUES (851, 1, 60);
+INSERT INTO `authority` VALUES (852, 1, 61);
+INSERT INTO `authority` VALUES (853, 1, 62);
+INSERT INTO `authority` VALUES (854, 1, 63);
+INSERT INTO `authority` VALUES (855, 1, 67);
+INSERT INTO `authority` VALUES (856, 1, 65);
+INSERT INTO `authority` VALUES (857, 1, 66);
+INSERT INTO `authority` VALUES (1031, 3, 35);
+INSERT INTO `authority` VALUES (1032, 3, 36);
+INSERT INTO `authority` VALUES (1033, 3, 42);
+INSERT INTO `authority` VALUES (1034, 3, 43);
+INSERT INTO `authority` VALUES (1035, 3, 44);
+INSERT INTO `authority` VALUES (1036, 3, 45);
+INSERT INTO `authority` VALUES (1037, 3, 46);
+INSERT INTO `authority` VALUES (1038, 3, 47);
+INSERT INTO `authority` VALUES (1039, 3, 48);
+INSERT INTO `authority` VALUES (1040, 3, 49);
+INSERT INTO `authority` VALUES (1041, 3, 50);
+INSERT INTO `authority` VALUES (1042, 3, 51);
+INSERT INTO `authority` VALUES (1043, 3, 64);
+INSERT INTO `authority` VALUES (1044, 3, 52);
+INSERT INTO `authority` VALUES (1045, 3, 53);
+INSERT INTO `authority` VALUES (1046, 3, 54);
+INSERT INTO `authority` VALUES (1047, 3, 55);
+INSERT INTO `authority` VALUES (1048, 3, 56);
+INSERT INTO `authority` VALUES (1049, 3, 57);
+INSERT INTO `authority` VALUES (1050, 3, 58);
+INSERT INTO `authority` VALUES (1051, 3, 60);
+INSERT INTO `authority` VALUES (1052, 3, 61);
+INSERT INTO `authority` VALUES (1053, 3, 62);
+INSERT INTO `authority` VALUES (1054, 3, 63);
+INSERT INTO `authority` VALUES (1055, 3, 67);
+INSERT INTO `authority` VALUES (1056, 3, 1);
 
 -- ----------------------------
 -- Table structure for c3p0testtable
@@ -124,17 +145,13 @@ CREATE TABLE `exam`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `subjectId`(`subjectId`) USING BTREE,
   CONSTRAINT `exam_ibfk_1` FOREIGN KEY (`subjectId`) REFERENCES `subject` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '考试信息表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '考试信息表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of exam
 -- ----------------------------
-INSERT INTO `exam` VALUES (2, '软件工程期中考试', 1, '2019-05-01 00:00:00', '2019-05-31 00:00:00', 60, 4, 10, 5, 2, 1, 1, 5, 5, 4, '2019-04-29 20:23:03');
-INSERT INTO `exam` VALUES (3, '计算机基本知识小测验', 1, '2019-04-12 20:28:48', '2019-05-31 20:28:51', 2, 11, 28, 20, 4, 3, 4, 2, 2, 0, '2019-04-29 20:29:06');
-INSERT INTO `exam` VALUES (4, '软件工程课堂随机小测试', 1, '2019-05-03 11:45:00', '2019-05-05 11:12:02', 1, 2, 6, 2, 1, 1, 0, 2, 2, 2, '2019-05-04 11:12:12');
-INSERT INTO `exam` VALUES (5, '物理课堂测验', 6, '2019-05-01 16:48:31', '2019-05-18 16:48:34', 30, 3, 8, 4, 1, 1, 1, 1, 1, 1, '2019-05-04 16:49:28');
-INSERT INTO `exam` VALUES (6, '软件工程2018期末考试', 1, '2018-12-01 17:00:05', '2018-12-31 17:00:16', 60, 14, 36, 20, 6, 4, 4, 0, 0, 0, '2019-05-04 17:01:57');
-INSERT INTO `exam` VALUES (8, '测试', 8, '2020-01-01 00:00:00', '2020-01-31 00:00:00', 60, 10, 20, 20, 10, 0, 0, 1, 1, 0, '2020-01-14 20:51:04');
+INSERT INTO `exam` VALUES (10, '软件工程小测试', 12, '2021-02-05 14:57:33', '2021-02-06 14:57:37', 60, 20, 40, 30, 20, 0, 0, 1, 1, 0, '2021-02-05 14:57:53');
+INSERT INTO `exam` VALUES (11, '软件工程课堂测试', 12, '2021-02-09 22:17:28', '2021-02-10 22:17:29', 60, 20, 40, 30, 20, 0, 0, 1, 1, 0, '2021-02-09 22:17:55');
 
 -- ----------------------------
 -- Table structure for exampaper
@@ -156,21 +173,13 @@ CREATE TABLE `exampaper`  (
   INDEX `studentId`(`studentId`) USING BTREE,
   CONSTRAINT `exampaper_ibfk_1` FOREIGN KEY (`examId`) REFERENCES `exam` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `exampaper_ibfk_2` FOREIGN KEY (`studentId`) REFERENCES `student` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 22 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '试卷信息表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 25 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '试卷信息表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of exampaper
 -- ----------------------------
-INSERT INTO `exampaper` VALUES (9, 2, 6, 1, 10, 6, '2019-05-04 11:04:02', '2019-05-04 11:07:11', 3, '2019-05-04 11:06:49');
-INSERT INTO `exampaper` VALUES (10, 4, 6, 1, 6, 6, '2019-05-04 11:12:32', '2019-05-04 11:13:31', 0, '2019-05-04 11:12:32');
-INSERT INTO `exampaper` VALUES (11, 3, 6, 1, 28, 4, '2019-05-04 13:25:22', '2019-05-04 13:26:30', 1, '2019-05-04 13:25:22');
-INSERT INTO `exampaper` VALUES (12, 5, 8, 1, 8, 4, '2019-05-04 16:55:38', '2019-05-04 16:55:58', 0, '2019-05-04 16:55:38');
-INSERT INTO `exampaper` VALUES (14, 2, 9, 1, 10, 8, '2019-05-04 18:20:37', '2019-05-04 18:20:56', 0, '2019-05-04 18:20:37');
-INSERT INTO `exampaper` VALUES (15, 2, 10, 1, 10, 6, '2019-05-04 18:22:29', '2019-05-04 18:22:46', 0, '2019-05-04 18:22:29');
-INSERT INTO `exampaper` VALUES (16, 2, 11, 1, 10, 2, '2019-05-04 18:24:07', '2019-05-04 18:24:19', 0, '2019-05-04 18:24:07');
-INSERT INTO `exampaper` VALUES (17, 4, 11, 1, 6, 2, '2019-05-04 18:24:51', '2019-05-04 18:25:50', 0, '2019-05-04 18:24:51');
-INSERT INTO `exampaper` VALUES (18, 3, 11, 1, 28, 6, '2019-05-04 18:26:25', '2019-05-04 18:26:44', 0, '2019-05-04 18:26:25');
-INSERT INTO `exampaper` VALUES (21, 8, 13, 1, 20, 14, '2020-01-14 20:51:34', '2020-01-14 20:52:40', 1, '2020-01-14 20:51:34');
+INSERT INTO `exampaper` VALUES (23, 10, 16, 1, 40, 10, '2021-02-05 15:08:29', '2021-02-05 15:11:08', 2, '2021-02-05 15:08:29');
+INSERT INTO `exampaper` VALUES (24, 11, 16, 1, 40, 20, '2021-02-09 22:41:31', '2021-02-09 22:50:48', 9, '2021-02-09 22:41:31');
 
 -- ----------------------------
 -- Table structure for exampaperanswer
@@ -193,66 +202,51 @@ CREATE TABLE `exampaperanswer`  (
   CONSTRAINT `exampaperanswer_ibfk_2` FOREIGN KEY (`studentId`) REFERENCES `student` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `exampaperanswer_ibfk_3` FOREIGN KEY (`questionId`) REFERENCES `question` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `exampaperanswer_ibfk_4` FOREIGN KEY (`examId`) REFERENCES `exam` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 85 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '试卷答题信息表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 145 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '试卷答题信息表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of exampaperanswer
 -- ----------------------------
-INSERT INTO `exampaperanswer` VALUES (21, 2, 9, 6, 2, 'A', 1);
-INSERT INTO `exampaperanswer` VALUES (22, 2, 9, 6, 6, 'B', 0);
-INSERT INTO `exampaperanswer` VALUES (23, 2, 9, 6, 1, 'ABCD', 1);
-INSERT INTO `exampaperanswer` VALUES (24, 2, 9, 6, 5, 'B', 0);
-INSERT INTO `exampaperanswer` VALUES (25, 4, 10, 6, 6, 'A', 1);
-INSERT INTO `exampaperanswer` VALUES (26, 4, 10, 6, 1, 'ABCD', 1);
-INSERT INTO `exampaperanswer` VALUES (27, 3, 11, 6, 16, 'B', 0);
-INSERT INTO `exampaperanswer` VALUES (28, 3, 11, 6, 6, 'B', 0);
-INSERT INTO `exampaperanswer` VALUES (29, 3, 11, 6, 14, 'B', 0);
-INSERT INTO `exampaperanswer` VALUES (30, 3, 11, 6, 2, 'B', 0);
-INSERT INTO `exampaperanswer` VALUES (31, 3, 11, 6, 21, 'ACD', 0);
-INSERT INTO `exampaperanswer` VALUES (32, 3, 11, 6, 20, 'AB', 0);
-INSERT INTO `exampaperanswer` VALUES (33, 3, 11, 6, 22, 'B', 0);
-INSERT INTO `exampaperanswer` VALUES (34, 3, 11, 6, 5, 'B', 0);
-INSERT INTO `exampaperanswer` VALUES (35, 3, 11, 6, 17, 'B', 1);
-INSERT INTO `exampaperanswer` VALUES (36, 3, 11, 6, 18, 'A', 0);
-INSERT INTO `exampaperanswer` VALUES (37, 3, 11, 6, 19, 'A', 1);
-INSERT INTO `exampaperanswer` VALUES (38, 5, 12, 8, 29, 'B', 0);
-INSERT INTO `exampaperanswer` VALUES (39, 5, 12, 8, 28, 'BD', 1);
-INSERT INTO `exampaperanswer` VALUES (40, 5, 12, 8, 30, 'A', 0);
-INSERT INTO `exampaperanswer` VALUES (50, 2, 14, 9, 14, 'D', 0);
-INSERT INTO `exampaperanswer` VALUES (51, 2, 14, 9, 6, 'A', 1);
-INSERT INTO `exampaperanswer` VALUES (52, 2, 14, 9, 21, 'CD', 1);
-INSERT INTO `exampaperanswer` VALUES (53, 2, 14, 9, 19, 'A', 1);
-INSERT INTO `exampaperanswer` VALUES (54, 2, 15, 10, 2, 'A', 1);
-INSERT INTO `exampaperanswer` VALUES (55, 2, 15, 10, 13, 'A', 1);
-INSERT INTO `exampaperanswer` VALUES (56, 2, 15, 10, 21, 'ABCD', 0);
-INSERT INTO `exampaperanswer` VALUES (57, 2, 15, 10, 18, 'B', 1);
-INSERT INTO `exampaperanswer` VALUES (58, 2, 16, 11, 2, 'A', 1);
-INSERT INTO `exampaperanswer` VALUES (59, 2, 16, 11, 16, 'B', 0);
-INSERT INTO `exampaperanswer` VALUES (60, 2, 16, 11, 1, 'D', 0);
-INSERT INTO `exampaperanswer` VALUES (61, 2, 16, 11, 19, 'B', 0);
-INSERT INTO `exampaperanswer` VALUES (62, 4, 17, 11, 13, 'A', 1);
-INSERT INTO `exampaperanswer` VALUES (63, 4, 17, 11, 20, 'AC', 0);
-INSERT INTO `exampaperanswer` VALUES (64, 3, 18, 11, 2, 'C', 0);
-INSERT INTO `exampaperanswer` VALUES (65, 3, 18, 11, 6, 'C', 0);
-INSERT INTO `exampaperanswer` VALUES (66, 3, 18, 11, 15, NULL, 0);
-INSERT INTO `exampaperanswer` VALUES (67, 3, 18, 11, 13, NULL, 0);
-INSERT INTO `exampaperanswer` VALUES (68, 3, 18, 11, 1, 'BC', 0);
-INSERT INTO `exampaperanswer` VALUES (69, 3, 18, 11, 20, NULL, 0);
-INSERT INTO `exampaperanswer` VALUES (70, 3, 18, 11, 22, 'ABD', 0);
-INSERT INTO `exampaperanswer` VALUES (71, 3, 18, 11, 5, 'A', 1);
-INSERT INTO `exampaperanswer` VALUES (72, 3, 18, 11, 17, 'B', 1);
-INSERT INTO `exampaperanswer` VALUES (73, 3, 18, 11, 18, 'A', 0);
-INSERT INTO `exampaperanswer` VALUES (74, 3, 18, 11, 19, 'A', 1);
-INSERT INTO `exampaperanswer` VALUES (75, 8, 21, 13, 57, 'A', 1);
-INSERT INTO `exampaperanswer` VALUES (76, 8, 21, 13, 54, 'D', 1);
-INSERT INTO `exampaperanswer` VALUES (77, 8, 21, 13, 35, 'A', 1);
-INSERT INTO `exampaperanswer` VALUES (78, 8, 21, 13, 58, 'B', 0);
-INSERT INTO `exampaperanswer` VALUES (79, 8, 21, 13, 34, 'C', 0);
-INSERT INTO `exampaperanswer` VALUES (80, 8, 21, 13, 48, 'D', 1);
-INSERT INTO `exampaperanswer` VALUES (81, 8, 21, 13, 47, 'B', 1);
-INSERT INTO `exampaperanswer` VALUES (82, 8, 21, 13, 56, 'C', 1);
-INSERT INTO `exampaperanswer` VALUES (83, 8, 21, 13, 43, 'B', 0);
-INSERT INTO `exampaperanswer` VALUES (84, 8, 21, 13, 33, 'A', 1);
+INSERT INTO `exampaperanswer` VALUES (105, 10, 23, 16, 86, 'D', 0);
+INSERT INTO `exampaperanswer` VALUES (106, 10, 23, 16, 85, 'B', 0);
+INSERT INTO `exampaperanswer` VALUES (107, 10, 23, 16, 87, 'B', 0);
+INSERT INTO `exampaperanswer` VALUES (108, 10, 23, 16, 104, 'B', 0);
+INSERT INTO `exampaperanswer` VALUES (109, 10, 23, 16, 89, 'A', 1);
+INSERT INTO `exampaperanswer` VALUES (110, 10, 23, 16, 94, 'A', 0);
+INSERT INTO `exampaperanswer` VALUES (111, 10, 23, 16, 109, 'D', 0);
+INSERT INTO `exampaperanswer` VALUES (112, 10, 23, 16, 107, 'D', 0);
+INSERT INTO `exampaperanswer` VALUES (113, 10, 23, 16, 106, 'A', 0);
+INSERT INTO `exampaperanswer` VALUES (114, 10, 23, 16, 99, 'B', 1);
+INSERT INTO `exampaperanswer` VALUES (115, 10, 23, 16, 91, 'C', 0);
+INSERT INTO `exampaperanswer` VALUES (116, 10, 23, 16, 102, 'A', 0);
+INSERT INTO `exampaperanswer` VALUES (117, 10, 23, 16, 95, 'C', 0);
+INSERT INTO `exampaperanswer` VALUES (118, 10, 23, 16, 88, 'D', 1);
+INSERT INTO `exampaperanswer` VALUES (119, 10, 23, 16, 100, 'A', 0);
+INSERT INTO `exampaperanswer` VALUES (120, 10, 23, 16, 92, 'C', 0);
+INSERT INTO `exampaperanswer` VALUES (121, 10, 23, 16, 97, 'C', 0);
+INSERT INTO `exampaperanswer` VALUES (122, 10, 23, 16, 93, 'B', 1);
+INSERT INTO `exampaperanswer` VALUES (123, 10, 23, 16, 103, 'B', 0);
+INSERT INTO `exampaperanswer` VALUES (124, 10, 23, 16, 105, 'C', 1);
+INSERT INTO `exampaperanswer` VALUES (125, 11, 24, 16, 102, 'D', 1);
+INSERT INTO `exampaperanswer` VALUES (126, 11, 24, 16, 109, 'A', 1);
+INSERT INTO `exampaperanswer` VALUES (127, 11, 24, 16, 88, 'A', 0);
+INSERT INTO `exampaperanswer` VALUES (128, 11, 24, 16, 85, 'A', 1);
+INSERT INTO `exampaperanswer` VALUES (129, 11, 24, 16, 106, 'B', 0);
+INSERT INTO `exampaperanswer` VALUES (130, 11, 24, 16, 93, 'C', 0);
+INSERT INTO `exampaperanswer` VALUES (131, 11, 24, 16, 110, 'C', 1);
+INSERT INTO `exampaperanswer` VALUES (132, 11, 24, 16, 97, 'C', 0);
+INSERT INTO `exampaperanswer` VALUES (133, 11, 24, 16, 90, 'D', 0);
+INSERT INTO `exampaperanswer` VALUES (134, 11, 24, 16, 103, 'A', 1);
+INSERT INTO `exampaperanswer` VALUES (135, 11, 24, 16, 98, 'D', 0);
+INSERT INTO `exampaperanswer` VALUES (136, 11, 24, 16, 105, 'C', 1);
+INSERT INTO `exampaperanswer` VALUES (137, 11, 24, 16, 94, 'B', 0);
+INSERT INTO `exampaperanswer` VALUES (138, 11, 24, 16, 108, 'C', 1);
+INSERT INTO `exampaperanswer` VALUES (139, 11, 24, 16, 104, 'B', 0);
+INSERT INTO `exampaperanswer` VALUES (140, 11, 24, 16, 99, 'B', 1);
+INSERT INTO `exampaperanswer` VALUES (141, 11, 24, 16, 107, 'B', 1);
+INSERT INTO `exampaperanswer` VALUES (142, 11, 24, 16, 92, 'C', 0);
+INSERT INTO `exampaperanswer` VALUES (143, 11, 24, 16, 95, 'D', 1);
+INSERT INTO `exampaperanswer` VALUES (144, 11, 24, 16, 89, 'C', 0);
 
 -- ----------------------------
 -- Table structure for log
@@ -260,126 +254,271 @@ INSERT INTO `exampaperanswer` VALUES (84, 8, 21, 13, 33, 'A', 1);
 DROP TABLE IF EXISTS `log`;
 CREATE TABLE `log`  (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '系统日志表id',
-  `content` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '日志内容',
+  `content` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '日志内容',
   `createTime` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 126 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '系统日志表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 527 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '系统日志表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of log
 -- ----------------------------
-INSERT INTO `log` VALUES (13, '用户名为admin的用户登录时输入验证码错误!', '2018-12-16 18:17:30');
-INSERT INTO `log` VALUES (14, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2018-12-16 18:22:56');
-INSERT INTO `log` VALUES (15, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2018-12-16 18:37:15');
-INSERT INTO `log` VALUES (16, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2018-12-16 18:40:21');
-INSERT INTO `log` VALUES (17, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2018-12-16 19:11:49');
-INSERT INTO `log` VALUES (18, '用户名为{admin}，的用户成功修改密码!', '2018-12-16 19:13:32');
-INSERT INTO `log` VALUES (19, '用户名为{admin}，的用户成功修改密码!', '2018-12-16 19:14:01');
-INSERT INTO `log` VALUES (20, '用户名为{cg}，角色为{普通用户}的用户登录成功!', '2018-12-16 19:17:46');
-INSERT INTO `log` VALUES (21, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-04-21 14:03:54');
-INSERT INTO `log` VALUES (22, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-04-21 16:32:59');
-INSERT INTO `log` VALUES (23, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-04-21 16:41:20');
-INSERT INTO `log` VALUES (24, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-04-21 17:00:15');
-INSERT INTO `log` VALUES (25, '用户名为admin的用户登录时输入验证码错误!', '2019-04-21 17:08:58');
-INSERT INTO `log` VALUES (26, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-04-21 17:09:09');
-INSERT INTO `log` VALUES (27, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-04-21 17:20:28');
-INSERT INTO `log` VALUES (28, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-04-21 19:14:08');
-INSERT INTO `log` VALUES (29, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-04-21 19:20:51');
-INSERT INTO `log` VALUES (30, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-04-21 20:31:38');
-INSERT INTO `log` VALUES (31, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-04-21 20:40:28');
-INSERT INTO `log` VALUES (32, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-04-21 20:57:55');
-INSERT INTO `log` VALUES (33, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-04-21 20:59:17');
-INSERT INTO `log` VALUES (34, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-04-22 21:26:13');
-INSERT INTO `log` VALUES (35, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-04-22 21:31:25');
-INSERT INTO `log` VALUES (36, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-04-22 22:09:06');
-INSERT INTO `log` VALUES (37, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-04-25 21:20:00');
-INSERT INTO `log` VALUES (38, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-04-25 21:24:30');
-INSERT INTO `log` VALUES (39, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-04-28 19:35:44');
-INSERT INTO `log` VALUES (40, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-04-28 19:39:37');
-INSERT INTO `log` VALUES (41, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-04-28 19:51:46');
-INSERT INTO `log` VALUES (42, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-04-28 21:35:07');
-INSERT INTO `log` VALUES (43, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-04-28 21:52:27');
-INSERT INTO `log` VALUES (44, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-04-28 21:55:07');
-INSERT INTO `log` VALUES (45, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-04-28 22:11:24');
-INSERT INTO `log` VALUES (46, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-04-29 20:22:22');
-INSERT INTO `log` VALUES (47, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-04-29 20:59:06');
-INSERT INTO `log` VALUES (48, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-04-29 21:14:00');
-INSERT INTO `log` VALUES (49, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-04-29 22:08:39');
-INSERT INTO `log` VALUES (50, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-04-29 22:25:57');
-INSERT INTO `log` VALUES (51, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-04-29 22:28:04');
-INSERT INTO `log` VALUES (52, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-04-29 22:40:32');
-INSERT INTO `log` VALUES (53, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-04-29 22:48:00');
-INSERT INTO `log` VALUES (54, '用户名为admin的用户登录时输入验证码错误!', '2019-04-29 22:50:44');
-INSERT INTO `log` VALUES (55, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-04-29 22:50:52');
-INSERT INTO `log` VALUES (56, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-05-01 18:34:56');
-INSERT INTO `log` VALUES (57, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-05-01 18:48:06');
-INSERT INTO `log` VALUES (58, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-05-02 15:06:28');
-INSERT INTO `log` VALUES (59, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-05-02 15:15:13');
-INSERT INTO `log` VALUES (60, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-05-03 13:37:07');
-INSERT INTO `log` VALUES (61, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-05-04 10:47:34');
-INSERT INTO `log` VALUES (62, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-05-04 11:03:48');
-INSERT INTO `log` VALUES (63, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-05-04 11:11:14');
-INSERT INTO `log` VALUES (64, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-05-04 11:37:59');
-INSERT INTO `log` VALUES (65, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-05-04 11:40:08');
-INSERT INTO `log` VALUES (66, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-05-04 12:00:26');
-INSERT INTO `log` VALUES (67, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-05-04 12:24:33');
-INSERT INTO `log` VALUES (68, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-05-04 12:37:20');
-INSERT INTO `log` VALUES (69, '用户名为admin的用户登录时输入验证码错误!', '2019-05-04 12:40:30');
-INSERT INTO `log` VALUES (70, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-05-04 12:40:37');
-INSERT INTO `log` VALUES (71, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-05-04 12:42:25');
-INSERT INTO `log` VALUES (72, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-05-04 12:50:11');
-INSERT INTO `log` VALUES (73, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-05-04 12:53:01');
-INSERT INTO `log` VALUES (74, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-05-04 12:59:13');
-INSERT INTO `log` VALUES (75, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-05-04 13:00:32');
-INSERT INTO `log` VALUES (76, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-05-04 13:05:07');
-INSERT INTO `log` VALUES (77, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-05-04 14:58:38');
-INSERT INTO `log` VALUES (78, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-05-04 15:08:45');
-INSERT INTO `log` VALUES (79, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-05-04 16:31:28');
-INSERT INTO `log` VALUES (80, '用户名为admin的用户登录时输入验证码错误!', '2019-05-04 16:44:02');
-INSERT INTO `log` VALUES (81, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-05-04 16:44:08');
-INSERT INTO `log` VALUES (82, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-05-04 16:59:46');
-INSERT INTO `log` VALUES (83, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-05-04 17:17:13');
-INSERT INTO `log` VALUES (84, '用户名为admin的用户登录时输入验证码错误!', '2019-05-04 17:21:28');
-INSERT INTO `log` VALUES (85, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-05-04 17:21:34');
-INSERT INTO `log` VALUES (86, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-05-04 17:23:51');
-INSERT INTO `log` VALUES (87, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-05-04 18:08:31');
-INSERT INTO `log` VALUES (88, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2019-05-04 18:21:39');
-INSERT INTO `log` VALUES (89, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2020-01-11 13:45:06');
-INSERT INTO `log` VALUES (90, '用户名为admin的用户登录时输入密码错误!', '2020-01-11 16:16:56');
-INSERT INTO `log` VALUES (91, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2020-01-11 16:17:05');
-INSERT INTO `log` VALUES (93, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2020-01-11 16:41:15');
-INSERT INTO `log` VALUES (94, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2020-01-11 17:13:58');
-INSERT INTO `log` VALUES (95, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2020-01-11 17:56:51');
-INSERT INTO `log` VALUES (96, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2020-01-11 18:10:39');
-INSERT INTO `log` VALUES (97, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2020-01-11 18:18:22');
-INSERT INTO `log` VALUES (98, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2020-01-11 19:13:08');
-INSERT INTO `log` VALUES (99, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2020-01-11 19:38:22');
-INSERT INTO `log` VALUES (100, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2020-01-11 19:56:36');
-INSERT INTO `log` VALUES (101, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2020-01-11 20:41:18');
-INSERT INTO `log` VALUES (102, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2020-01-12 11:27:53');
-INSERT INTO `log` VALUES (103, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2020-01-12 12:08:47');
-INSERT INTO `log` VALUES (104, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2020-01-12 21:19:38');
-INSERT INTO `log` VALUES (105, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2020-01-12 22:23:58');
-INSERT INTO `log` VALUES (106, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2020-01-12 23:19:21');
-INSERT INTO `log` VALUES (107, '用户名为admin的用户登录时输入验证码错误!', '2020-01-12 23:31:54');
-INSERT INTO `log` VALUES (108, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2020-01-12 23:32:00');
-INSERT INTO `log` VALUES (109, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2020-01-13 00:17:55');
-INSERT INTO `log` VALUES (110, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2020-01-13 00:20:04');
-INSERT INTO `log` VALUES (111, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2020-01-13 14:00:51');
-INSERT INTO `log` VALUES (112, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2020-01-13 14:47:11');
-INSERT INTO `log` VALUES (113, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2020-01-14 20:18:51');
-INSERT INTO `log` VALUES (114, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2020-01-14 22:17:43');
-INSERT INTO `log` VALUES (115, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2020-01-14 22:21:45');
-INSERT INTO `log` VALUES (116, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2020-01-14 22:22:48');
-INSERT INTO `log` VALUES (117, '用户名为admin的用户登录时输入验证码错误!', '2020-01-14 22:24:44');
-INSERT INTO `log` VALUES (118, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2020-01-14 22:24:52');
-INSERT INTO `log` VALUES (119, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2020-01-14 22:25:23');
-INSERT INTO `log` VALUES (120, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2020-01-14 22:27:44');
-INSERT INTO `log` VALUES (121, '用户名为admin的用户登录时输入验证码错误!', '2020-01-14 22:29:39');
-INSERT INTO `log` VALUES (122, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2020-01-14 22:29:45');
-INSERT INTO `log` VALUES (123, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2020-01-14 22:33:07');
-INSERT INTO `log` VALUES (124, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2020-01-14 22:34:08');
-INSERT INTO `log` VALUES (125, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2020-03-07 12:48:55');
+INSERT INTO `log` VALUES (205, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2021-02-04 15:34:43');
+INSERT INTO `log` VALUES (206, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2021-02-04 15:38:00');
+INSERT INTO `log` VALUES (207, '用户名为teacher的用户登录时输入验证码错误!', '2021-02-04 15:38:44');
+INSERT INTO `log` VALUES (208, '用户名为{teacher}，角色为{教师}的用户登录成功!', '2021-02-04 15:38:52');
+INSERT INTO `log` VALUES (209, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2021-02-04 15:39:11');
+INSERT INTO `log` VALUES (210, '用户名为{teacher}，角色为{教师}的用户登录成功!', '2021-02-04 15:39:28');
+INSERT INTO `log` VALUES (211, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2021-02-04 15:52:44');
+INSERT INTO `log` VALUES (212, '用户名为admin的用户登录时输入验证码错误!', '2021-02-04 16:33:40');
+INSERT INTO `log` VALUES (213, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2021-02-04 16:33:46');
+INSERT INTO `log` VALUES (214, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2021-02-04 16:44:04');
+INSERT INTO `log` VALUES (215, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2021-02-04 17:00:38');
+INSERT INTO `log` VALUES (216, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2021-02-04 17:03:41');
+INSERT INTO `log` VALUES (217, '{HNDD}，Id为{15}，学号为{null}的考生登录成功!', '2021-02-04 17:12:30');
+INSERT INTO `log` VALUES (218, '用户名为{teacher}，角色为{教师}的用户登录成功!', '2021-02-04 17:13:15');
+INSERT INTO `log` VALUES (219, '用户名为admin的用户登录时输入验证码错误!', '2021-02-04 17:25:16');
+INSERT INTO `log` VALUES (220, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2021-02-04 17:25:23');
+INSERT INTO `log` VALUES (221, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2021-02-04 23:49:46');
+INSERT INTO `log` VALUES (222, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2021-02-04 23:56:04');
+INSERT INTO `log` VALUES (223, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2021-02-04 23:58:08');
+INSERT INTO `log` VALUES (224, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2021-02-04 23:59:47');
+INSERT INTO `log` VALUES (225, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2021-02-05 00:04:29');
+INSERT INTO `log` VALUES (226, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2021-02-05 00:07:48');
+INSERT INTO `log` VALUES (227, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2021-02-05 00:10:44');
+INSERT INTO `log` VALUES (228, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2021-02-05 00:12:19');
+INSERT INTO `log` VALUES (229, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2021-02-05 00:24:07');
+INSERT INTO `log` VALUES (250, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2021-02-05 00:32:54');
+INSERT INTO `log` VALUES (251, '用户名为{admin}，角色为{超级管理员}的用户登录成功!', '2021-02-05 00:39:16');
+INSERT INTO `log` VALUES (252, '管理员{超级管理员:admin} 上传了图片{1612456892933.JPG，大小为0M，保存地址为E:\\workspace\\idea-workspace\\OnlineExam\\target\\OnlineExam\\/resources/upload/}', '2021-02-05 00:41:33');
+INSERT INTO `log` VALUES (253, '管理员{超级管理员:admin} 更新{teacher，Id为14，角色为教师}的管理员成功!', '2021-02-05 00:41:40');
+INSERT INTO `log` VALUES (254, '用户名为{admin}，角色为{超级管理员}的管理员登录成功!', '2021-02-05 00:55:33');
+INSERT INTO `log` VALUES (255, '用户名为admin的用户登录时输入密码错误!', '2021-02-05 01:05:19');
+INSERT INTO `log` VALUES (256, '用户名为{admin}，角色为{超级管理员}的管理员登录成功!', '2021-02-05 01:05:26');
+INSERT INTO `log` VALUES (257, '管理员{超级管理员:admin} 更新试卷{Id为22}成功!', '2021-02-05 01:05:50');
+INSERT INTO `log` VALUES (258, '用户名为 { admin }，角色为 { 超级管理员 } 的管理员登录', '2021-02-05 11:45:52');
+INSERT INTO `log` VALUES (259, '用户名为admin的用户登录时输入验证码错误!', '2021-02-05 11:48:09');
+INSERT INTO `log` VALUES (260, '用户名为 { admin }，角色为 { 超级管理员 } 的管理员登录', '2021-02-05 11:48:14');
+INSERT INTO `log` VALUES (261, '用户名为 { admin }，角色为 { 超级管理员 } 的管理员退出!', '2021-02-05 11:49:09');
+INSERT INTO `log` VALUES (262, '用户名为 { admin }，角色为 { 超级管理员 } 的管理员登录', '2021-02-05 11:49:15');
+INSERT INTO `log` VALUES (283, '用户名为 { admin }，角色为 { 超级管理员 } 的管理员登录', '2021-02-05 11:53:15');
+INSERT INTO `log` VALUES (304, '用户名为 { admin }，角色为 { 超级管理员 } 的管理员登录', '2021-02-05 11:58:16');
+INSERT INTO `log` VALUES (305, '管理员 { 超级管理员 : admin } 删除考生答题项 { ExamPaperAnswer{id=85, studentId=15, examId=9, examPaperId=22, questionId=83, answer=\'A\', isCorrect=1, question=null} }', '2021-02-05 11:58:25');
+INSERT INTO `log` VALUES (306, '管理员 { 超级管理员 : admin } 删除考生答题项 { ExamPaperAnswer{id=86, studentId=15, examId=9, examPaperId=22, questionId=70, answer=\'D\', isCorrect=1, question=null} }', '2021-02-05 11:58:25');
+INSERT INTO `log` VALUES (307, '管理员 { 超级管理员 : admin } 删除考生答题项 { ExamPaperAnswer{id=87, studentId=15, examId=9, examPaperId=22, questionId=66, answer=\'B\', isCorrect=1, question=null} }', '2021-02-05 11:58:25');
+INSERT INTO `log` VALUES (308, '管理员 { 超级管理员 : admin } 删除考生答题项 { ExamPaperAnswer{id=88, studentId=15, examId=9, examPaperId=22, questionId=69, answer=\'D\', isCorrect=1, question=null} }', '2021-02-05 11:58:25');
+INSERT INTO `log` VALUES (309, '管理员 { 超级管理员 : admin } 删除考生答题项 { ExamPaperAnswer{id=89, studentId=15, examId=9, examPaperId=22, questionId=81, answer=\'D\', isCorrect=0, question=null} }', '2021-02-05 11:58:25');
+INSERT INTO `log` VALUES (310, '管理员 { 超级管理员 : admin } 删除考生答题项 { ExamPaperAnswer{id=90, studentId=15, examId=9, examPaperId=22, questionId=62, answer=\'A\', isCorrect=0, question=null} }', '2021-02-05 11:58:25');
+INSERT INTO `log` VALUES (311, '管理员 { 超级管理员 : admin } 删除考生答题项 { ExamPaperAnswer{id=91, studentId=15, examId=9, examPaperId=22, questionId=79, answer=\'C\', isCorrect=1, question=null} }', '2021-02-05 11:58:25');
+INSERT INTO `log` VALUES (312, '管理员 { 超级管理员 : admin } 删除考生答题项 { ExamPaperAnswer{id=92, studentId=15, examId=9, examPaperId=22, questionId=60, answer=\'A\', isCorrect=1, question=null} }', '2021-02-05 11:58:25');
+INSERT INTO `log` VALUES (313, '管理员 { 超级管理员 : admin } 删除考生答题项 { ExamPaperAnswer{id=93, studentId=15, examId=9, examPaperId=22, questionId=75, answer=\'B\', isCorrect=1, question=null} }', '2021-02-05 11:58:25');
+INSERT INTO `log` VALUES (314, '管理员 { 超级管理员 : admin } 删除考生答题项 { ExamPaperAnswer{id=94, studentId=15, examId=9, examPaperId=22, questionId=64, answer=\'B\', isCorrect=0, question=null} }', '2021-02-05 11:58:25');
+INSERT INTO `log` VALUES (315, '管理员 { 超级管理员 : admin } 删除考生答题项 { ExamPaperAnswer{id=95, studentId=15, examId=9, examPaperId=22, questionId=76, answer=\'D\', isCorrect=1, question=null} }', '2021-02-05 11:58:25');
+INSERT INTO `log` VALUES (316, '管理员 { 超级管理员 : admin } 删除考生答题项 { ExamPaperAnswer{id=96, studentId=15, examId=9, examPaperId=22, questionId=84, answer=\'C\', isCorrect=1, question=null} }', '2021-02-05 11:58:25');
+INSERT INTO `log` VALUES (317, '管理员 { 超级管理员 : admin } 删除考生答题项 { ExamPaperAnswer{id=97, studentId=15, examId=9, examPaperId=22, questionId=61, answer=\'A\', isCorrect=1, question=null} }', '2021-02-05 11:58:25');
+INSERT INTO `log` VALUES (318, '管理员 { 超级管理员 : admin } 删除考生答题项 { ExamPaperAnswer{id=98, studentId=15, examId=9, examPaperId=22, questionId=82, answer=\'C\', isCorrect=1, question=null} }', '2021-02-05 11:58:25');
+INSERT INTO `log` VALUES (319, '管理员 { 超级管理员 : admin } 删除考生答题项 { ExamPaperAnswer{id=99, studentId=15, examId=9, examPaperId=22, questionId=65, answer=\'B\', isCorrect=1, question=null} }', '2021-02-05 11:58:25');
+INSERT INTO `log` VALUES (320, '管理员 { 超级管理员 : admin } 删除考生答题项 { ExamPaperAnswer{id=100, studentId=15, examId=9, examPaperId=22, questionId=77, answer=\'A\', isCorrect=1, question=null} }', '2021-02-05 11:58:25');
+INSERT INTO `log` VALUES (321, '管理员 { 超级管理员 : admin } 删除考生答题项 { ExamPaperAnswer{id=101, studentId=15, examId=9, examPaperId=22, questionId=63, answer=\'A\', isCorrect=1, question=null} }', '2021-02-05 11:58:25');
+INSERT INTO `log` VALUES (322, '管理员 { 超级管理员 : admin } 删除考生答题项 { ExamPaperAnswer{id=102, studentId=15, examId=9, examPaperId=22, questionId=80, answer=\'D\', isCorrect=1, question=null} }', '2021-02-05 11:58:25');
+INSERT INTO `log` VALUES (323, '管理员 { 超级管理员 : admin } 删除考生答题项 { ExamPaperAnswer{id=103, studentId=15, examId=9, examPaperId=22, questionId=59, answer=\'A\', isCorrect=1, question=null} }', '2021-02-05 11:58:25');
+INSERT INTO `log` VALUES (324, '管理员 { 超级管理员 : admin } 删除考生答题项 { ExamPaperAnswer{id=104, studentId=15, examId=9, examPaperId=22, questionId=72, answer=\'C\', isCorrect=1, question=null} }', '2021-02-05 11:58:25');
+INSERT INTO `log` VALUES (326, '用户名为 { admin }，角色为 { 超级管理员 } 的管理员登录', '2021-02-05 12:05:07');
+INSERT INTO `log` VALUES (328, '用户名为 { admin }，角色为 { 超级管理员 } 的管理员登录', '2021-02-05 13:20:16');
+INSERT INTO `log` VALUES (330, '用户名为 { admin }，角色为 { 超级管理员 } 的管理员登录', '2021-02-05 13:22:53');
+INSERT INTO `log` VALUES (331, '用户名为 { admin }，角色为 { 超级管理员 } 的管理员登录', '2021-02-05 13:27:46');
+INSERT INTO `log` VALUES (332, '用户名为 { admin }，角色为 { 超级管理员 } 的管理员登录', '2021-02-05 13:29:55');
+INSERT INTO `log` VALUES (333, '用户名为 { admin }，角色为 { 超级管理员 } 的管理员登录', '2021-02-05 13:35:32');
+INSERT INTO `log` VALUES (334, '用户名为 { admin }，角色为 { 超级管理员 } 的管理员登录', '2021-02-05 13:37:45');
+INSERT INTO `log` VALUES (335, '用户名为 { admin }，角色为 { 超级管理员 } 的管理员登录', '2021-02-05 13:41:54');
+INSERT INTO `log` VALUES (336, '用户名为 { admin }，角色为 { 超级管理员 } 的管理员登录', '2021-02-05 13:43:43');
+INSERT INTO `log` VALUES (337, '用户名为 { admin }，角色为 { 超级管理员 } 的管理员登录', '2021-02-05 13:52:36');
+INSERT INTO `log` VALUES (338, '管理员 { 超级管理员 : admin } 更新试卷 { ExamPaper{id=22, examId=9, studentId=15, status=1, totalScore=40, score=35, startExamTime=2021-02-04 15:43:26, endExamTime=2021-02-04 15:45:24, useTime=1, createTime=2021-02-04 15:43:26} } 为 { ExamPaper{id=22, examId=9, studentId=15, status=1, totalScore=40, score=34, startExamTime=2021-02-04 15:43:26, endExamTime=2021-02-04 15:45:24, useTime=1, createTime=2021-02-04 15:43:26} }', '2021-02-05 13:52:51');
+INSERT INTO `log` VALUES (339, '管理员 { 超级管理员 : admin } 删除试卷 { ExamPaper{id=22, examId=9, studentId=15, status=1, totalScore=40, score=34, startExamTime=2021-02-04 15:43:26, endExamTime=2021-02-04 15:45:24, useTime=1, createTime=2021-02-04 15:43:26} }', '2021-02-05 13:53:06');
+INSERT INTO `log` VALUES (342, '用户名为 { admin }，角色为 { 超级管理员 } 的管理员登录', '2021-02-05 13:55:50');
+INSERT INTO `log` VALUES (343, '管理员 { 超级管理员:admin } 更新考试 { Exam{id=9, name=\'软件素养小测试\', subjectId=11, startTime=2021-02-04 15:40:30, endTime=2021-02-05 15:40:39, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=1, passNum=1, createTime=2021-02-04 15:42:07} } 为 { Exam{id=9, name=\'软件素养小测试\', subjectId=11, startTime=2021-02-04 15:40:30, endTime=2021-02-05 15:40:39, avaliableTime=40, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=1, passNum=1, createTime=2021-02-04 15:42:07} }', '2021-02-05 13:56:12');
+INSERT INTO `log` VALUES (344, '管理员 { 超级管理员 : admin} 删除考试 { Exam{id=9, name=\'软件素养小测试\', subjectId=11, startTime=2021-02-04 15:40:30, endTime=2021-02-05 15:40:39, avaliableTime=40, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=1, passNum=1, createTime=2021-02-04 15:42:07} }', '2021-02-05 13:56:24');
+INSERT INTO `log` VALUES (345, '管理员 { 超级管理员 : admin } 更新试题 { Question{id=59, subjectId=11, questionType=0, title=\'Java是什么？\', score=2, attrA=\'编程语言\', attrB=\'不知道\', attrC=\'一种吃的东西\', attrD=\'诗歌语言吧\', answer=\'A\', createTime=2021-02-04 15:40:00}} 为 { Question{id=59, subjectId=11, questionType=0, title=\'Java是什么？\', score=2, attrA=\'编程语言\', attrB=\'不知道\', attrC=\'一种吃的东西\', attrD=\'诗歌语言\', answer=\'A\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:56:45');
+INSERT INTO `log` VALUES (346, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=59, subjectId=11, questionType=0, title=\'Java是什么？\', score=2, attrA=\'编程语言\', attrB=\'不知道\', attrC=\'一种吃的东西\', attrD=\'诗歌语言\', answer=\'A\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:07');
+INSERT INTO `log` VALUES (347, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=60, subjectId=11, questionType=0, title=\'联合国教科文组织分别于2003年和2005年召开了以______为主题的世界性大会，并发布了《布拉格宣言》和《亚历山大宣言》。\', score=2, attrA=\'信息素养\', attrB=\'信息安全\', attrC=\'信息检索\', attrD=\'信息评价\', answer=\'A\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:07');
+INSERT INTO `log` VALUES (348, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=61, subjectId=11, questionType=0, title=\'\"Information retrieval \"翻译为______。\n\', score=2, attrA=\'信息检索\', attrB=\'信息素养\', attrC=\'信息安全\', attrD=\'信息评价\', answer=\'A\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:07');
+INSERT INTO `log` VALUES (349, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=62, subjectId=11, questionType=0, title=\'______是指在信息的生产、存储、获取、传播和利用等信息活动各个环节中，用来规范相关主体之间相互关系的法律关系和道德规范的总称。\', score=2, attrA=\'信息知识\', attrB=\'信息能力\', attrC=\'信息意识\', attrD=\'信息伦理\', answer=\'D\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:07');
+INSERT INTO `log` VALUES (350, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=63, subjectId=11, questionType=0, title=\'下列各项中______属于一次文献。\', score=2, attrA=\'专利说明书\', attrB=\'百科全书\', attrC=\'目录\', attrD=\'综述\', answer=\'A\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:07');
+INSERT INTO `log` VALUES (351, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=64, subjectId=11, questionType=0, title=\'下列各项中______属于二次文献。\', score=2, attrA=\'索引\', attrB=\'期刊\', attrC=\'学位论文\', attrD=\'百科全书\', answer=\'A\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:07');
+INSERT INTO `log` VALUES (352, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=65, subjectId=11, questionType=0, title=\'国内使用的《中国图书馆分类法》是采用______方法进行编排的。\', score=2, attrA=\'字顺\', attrB=\'分类\', attrC=\'主题\', attrD=\'时序\', answer=\'B\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:07');
+INSERT INTO `log` VALUES (353, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=66, subjectId=11, questionType=0, title=\'布尔逻辑检索中检索符号“OR”的主要作用在于______。\', score=2, attrA=\'提高查准率\', attrB=\'提高查全率\', attrC=\'排除不必要信息\', attrD=\'减少文献输出量\', answer=\'B\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:07');
+INSERT INTO `log` VALUES (354, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=67, subjectId=11, questionType=0, title=\'______指检出的相关文献信息量与检出的文献总量之比\', score=2, attrA=\'查全率\', attrB=\'查准率\', attrC=\'误检率\', attrD=\'漏检率\', answer=\'B\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:07');
+INSERT INTO `log` VALUES (355, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=68, subjectId=11, questionType=0, title=\'______是出版周期最短的定期连续出版物。\', score=2, attrA=\'图书\', attrB=\'期刊\', attrC=\'报纸\', attrD=\'学位论文\', answer=\'C\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:07');
+INSERT INTO `log` VALUES (356, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=69, subjectId=11, questionType=0, title=\'利用图书末尾所附参考文献进行检索的方法是____。\', score=2, attrA=\'顺查法\', attrB=\'倒查法\', attrC=\'抽查法\', attrD=\'追溯法\', answer=\'D\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:07');
+INSERT INTO `log` VALUES (357, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=70, subjectId=11, questionType=0, title=\'《四级英语词汇》这本图书的分类号可能是______。\', score=2, attrA=\'G636.33\', attrB=\'J216.2\', attrC=\'I247.4\', attrD=\'H319\', answer=\'D\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:07');
+INSERT INTO `log` VALUES (358, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=71, subjectId=11, questionType=0, title=\'布尔逻辑检索技术属于_____。\', score=2, attrA=\'文本检索技术\', attrB=\'图像检索技术\', attrC=\'音频检索技术\', attrD=\'视频检索技术\', answer=\'A\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:07');
+INSERT INTO `log` VALUES (359, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=72, subjectId=11, questionType=0, title=\'二次检索指的是______。\', score=2, attrA=\'第二次检索\', attrB=\'检索了一次之后，结果不满意，再检索一次\', attrC=\'在上一次检索的结果集上进行的检索\', attrD=\'与上一次检索的结果进行对比，得到的检索\', answer=\'C\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:07');
+INSERT INTO `log` VALUES (360, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=73, subjectId=11, questionType=0, title=\'利用CNKI的全文数据库，检索“文庭孝”老师的作品，应选择______作为检索途径。\', score=2, attrA=\'题名\', attrB=\'作者\', attrC=\'关键词\', attrD=\'单位\', answer=\'B\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:07');
+INSERT INTO `log` VALUES (361, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=74, subjectId=11, questionType=0, title=\'Adobe Reader可以阅读____格式文献。\', score=2, attrA=\'VIP\', attrB=\'TXT\', attrC=\'HTML\', attrD=\'PDF\', answer=\'D\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:07');
+INSERT INTO `log` VALUES (362, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=75, subjectId=11, questionType=0, title=\'CAJviewer（俗称：CAJ阅读器）是______数据库的全文阅读软件。\', score=2, attrA=\'超星数字图书馆\', attrB=\'中国知网\', attrC=\'万方\', attrD=\'维普期刊\', answer=\'B\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:07');
+INSERT INTO `log` VALUES (363, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=76, subjectId=11, questionType=0, title=\'以下哪项不是中国期刊全文数据库（CNKI）的检索字段？\', score=2, attrA=\'作者\', attrB=\'第一作者\', attrC=\'基金\', attrD=\'分子式\', answer=\'D\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:07');
+INSERT INTO `log` VALUES (364, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=77, subjectId=11, questionType=0, title=\'美国《科学引文索引》的缩写为____。\', score=2, attrA=\'SCI\', attrB=\'CSSCI\', attrC=\'EI\', attrD=\'ISTP\', answer=\'A\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:07');
+INSERT INTO `log` VALUES (365, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=78, subjectId=11, questionType=0, title=\'当今世界上最知名也是最权威的百科全书是____。\', score=2, attrA=\'美国百科全书\', attrB=\'哥伦比亚百科全书\', attrC=\'不列颠百科全书\', attrD=\'中国大百科全书\', answer=\'C\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:07');
+INSERT INTO `log` VALUES (366, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=59, subjectId=11, questionType=0, title=\'Java是什么？\', score=2, attrA=\'编程语言\', attrB=\'不知道\', attrC=\'一种吃的东西\', attrD=\'诗歌语言\', answer=\'A\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:21');
+INSERT INTO `log` VALUES (367, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=60, subjectId=11, questionType=0, title=\'联合国教科文组织分别于2003年和2005年召开了以______为主题的世界性大会，并发布了《布拉格宣言》和《亚历山大宣言》。\', score=2, attrA=\'信息素养\', attrB=\'信息安全\', attrC=\'信息检索\', attrD=\'信息评价\', answer=\'A\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:21');
+INSERT INTO `log` VALUES (368, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=61, subjectId=11, questionType=0, title=\'\"Information retrieval \"翻译为______。\n\', score=2, attrA=\'信息检索\', attrB=\'信息素养\', attrC=\'信息安全\', attrD=\'信息评价\', answer=\'A\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:21');
+INSERT INTO `log` VALUES (369, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=62, subjectId=11, questionType=0, title=\'______是指在信息的生产、存储、获取、传播和利用等信息活动各个环节中，用来规范相关主体之间相互关系的法律关系和道德规范的总称。\', score=2, attrA=\'信息知识\', attrB=\'信息能力\', attrC=\'信息意识\', attrD=\'信息伦理\', answer=\'D\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:21');
+INSERT INTO `log` VALUES (370, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=63, subjectId=11, questionType=0, title=\'下列各项中______属于一次文献。\', score=2, attrA=\'专利说明书\', attrB=\'百科全书\', attrC=\'目录\', attrD=\'综述\', answer=\'A\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:21');
+INSERT INTO `log` VALUES (371, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=64, subjectId=11, questionType=0, title=\'下列各项中______属于二次文献。\', score=2, attrA=\'索引\', attrB=\'期刊\', attrC=\'学位论文\', attrD=\'百科全书\', answer=\'A\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:21');
+INSERT INTO `log` VALUES (372, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=65, subjectId=11, questionType=0, title=\'国内使用的《中国图书馆分类法》是采用______方法进行编排的。\', score=2, attrA=\'字顺\', attrB=\'分类\', attrC=\'主题\', attrD=\'时序\', answer=\'B\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:21');
+INSERT INTO `log` VALUES (373, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=66, subjectId=11, questionType=0, title=\'布尔逻辑检索中检索符号“OR”的主要作用在于______。\', score=2, attrA=\'提高查准率\', attrB=\'提高查全率\', attrC=\'排除不必要信息\', attrD=\'减少文献输出量\', answer=\'B\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:21');
+INSERT INTO `log` VALUES (374, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=67, subjectId=11, questionType=0, title=\'______指检出的相关文献信息量与检出的文献总量之比\', score=2, attrA=\'查全率\', attrB=\'查准率\', attrC=\'误检率\', attrD=\'漏检率\', answer=\'B\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:21');
+INSERT INTO `log` VALUES (375, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=68, subjectId=11, questionType=0, title=\'______是出版周期最短的定期连续出版物。\', score=2, attrA=\'图书\', attrB=\'期刊\', attrC=\'报纸\', attrD=\'学位论文\', answer=\'C\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:21');
+INSERT INTO `log` VALUES (376, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=69, subjectId=11, questionType=0, title=\'利用图书末尾所附参考文献进行检索的方法是____。\', score=2, attrA=\'顺查法\', attrB=\'倒查法\', attrC=\'抽查法\', attrD=\'追溯法\', answer=\'D\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:21');
+INSERT INTO `log` VALUES (377, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=70, subjectId=11, questionType=0, title=\'《四级英语词汇》这本图书的分类号可能是______。\', score=2, attrA=\'G636.33\', attrB=\'J216.2\', attrC=\'I247.4\', attrD=\'H319\', answer=\'D\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:21');
+INSERT INTO `log` VALUES (378, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=71, subjectId=11, questionType=0, title=\'布尔逻辑检索技术属于_____。\', score=2, attrA=\'文本检索技术\', attrB=\'图像检索技术\', attrC=\'音频检索技术\', attrD=\'视频检索技术\', answer=\'A\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:21');
+INSERT INTO `log` VALUES (379, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=72, subjectId=11, questionType=0, title=\'二次检索指的是______。\', score=2, attrA=\'第二次检索\', attrB=\'检索了一次之后，结果不满意，再检索一次\', attrC=\'在上一次检索的结果集上进行的检索\', attrD=\'与上一次检索的结果进行对比，得到的检索\', answer=\'C\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:21');
+INSERT INTO `log` VALUES (380, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=73, subjectId=11, questionType=0, title=\'利用CNKI的全文数据库，检索“文庭孝”老师的作品，应选择______作为检索途径。\', score=2, attrA=\'题名\', attrB=\'作者\', attrC=\'关键词\', attrD=\'单位\', answer=\'B\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:21');
+INSERT INTO `log` VALUES (381, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=74, subjectId=11, questionType=0, title=\'Adobe Reader可以阅读____格式文献。\', score=2, attrA=\'VIP\', attrB=\'TXT\', attrC=\'HTML\', attrD=\'PDF\', answer=\'D\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:21');
+INSERT INTO `log` VALUES (382, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=75, subjectId=11, questionType=0, title=\'CAJviewer（俗称：CAJ阅读器）是______数据库的全文阅读软件。\', score=2, attrA=\'超星数字图书馆\', attrB=\'中国知网\', attrC=\'万方\', attrD=\'维普期刊\', answer=\'B\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:21');
+INSERT INTO `log` VALUES (383, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=76, subjectId=11, questionType=0, title=\'以下哪项不是中国期刊全文数据库（CNKI）的检索字段？\', score=2, attrA=\'作者\', attrB=\'第一作者\', attrC=\'基金\', attrD=\'分子式\', answer=\'D\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:21');
+INSERT INTO `log` VALUES (384, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=77, subjectId=11, questionType=0, title=\'美国《科学引文索引》的缩写为____。\', score=2, attrA=\'SCI\', attrB=\'CSSCI\', attrC=\'EI\', attrD=\'ISTP\', answer=\'A\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:21');
+INSERT INTO `log` VALUES (385, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=78, subjectId=11, questionType=0, title=\'当今世界上最知名也是最权威的百科全书是____。\', score=2, attrA=\'美国百科全书\', attrB=\'哥伦比亚百科全书\', attrC=\'不列颠百科全书\', attrD=\'中国大百科全书\', answer=\'C\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:21');
+INSERT INTO `log` VALUES (386, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=79, subjectId=11, questionType=0, title=\'WWW信息资源主要基于___协议传输。\', score=2, attrA=\'FTP\', attrB=\'TELNET\', attrC=\'HTTP\', attrD=\'P2P\', answer=\'C\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:21');
+INSERT INTO `log` VALUES (387, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=80, subjectId=11, questionType=0, title=\'微软公司开发的搜索引擎是______。\', score=2, attrA=\'www.baidu.com\', attrB=\'www.yahoo.com\', attrC=\'www.iask.com\', attrD=\'www.bing.com\', answer=\'D\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:21');
+INSERT INTO `log` VALUES (388, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=81, subjectId=11, questionType=0, title=\'全球最大的中文搜索引擎是______。\', score=2, attrA=\'搜搜\', attrB=\'百度\', attrC=\'雅虎\', attrD=\'谷歌\', answer=\'B\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:21');
+INSERT INTO `log` VALUES (389, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=82, subjectId=11, questionType=0, title=\'在百度和谷歌中，可以通过______语法实现把检索范围限定在网页标题中这个功能。\', score=2, attrA=\'filetype：\', attrB=\'inurl：\', attrC=\'intitle：\', attrD=\'site：\', answer=\'C\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:21');
+INSERT INTO `log` VALUES (390, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=83, subjectId=11, questionType=0, title=\'下载工具是帮助用户快速、稳定地从网上下载资源的软件。下列属于常用下载工具有哪些？\', score=2, attrA=\'迅雷\', attrB=\'优酷\', attrC=\'淘宝\', attrD=\'新浪\', answer=\'A\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:21');
+INSERT INTO `log` VALUES (391, '管理员 { 超级管理员 : admin } 删除试题 { Question{id=84, subjectId=11, questionType=0, title=\'在参考文献“李国新 . 开启新时代图书馆法治研究的新阶段[J]. 图书馆, 2018.”中，“[J]”表示该参考文献是_____。\', score=2, attrA=\'著作\', attrB=\'专利\', attrC=\'连续出版物\', attrD=\'标准\', answer=\'C\', createTime=2021-02-04 15:40:00} }', '2021-02-05 13:57:21');
+INSERT INTO `log` VALUES (392, '用户名为 { admin }，角色为 { 超级管理员 } 的管理员登录', '2021-02-05 14:01:58');
+INSERT INTO `log` VALUES (393, '用户名为 { admin }，角色为 { 超级管理员 } 的管理员登录', '2021-02-05 14:13:05');
+INSERT INTO `log` VALUES (394, '用户名为admin的用户登录时输入验证码错误!', '2021-02-05 14:14:48');
+INSERT INTO `log` VALUES (395, '用户名为 { admin }，角色为 { 超级管理员 } 的管理员登录', '2021-02-05 14:14:55');
+INSERT INTO `log` VALUES (396, '用户名为 { admin }，角色为 { 超级管理员 } 的管理员登录', '2021-02-05 14:17:03');
+INSERT INTO `log` VALUES (397, '用户名为admin的用户登录时输入验证码错误!', '2021-02-05 14:29:35');
+INSERT INTO `log` VALUES (398, '用户名为 { admin }，角色为 { 超级管理员 } 的管理员登录', '2021-02-05 14:29:42');
+INSERT INTO `log` VALUES (399, '用户名为 { admin }，角色为 { 超级管理员 } 的管理员登录', '2021-02-05 14:32:30');
+INSERT INTO `log` VALUES (400, '用户名为 { admin }，角色为 { 超级管理员 } 的管理员登录', '2021-02-05 14:36:30');
+INSERT INTO `log` VALUES (401, '管理员 { 超级管理员 : admin } 更新考生 { Student{id=15, studentId=null, subjectId=11, name=\'HNDD\', trueName=\'HNDD\', tel=\'17674748338\', createTime=2021-02-04 15:42:54} } 为 { Student{id=15, studentId=201865110155, subjectId=11, name=\'HNDD\', trueName=\'HNDD\', tel=\'17674748338\', createTime=2021-02-04 15:42:54} }', '2021-02-05 14:36:42');
+INSERT INTO `log` VALUES (402, '管理员 { 超级管理员 : admin } 删除考生 {Student{id=15, studentId=201865110155, subjectId=11, name=\'HNDD\', trueName=\'HNDD\', tel=\'17674748338\', createTime=2021-02-04 15:42:54} }', '2021-02-05 14:38:00');
+INSERT INTO `log` VALUES (403, '管理员 { 教师 : teacher } 更新学科 { Subject{id=11, name=\'软件素养\', userId=14, remark=\'软件素养\'} } 为 { Subject{id=11, name=\'软件素养\', userId=14, remark=\'软件素养123\'} }', '2021-02-05 14:38:31');
+INSERT INTO `log` VALUES (404, '管理员 { 超级管理员 : admin } 删除学科 { Subject{id=11, name=\'软件素养\', userId=14, remark=\'软件素养123\'} }', '2021-02-05 14:38:42');
+INSERT INTO `log` VALUES (405, '管理员 { 超级管理员 : admin } 更新管理员 { User{id=14, username=\'teacher\', roleId=3, photo=\'/OnlineExam/resources/upload/1612456892933.JPG\', sex=0, age=1, address=\'\'} ，角色为 Role{id=3, name=\'教师\', remark=\'管理考试\'} } 为 { User{id=14, username=\'teacher\', roleId=3, photo=\'/OnlineExam/resources/upload/1612456892933.JPG\', sex=0, age=1, address=\'123\'} ，角色为 Role{id=3, name=\'教师\', remark=\'管理考试\'} }', '2021-02-05 14:39:03');
+INSERT INTO `log` VALUES (406, '用户名为 { admin } 的管理员修改密码!', '2021-02-05 14:40:49');
+INSERT INTO `log` VALUES (407, '管理员 { 超级管理员 : admin } 更新角色 { Role{id=3, name=\'教师\', remark=\'管理考试\'} } 为 { Role{id=3, name=\'教师\', remark=\'管理考试1\'} }', '2021-02-05 14:41:05');
+INSERT INTO `log` VALUES (408, '管理员 { 超级管理员 : admin } 更新角色 { Role{id=3, name=\'教师\', remark=\'管理考试1\'} } 为 { Role{id=3, name=\'教师\', remark=\'管理考试\'} }', '2021-02-05 14:41:08');
+INSERT INTO `log` VALUES (409, '管理员{超级管理员:admin} 修改{教师，Id为3}角色的权限为{权限ids为(35,36,42,43,44,45,46,47,48,49,50,51,64,52,53,54,55,56,57,58,60,61,1)}!', '2021-02-05 14:41:19');
+INSERT INTO `log` VALUES (410, '管理员{超级管理员:admin} 修改{教师，Id为3}角色的权限为{权限ids为(35,36,42,43,44,45,46,47,48,49,50,51,64,52,53,54,55,56,57,58,60,61,62,63,67,1)}!', '2021-02-05 14:41:22');
+INSERT INTO `log` VALUES (411, '用户名为admin的用户登录时输入密码错误!', '2021-02-05 14:46:49');
+INSERT INTO `log` VALUES (412, '用户名为admin的用户登录时输入验证码错误!', '2021-02-05 14:46:59');
+INSERT INTO `log` VALUES (413, '用户名为admin的用户登录时输入密码错误!', '2021-02-05 14:47:14');
+INSERT INTO `log` VALUES (414, '用户名为admin的用户登录时输入密码错误!', '2021-02-05 14:47:19');
+INSERT INTO `log` VALUES (415, '用户名为admin的用户登录时输入密码错误!', '2021-02-05 14:47:25');
+INSERT INTO `log` VALUES (416, '用户名为 { admin }，角色为 { 超级管理员 } 的管理员登录', '2021-02-05 14:47:30');
+INSERT INTO `log` VALUES (417, '管理员 { 超级管理员 : admin } 上传了图片 { 1612507896479.JPG，大小为 (0kb)，保存地址为 ( E:\\workspace\\idea-workspace\\OnlineExam\\target\\OnlineExam\\/resources/upload/ ) }', '2021-02-05 14:51:37');
+INSERT INTO `log` VALUES (418, '管理员 { 超级管理员 : admin } 添加管理员 { User{id=null, username=\'teacher\', roleId=3, photo=\'/OnlineExam/resources/upload/1612507896479.JPG\', sex=0, age=1, address=\'\'} } 角色为 { Role{id=3, name=\'教师\', remark=\'管理考试\'} }', '2021-02-05 14:52:16');
+INSERT INTO `log` VALUES (419, '管理员 { 教师 : teacher } 添加学科 { Subject{id=null, name=\'软件工程\', userId=16, remark=\'\'} }', '2021-02-05 14:52:47');
+INSERT INTO `log` VALUES (420, '管理员 { 超级管理员 : admin } 添加考生 { Student{id=null, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguang\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} }', '2021-02-05 14:56:53');
+INSERT INTO `log` VALUES (421, '管理员 { 超级管理员 : admin } 添加考试 { Exam{id=null, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=0, examedNum=0, passNum=0, createTime=2021-02-05 14:57:52} }', '2021-02-05 14:57:53');
+INSERT INTO `log` VALUES (422, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguang\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 登录', '2021-02-05 14:58:09');
+INSERT INTO `log` VALUES (423, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguang\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 登录', '2021-02-05 15:03:51');
+INSERT INTO `log` VALUES (424, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguang\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 修改密码', '2021-02-05 15:04:01');
+INSERT INTO `log` VALUES (425, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguang\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 修改密码', '2021-02-05 15:04:28');
+INSERT INTO `log` VALUES (426, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguang\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 登录', '2021-02-05 15:06:54');
+INSERT INTO `log` VALUES (427, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguang\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 修改密码', '2021-02-05 15:07:01');
+INSERT INTO `log` VALUES (428, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguang\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 修改个人信息为 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} }', '2021-02-05 15:07:13');
+INSERT INTO `log` VALUES (429, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 修改个人信息为 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} }', '2021-02-05 15:08:18');
+INSERT INTO `log` VALUES (430, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 修改个人信息为 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} }', '2021-02-05 15:08:20');
+INSERT INTO `log` VALUES (431, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 试卷已生成，试卷为 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-05 14:57:53} }', '2021-02-05 15:08:29');
+INSERT INTO `log` VALUES (432, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-05 14:57:53} }', '2021-02-05 15:08:31');
+INSERT INTO `log` VALUES (433, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-05 14:57:53} }', '2021-02-05 15:08:31');
+INSERT INTO `log` VALUES (434, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-05 14:57:53} }', '2021-02-05 15:08:32');
+INSERT INTO `log` VALUES (435, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-05 14:57:53} }', '2021-02-05 15:08:32');
+INSERT INTO `log` VALUES (436, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-05 14:57:53} }', '2021-02-05 15:08:33');
+INSERT INTO `log` VALUES (437, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-05 14:57:53} }', '2021-02-05 15:08:33');
+INSERT INTO `log` VALUES (438, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-05 14:57:53} }', '2021-02-05 15:08:34');
+INSERT INTO `log` VALUES (439, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-05 14:57:53} }', '2021-02-05 15:08:34');
+INSERT INTO `log` VALUES (440, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-05 14:57:53} }', '2021-02-05 15:08:35');
+INSERT INTO `log` VALUES (441, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-05 14:57:53} }', '2021-02-05 15:08:35');
+INSERT INTO `log` VALUES (442, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-05 14:57:53} }', '2021-02-05 15:08:40');
+INSERT INTO `log` VALUES (443, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-05 14:57:53} }', '2021-02-05 15:08:41');
+INSERT INTO `log` VALUES (444, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-05 14:57:53} }', '2021-02-05 15:08:41');
+INSERT INTO `log` VALUES (445, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-05 14:57:53} }', '2021-02-05 15:08:42');
+INSERT INTO `log` VALUES (446, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-05 14:57:53} }', '2021-02-05 15:08:42');
+INSERT INTO `log` VALUES (447, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-05 14:57:53} }', '2021-02-05 15:08:43');
+INSERT INTO `log` VALUES (448, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-05 14:57:53} }', '2021-02-05 15:08:43');
+INSERT INTO `log` VALUES (449, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-05 14:57:53} }', '2021-02-05 15:08:44');
+INSERT INTO `log` VALUES (450, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-05 14:57:53} }', '2021-02-05 15:08:44');
+INSERT INTO `log` VALUES (451, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-05 14:57:53} }', '2021-02-05 15:08:46');
+INSERT INTO `log` VALUES (452, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-05 14:57:53} }', '2021-02-05 15:08:49');
+INSERT INTO `log` VALUES (453, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 登录', '2021-02-05 15:09:10');
+INSERT INTO `log` VALUES (454, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-05 14:57:53} }', '2021-02-05 15:09:39');
+INSERT INTO `log` VALUES (455, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-05 14:57:53} }', '2021-02-05 15:09:39');
+INSERT INTO `log` VALUES (456, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-05 14:57:53} }', '2021-02-05 15:10:54');
+INSERT INTO `log` VALUES (457, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-05 14:57:53} }', '2021-02-05 15:10:54');
+INSERT INTO `log` VALUES (458, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-05 14:57:53} }', '2021-02-05 15:10:55');
+INSERT INTO `log` VALUES (459, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-05 14:57:53} }', '2021-02-05 15:10:56');
+INSERT INTO `log` VALUES (460, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-05 14:57:53} }', '2021-02-05 15:10:57');
+INSERT INTO `log` VALUES (461, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-05 14:57:53} }', '2021-02-05 15:10:57');
+INSERT INTO `log` VALUES (462, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-05 14:57:53} }', '2021-02-05 15:10:58');
+INSERT INTO `log` VALUES (463, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-05 14:57:53} }', '2021-02-05 15:10:58');
+INSERT INTO `log` VALUES (464, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-05 14:57:53} }', '2021-02-05 15:10:59');
+INSERT INTO `log` VALUES (465, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-05 14:57:53} }', '2021-02-05 15:11:00');
+INSERT INTO `log` VALUES (466, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-05 14:57:53} }', '2021-02-05 15:11:01');
+INSERT INTO `log` VALUES (467, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-05 14:57:53} }', '2021-02-05 15:11:02');
+INSERT INTO `log` VALUES (468, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-05 14:57:53} }', '2021-02-05 15:11:03');
+INSERT INTO `log` VALUES (469, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-05 14:57:53} }', '2021-02-05 15:11:03');
+INSERT INTO `log` VALUES (470, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-05 14:57:53} }', '2021-02-05 15:11:04');
+INSERT INTO `log` VALUES (471, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-05 14:57:53} }', '2021-02-05 15:11:05');
+INSERT INTO `log` VALUES (472, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-05 14:57:53} }', '2021-02-05 15:11:05');
+INSERT INTO `log` VALUES (473, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-05 14:57:53} }', '2021-02-05 15:11:06');
+INSERT INTO `log` VALUES (474, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-05 14:57:53} }', '2021-02-05 15:11:07');
+INSERT INTO `log` VALUES (475, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交试卷，试卷为 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=1, passNum=0, createTime=2021-02-05 14:57:53} },分数为 { 10 }', '2021-02-05 15:11:08');
+INSERT INTO `log` VALUES (476, '用户名为admin的用户登录时输入密码错误!', '2021-02-05 15:11:26');
+INSERT INTO `log` VALUES (477, '用户名为 { admin }，角色为 { 超级管理员 } 的管理员登录', '2021-02-05 15:11:33');
+INSERT INTO `log` VALUES (478, '用户名为 { admin } 的管理员修改密码!', '2021-02-05 15:11:42');
+INSERT INTO `log` VALUES (479, '管理员 { 超级管理员 : admin } 查询了考试 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=1, passNum=0, createTime=2021-02-05 14:57:53} } 的图表数据!', '2021-02-05 15:12:59');
+INSERT INTO `log` VALUES (480, '用户名为 { admin }，角色为 { 超级管理员 } 的管理员登录', '2021-02-05 16:28:06');
+INSERT INTO `log` VALUES (481, '管理员 { 超级管理员 : admin } 查询了考试 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=1, passNum=0, createTime=2021-02-05 14:57:53} } 的图表数据!', '2021-02-05 16:40:27');
+INSERT INTO `log` VALUES (482, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 登录', '2021-02-05 16:44:49');
+INSERT INTO `log` VALUES (483, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 登录', '2021-02-09 22:16:41');
+INSERT INTO `log` VALUES (484, '用户名为 { admin }，角色为 { 超级管理员 } 的管理员登录', '2021-02-09 22:17:09');
+INSERT INTO `log` VALUES (485, '管理员 { 超级管理员 : admin } 添加考试 { Exam{id=null, name=\'软件工程课堂测试\', subjectId=12, startTime=2021-02-09 22:17:28, endTime=2021-02-10 22:17:29, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=0, examedNum=0, passNum=0, createTime=2021-02-09 22:17:54} }', '2021-02-09 22:17:55');
+INSERT INTO `log` VALUES (486, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 试卷已生成，试卷为 { Exam{id=11, name=\'软件工程课堂测试\', subjectId=12, startTime=2021-02-09 22:17:28, endTime=2021-02-10 22:17:29, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-09 22:17:55} }', '2021-02-09 22:41:31');
+INSERT INTO `log` VALUES (487, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=11, name=\'软件工程课堂测试\', subjectId=12, startTime=2021-02-09 22:17:28, endTime=2021-02-10 22:17:29, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-09 22:17:55} }', '2021-02-09 22:50:12');
+INSERT INTO `log` VALUES (488, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=11, name=\'软件工程课堂测试\', subjectId=12, startTime=2021-02-09 22:17:28, endTime=2021-02-10 22:17:29, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-09 22:17:55} }', '2021-02-09 22:50:14');
+INSERT INTO `log` VALUES (489, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=11, name=\'软件工程课堂测试\', subjectId=12, startTime=2021-02-09 22:17:28, endTime=2021-02-10 22:17:29, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-09 22:17:55} }', '2021-02-09 22:50:14');
+INSERT INTO `log` VALUES (490, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=11, name=\'软件工程课堂测试\', subjectId=12, startTime=2021-02-09 22:17:28, endTime=2021-02-10 22:17:29, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-09 22:17:55} }', '2021-02-09 22:50:17');
+INSERT INTO `log` VALUES (491, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=11, name=\'软件工程课堂测试\', subjectId=12, startTime=2021-02-09 22:17:28, endTime=2021-02-10 22:17:29, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-09 22:17:55} }', '2021-02-09 22:50:18');
+INSERT INTO `log` VALUES (492, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=11, name=\'软件工程课堂测试\', subjectId=12, startTime=2021-02-09 22:17:28, endTime=2021-02-10 22:17:29, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-09 22:17:55} }', '2021-02-09 22:50:21');
+INSERT INTO `log` VALUES (493, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=11, name=\'软件工程课堂测试\', subjectId=12, startTime=2021-02-09 22:17:28, endTime=2021-02-10 22:17:29, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-09 22:17:55} }', '2021-02-09 22:50:25');
+INSERT INTO `log` VALUES (494, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=11, name=\'软件工程课堂测试\', subjectId=12, startTime=2021-02-09 22:17:28, endTime=2021-02-10 22:17:29, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-09 22:17:55} }', '2021-02-09 22:50:31');
+INSERT INTO `log` VALUES (495, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=11, name=\'软件工程课堂测试\', subjectId=12, startTime=2021-02-09 22:17:28, endTime=2021-02-10 22:17:29, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-09 22:17:55} }', '2021-02-09 22:50:32');
+INSERT INTO `log` VALUES (496, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=11, name=\'软件工程课堂测试\', subjectId=12, startTime=2021-02-09 22:17:28, endTime=2021-02-10 22:17:29, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-09 22:17:55} }', '2021-02-09 22:50:34');
+INSERT INTO `log` VALUES (497, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=11, name=\'软件工程课堂测试\', subjectId=12, startTime=2021-02-09 22:17:28, endTime=2021-02-10 22:17:29, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-09 22:17:55} }', '2021-02-09 22:50:35');
+INSERT INTO `log` VALUES (498, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=11, name=\'软件工程课堂测试\', subjectId=12, startTime=2021-02-09 22:17:28, endTime=2021-02-10 22:17:29, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-09 22:17:55} }', '2021-02-09 22:50:36');
+INSERT INTO `log` VALUES (499, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=11, name=\'软件工程课堂测试\', subjectId=12, startTime=2021-02-09 22:17:28, endTime=2021-02-10 22:17:29, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-09 22:17:55} }', '2021-02-09 22:50:37');
+INSERT INTO `log` VALUES (500, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=11, name=\'软件工程课堂测试\', subjectId=12, startTime=2021-02-09 22:17:28, endTime=2021-02-10 22:17:29, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-09 22:17:55} }', '2021-02-09 22:50:37');
+INSERT INTO `log` VALUES (501, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=11, name=\'软件工程课堂测试\', subjectId=12, startTime=2021-02-09 22:17:28, endTime=2021-02-10 22:17:29, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-09 22:17:55} }', '2021-02-09 22:50:39');
+INSERT INTO `log` VALUES (502, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=11, name=\'软件工程课堂测试\', subjectId=12, startTime=2021-02-09 22:17:28, endTime=2021-02-10 22:17:29, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-09 22:17:55} }', '2021-02-09 22:50:40');
+INSERT INTO `log` VALUES (503, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=11, name=\'软件工程课堂测试\', subjectId=12, startTime=2021-02-09 22:17:28, endTime=2021-02-10 22:17:29, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-09 22:17:55} }', '2021-02-09 22:50:41');
+INSERT INTO `log` VALUES (504, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=11, name=\'软件工程课堂测试\', subjectId=12, startTime=2021-02-09 22:17:28, endTime=2021-02-10 22:17:29, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-09 22:17:55} }', '2021-02-09 22:50:41');
+INSERT INTO `log` VALUES (505, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=11, name=\'软件工程课堂测试\', subjectId=12, startTime=2021-02-09 22:17:28, endTime=2021-02-10 22:17:29, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-09 22:17:55} }', '2021-02-09 22:50:42');
+INSERT INTO `log` VALUES (506, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=11, name=\'软件工程课堂测试\', subjectId=12, startTime=2021-02-09 22:17:28, endTime=2021-02-10 22:17:29, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-09 22:17:55} }', '2021-02-09 22:50:43');
+INSERT INTO `log` VALUES (507, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=11, name=\'软件工程课堂测试\', subjectId=12, startTime=2021-02-09 22:17:28, endTime=2021-02-10 22:17:29, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-09 22:17:55} }', '2021-02-09 22:50:43');
+INSERT INTO `log` VALUES (508, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=11, name=\'软件工程课堂测试\', subjectId=12, startTime=2021-02-09 22:17:28, endTime=2021-02-10 22:17:29, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-09 22:17:55} }', '2021-02-09 22:50:44');
+INSERT INTO `log` VALUES (509, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=11, name=\'软件工程课堂测试\', subjectId=12, startTime=2021-02-09 22:17:28, endTime=2021-02-10 22:17:29, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-09 22:17:55} }', '2021-02-09 22:50:45');
+INSERT INTO `log` VALUES (510, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交答案，试卷为 { Exam{id=11, name=\'软件工程课堂测试\', subjectId=12, startTime=2021-02-09 22:17:28, endTime=2021-02-10 22:17:29, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=0, passNum=0, createTime=2021-02-09 22:17:55} }', '2021-02-09 22:50:45');
+INSERT INTO `log` VALUES (511, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 已提交试卷，试卷为 { Exam{id=11, name=\'软件工程课堂测试\', subjectId=12, startTime=2021-02-09 22:17:28, endTime=2021-02-10 22:17:29, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=1, passNum=0, createTime=2021-02-09 22:17:55} },分数为 { 20 }', '2021-02-09 22:50:48');
+INSERT INTO `log` VALUES (512, '用户名为 { admin }，角色为 { 超级管理员 } 的管理员退出!', '2021-02-09 23:09:31');
+INSERT INTO `log` VALUES (513, '用户名为 { admin }，角色为 { 超级管理员 } 的管理员登录', '2021-02-09 23:14:22');
+INSERT INTO `log` VALUES (514, '用户名为 { admin }，角色为 { 超级管理员 } 的管理员登录', '2021-02-15 15:20:44');
+INSERT INTO `log` VALUES (515, '管理员 { 超级管理员 : admin } 查询了考试 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=1, passNum=0, createTime=2021-02-05 14:57:53} } 的图表数据!', '2021-02-15 16:02:58');
+INSERT INTO `log` VALUES (516, '管理员 { 超级管理员 : admin } 查询了考试 { Exam{id=11, name=\'软件工程课堂测试\', subjectId=12, startTime=2021-02-09 22:17:28, endTime=2021-02-10 22:17:29, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=1, passNum=0, createTime=2021-02-09 22:17:55} } 的图表数据!', '2021-02-15 16:02:59');
+INSERT INTO `log` VALUES (517, '用户名为 { admin }，角色为 { 超级管理员 } 的管理员登录', '2021-05-16 01:21:37');
+INSERT INTO `log` VALUES (518, '管理员 { 超级管理员 : admin } 添加角色 { Role{id=null, name=\'教师\', remark=\'\'} }', '2021-05-16 01:24:09');
+INSERT INTO `log` VALUES (519, '管理员 { 超级管理员 : admin } 删除角色 { Role{id=4, name=\'教师\', remark=\'\'} }', '2021-05-16 01:24:14');
+INSERT INTO `log` VALUES (520, '管理员 { 超级管理员 : admin } 查询了考试 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=1, passNum=0, createTime=2021-02-05 14:57:53} } 的图表数据!', '2021-05-16 02:16:10');
+INSERT INTO `log` VALUES (521, '管理员 { 超级管理员 : admin } 查询了考试 { Exam{id=11, name=\'软件工程课堂测试\', subjectId=12, startTime=2021-02-09 22:17:28, endTime=2021-02-10 22:17:29, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=1, passNum=0, createTime=2021-02-09 22:17:55} } 的图表数据!', '2021-05-16 02:16:13');
+INSERT INTO `log` VALUES (522, '用户名为 { admin }，角色为 { 超级管理员 } 的管理员退出!', '2021-05-16 02:22:23');
+INSERT INTO `log` VALUES (523, '用户名为 { admin }，角色为 { 超级管理员 } 的管理员登录', '2021-05-16 02:29:39');
+INSERT INTO `log` VALUES (524, '考生 { Student{id=16, studentId=201865110155, subjectId=12, name=\'chenguang\', trueName=\'chenguangGG\', tel=\'17674748338\', createTime=2021-02-05 14:56:53} } 登录', '2021-05-16 02:30:12');
+INSERT INTO `log` VALUES (525, '用户名为 { admin }，角色为 { 超级管理员 } 的管理员登录', '2021-05-16 10:28:19');
+INSERT INTO `log` VALUES (526, '管理员 { 超级管理员 : admin } 查询了考试 { Exam{id=10, name=\'软件工程小测试\', subjectId=12, startTime=2021-02-05 14:57:33, endTime=2021-02-06 14:57:37, avaliableTime=60, questionNum=20, totalScore=40, passScore=30, singleQuestionNum=20, muiltQuestionNum=0, chargeQuestionNum=0, paperNum=1, examedNum=1, passNum=0, createTime=2021-02-05 14:57:53} } 的图表数据!', '2021-05-16 10:30:39');
 
 -- ----------------------------
 -- Table structure for menu
@@ -392,7 +531,7 @@ CREATE TABLE `menu`  (
   `url` varchar(128) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '点击后的url',
   `icon` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '菜单icon图表',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 67 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '菜单实体表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 68 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '菜单实体表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of menu
@@ -447,6 +586,7 @@ INSERT INTO `menu` VALUES (63, 62, '答题列表', '../admin/examPaperAnswer/lis
 INSERT INTO `menu` VALUES (64, 48, '导入试题', 'openImport()', 'icon-note-go');
 INSERT INTO `menu` VALUES (65, 0, '成绩统计', '', 'icon-text-letter-omega');
 INSERT INTO `menu` VALUES (66, 65, '统计图表', '../admin/stats/exam_stats', 'icon-chart-line');
+INSERT INTO `menu` VALUES (67, 63, '删除', 'remove()', 'icon-cross');
 
 -- ----------------------------
 -- Table structure for question
@@ -467,58 +607,37 @@ CREATE TABLE `question`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `subjectId`(`subjectId`) USING BTREE,
   CONSTRAINT `question_ibfk_1` FOREIGN KEY (`subjectId`) REFERENCES `subject` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 59 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '试题表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 111 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '试题表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of question
 -- ----------------------------
-INSERT INTO `question` VALUES (1, 1, 1, '下列哪些是高级编程语言？', 4, 'java', 'C', 'C++', 'PHP', 'ABCD', '2019-04-22 22:03:44');
-INSERT INTO `question` VALUES (2, 1, 0, '下列需要虚拟机中执行代码的是？', 2, 'Java代码', 'C代码', 'C++代码', 'PHP代码', 'A', '2019-04-22 22:10:05');
-INSERT INTO `question` VALUES (5, 1, 2, '泛化针对类型而不针对实例，一个类可以继承另一个类，但一个对象不能继承另一个对象', 2, '正确', '错误', '', '', 'A', '2019-04-22 22:19:22');
-INSERT INTO `question` VALUES (6, 1, 0, '下列哪个是百度官网地址？', 2, 'http://www.baidu.com', 'http://www,baidu.com', 'http://baidu.com', 'www.baidu.com', 'A', '2019-04-25 21:26:31');
-INSERT INTO `question` VALUES (13, 1, 0, 'Java是什么？', 2, '编程语言', '不知道', '一种吃的东西', '诗歌语言吧', 'A', '2019-05-04 13:05:18');
-INSERT INTO `question` VALUES (14, 1, 0, '瀑布模型把软件生命周期划分为八个阶段：问题的定义、可行性研究、软件需求分析、系统总体设计、详细设计、编码、测试和运行、维护。八个阶段又可归纳为三个大的阶段：计划阶段、开发阶段和＿。', 2, '详细计划', '可行性分析', '运行阶段', '测试与排错', 'C', '2019-05-04 13:21:54');
-INSERT INTO `question` VALUES (15, 1, 0, '在结构化的瀑布模型中，哪一个阶段定义的标准将成为软件测试年勺系统测试阶段的目标', 2, '需求分析阶段', '详细设计阶段', '概要设计阶段', '可行性研究阶段', 'A', '2019-05-04 13:21:54');
-INSERT INTO `question` VALUES (16, 1, 0, '软件工程的出现主要是由于', 2, '程序设计方法学的影响', '其它工程科学的影响', '软件危机的出现', '计算机的发展', 'C', '2019-05-04 13:21:54');
-INSERT INTO `question` VALUES (17, 1, 2, '开发软件就是编写程序。', 2, '正确', '错误', '', '', 'B', '2019-05-04 13:21:54');
-INSERT INTO `question` VALUES (18, 1, 2, '系统测试的主要方法是白盒法，主要进行功能测试、性能测试、安全性测试及可靠性等测试。', 2, '正确', '错误', '', '', 'B', '2019-05-04 13:21:54');
-INSERT INTO `question` VALUES (19, 1, 2, '生产高质量的软件产品是软件工程的首要目标。', 2, '正确', '错误', '', '', 'A', '2019-05-04 13:21:54');
-INSERT INTO `question` VALUES (20, 1, 1, '计算机病毒有两大类，它们是()', 4, '感染可执行文件', '感染磁盘dos启动区', '文件型病毒', '感染磁盘分区引导区，系统引导型病毒', 'ACD', '2019-05-04 13:21:54');
-INSERT INTO `question` VALUES (21, 1, 1, '指令系统中控制程序流程的指令通常有()', 4, '传送指令', '比较指令', '转移指令', '转移与返回指令', 'CD', '2019-05-04 13:21:54');
-INSERT INTO `question` VALUES (22, 1, 1, '关于计算机的主要发展趋势,以下说法正确的是', 4, '为形成计算机网络,使一国乃至全世界的多台计算机能够共享信息', '为满足科研等领域的需要,向超高速巨型化发展', '向高速微型发展', '为节约耗电量,形成计算机网络', 'ABC', '2019-05-04 13:21:54');
-INSERT INTO `question` VALUES (25, 5, 0, '被誉为中国现代数学祖师的是？', 2, '姜伯驹', '苏步青', '姜立夫', '杨振宁', 'C', '2019-05-04 16:35:57');
-INSERT INTO `question` VALUES (26, 5, 1, '荣获1989年台湾当局颁发的景星奖章是（），中国的第一份数学刊物--《算学报》是由（）创办的。', 4, '黄庆澄', '柯召', '徐贤修', '华罗庚', 'AC', '2019-05-04 16:38:15');
-INSERT INTO `question` VALUES (27, 5, 2, '1988年被英国国际传记中心收入《世界名人录》的是方德植？', 2, '正确', '错误', '', '', 'A', '2019-05-04 16:39:00');
-INSERT INTO `question` VALUES (28, 6, 1, '以下物理学知识的相关叙述，其中正确的是', 4, '用透明的标准样板和单色光检查平面的平整度是利用了光的偏振', '变化的电场周围不一定产生变化的磁场', '交警通过发射超声波测量车速是利用了波的干涉原理', '狭义相对论认为，在惯性参照系中，光速与光源、观察者间的相对运动无关', 'BD', '2019-05-04 16:41:43');
-INSERT INTO `question` VALUES (29, 6, 0, '许多物理学家的科学研究不仅促进了物理学的发展，而且推动了人类文明的进步。在对以下几位物理学家所做科学贡献的叙述中，正确的是', 2, '英国物理学家卡文迪许用实验的方法测出了引力常量G ', '牛顿通过计算首先发现了海王星和冥王星', '爱因斯坦建立了相对论，相对论物理学否定了经典物理学', '开普勒经过多年的天文观测和记录，提出了“日心说”的观点', 'A', '2019-05-04 16:43:14');
-INSERT INTO `question` VALUES (30, 6, 2, '许多物体可以在不发生形变的条件下对物体施以弹力作用', 2, '正确', '错误', '', '', 'B', '2019-05-04 16:45:01');
-INSERT INTO `question` VALUES (31, 7, 0, 'Your sister looks very ________.What\'s the matter with her?', 2, 'funny', 'weak', 'boring', 'relaxed', 'B', '2019-05-04 16:46:42');
-INSERT INTO `question` VALUES (33, 8, 0, 'Java是什么？', 2, '编程语言', '不知道', '一种吃的东西', '诗歌语言吧', 'A', '2020-01-14 20:48:07');
-INSERT INTO `question` VALUES (34, 8, 0, '联合国教科文组织分别于2003年和2005年召开了以______为主题的世界性大会，并发布了《布拉格宣言》和《亚历山大宣言》。', 2, '信息素养', '信息安全', '信息检索', '信息评价', 'A', '2020-01-14 20:48:07');
-INSERT INTO `question` VALUES (35, 8, 0, '\"Information retrieval \"翻译为______。\n', 2, '信息检索', '信息素养', '信息安全', '信息评价', 'A', '2020-01-14 20:48:07');
-INSERT INTO `question` VALUES (36, 8, 0, '______是指在信息的生产、存储、获取、传播和利用等信息活动各个环节中，用来规范相关主体之间相互关系的法律关系和道德规范的总称。', 2, '信息知识', '信息能力', '信息意识', '信息伦理', 'D', '2020-01-14 20:48:07');
-INSERT INTO `question` VALUES (37, 8, 0, '下列各项中______属于一次文献。', 2, '专利说明书', '百科全书', '目录', '综述', 'A', '2020-01-14 20:48:07');
-INSERT INTO `question` VALUES (38, 8, 0, '下列各项中______属于二次文献。', 2, '索引', '期刊', '学位论文', '百科全书', 'A', '2020-01-14 20:48:07');
-INSERT INTO `question` VALUES (39, 8, 0, '国内使用的《中国图书馆分类法》是采用______方法进行编排的。', 2, '字顺', '分类', '主题', '时序', 'B', '2020-01-14 20:48:07');
-INSERT INTO `question` VALUES (40, 8, 0, '布尔逻辑检索中检索符号“OR”的主要作用在于______。', 2, '提高查准率', '提高查全率', '排除不必要信息', '减少文献输出量', 'B', '2020-01-14 20:48:07');
-INSERT INTO `question` VALUES (41, 8, 0, '______指检出的相关文献信息量与检出的文献总量之比', 2, '查全率', '查准率', '误检率', '漏检率', 'B', '2020-01-14 20:48:07');
-INSERT INTO `question` VALUES (42, 8, 0, '______是出版周期最短的定期连续出版物。', 2, '图书', '期刊', '报纸', '学位论文', 'C', '2020-01-14 20:48:07');
-INSERT INTO `question` VALUES (43, 8, 0, '利用图书末尾所附参考文献进行检索的方法是____。', 2, '顺查法', '倒查法', '抽查法', '追溯法', 'D', '2020-01-14 20:48:07');
-INSERT INTO `question` VALUES (44, 8, 0, '《四级英语词汇》这本图书的分类号可能是______。', 2, 'G636.33', 'J216.2', 'I247.4', 'H319', 'D', '2020-01-14 20:48:07');
-INSERT INTO `question` VALUES (45, 8, 0, '布尔逻辑检索技术属于_____。', 2, '文本检索技术', '图像检索技术', '音频检索技术', '视频检索技术', 'A', '2020-01-14 20:48:07');
-INSERT INTO `question` VALUES (46, 8, 0, '二次检索指的是______。', 2, '第二次检索', '检索了一次之后，结果不满意，再检索一次', '在上一次检索的结果集上进行的检索', '与上一次检索的结果进行对比，得到的检索', 'C', '2020-01-14 20:48:07');
-INSERT INTO `question` VALUES (47, 8, 0, '利用CNKI的全文数据库，检索“文庭孝”老师的作品，应选择______作为检索途径。', 2, '题名', '作者', '关键词', '单位', 'B', '2020-01-14 20:48:07');
-INSERT INTO `question` VALUES (48, 8, 0, 'Adobe Reader可以阅读____格式文献。', 2, 'VIP', 'TXT', 'HTML', 'PDF', 'D', '2020-01-14 20:48:07');
-INSERT INTO `question` VALUES (49, 8, 0, 'CAJviewer（俗称：CAJ阅读器）是______数据库的全文阅读软件。', 2, '超星数字图书馆', '中国知网', '万方', '维普期刊', 'B', '2020-01-14 20:48:07');
-INSERT INTO `question` VALUES (50, 8, 0, '以下哪项不是中国期刊全文数据库（CNKI）的检索字段？', 2, '作者', '第一作者', '基金', '分子式', 'D', '2020-01-14 20:48:07');
-INSERT INTO `question` VALUES (51, 8, 0, '美国《科学引文索引》的缩写为____。', 2, 'SCI', 'CSSCI', 'EI', 'ISTP', 'A', '2020-01-14 20:48:07');
-INSERT INTO `question` VALUES (52, 8, 0, '当今世界上最知名也是最权威的百科全书是____。', 2, '美国百科全书', '哥伦比亚百科全书', '不列颠百科全书', '中国大百科全书', 'C', '2020-01-14 20:48:07');
-INSERT INTO `question` VALUES (53, 8, 0, 'WWW信息资源主要基于___协议传输。', 2, 'FTP', 'TELNET', 'HTTP', 'P2P', 'C', '2020-01-14 20:48:07');
-INSERT INTO `question` VALUES (54, 8, 0, '微软公司开发的搜索引擎是______。', 2, 'www.baidu.com', 'www.yahoo.com', 'www.iask.com', 'www.bing.com', 'D', '2020-01-14 20:48:07');
-INSERT INTO `question` VALUES (55, 8, 0, '全球最大的中文搜索引擎是______。', 2, '搜搜', '百度', '雅虎', '谷歌', 'B', '2020-01-14 20:48:07');
-INSERT INTO `question` VALUES (56, 8, 0, '在百度和谷歌中，可以通过______语法实现把检索范围限定在网页标题中这个功能。', 2, 'filetype：', 'inurl：', 'intitle：', 'site：', 'C', '2020-01-14 20:48:07');
-INSERT INTO `question` VALUES (57, 8, 0, '下载工具是帮助用户快速、稳定地从网上下载资源的软件。下列属于常用下载工具有哪些？', 2, '迅雷', '优酷', '淘宝', '新浪', 'A', '2020-01-14 20:48:07');
-INSERT INTO `question` VALUES (58, 8, 0, '在参考文献“李国新 . 开启新时代图书馆法治研究的新阶段[J]. 图书馆, 2018.”中，“[J]”表示该参考文献是_____。', 2, '著作', '专利', '连续出版物', '标准', 'C', '2020-01-14 20:48:07');
+INSERT INTO `question` VALUES (85, 12, 0, 'Java是什么？', 2, '编程语言', '不知道', '一种吃的东西', '诗歌语言吧', 'A', '2021-02-05 14:57:14');
+INSERT INTO `question` VALUES (86, 12, 0, '联合国教科文组织分别于2003年和2005年召开了以______为主题的世界性大会，并发布了《布拉格宣言》和《亚历山大宣言》。', 2, '信息素养', '信息安全', '信息检索', '信息评价', 'A', '2021-02-05 14:57:14');
+INSERT INTO `question` VALUES (87, 12, 0, '\"Information retrieval \"翻译为______。\n', 2, '信息检索', '信息素养', '信息安全', '信息评价', 'A', '2021-02-05 14:57:14');
+INSERT INTO `question` VALUES (88, 12, 0, '______是指在信息的生产、存储、获取、传播和利用等信息活动各个环节中，用来规范相关主体之间相互关系的法律关系和道德规范的总称。', 2, '信息知识', '信息能力', '信息意识', '信息伦理', 'D', '2021-02-05 14:57:14');
+INSERT INTO `question` VALUES (89, 12, 0, '下列各项中______属于一次文献。', 2, '专利说明书', '百科全书', '目录', '综述', 'A', '2021-02-05 14:57:14');
+INSERT INTO `question` VALUES (90, 12, 0, '下列各项中______属于二次文献。', 2, '索引', '期刊', '学位论文', '百科全书', 'A', '2021-02-05 14:57:14');
+INSERT INTO `question` VALUES (91, 12, 0, '国内使用的《中国图书馆分类法》是采用______方法进行编排的。', 2, '字顺', '分类', '主题', '时序', 'B', '2021-02-05 14:57:14');
+INSERT INTO `question` VALUES (92, 12, 0, '布尔逻辑检索中检索符号“OR”的主要作用在于______。', 2, '提高查准率', '提高查全率', '排除不必要信息', '减少文献输出量', 'B', '2021-02-05 14:57:14');
+INSERT INTO `question` VALUES (93, 12, 0, '______指检出的相关文献信息量与检出的文献总量之比', 2, '查全率', '查准率', '误检率', '漏检率', 'B', '2021-02-05 14:57:14');
+INSERT INTO `question` VALUES (94, 12, 0, '______是出版周期最短的定期连续出版物。', 2, '图书', '期刊', '报纸', '学位论文', 'C', '2021-02-05 14:57:14');
+INSERT INTO `question` VALUES (95, 12, 0, '利用图书末尾所附参考文献进行检索的方法是____。', 2, '顺查法', '倒查法', '抽查法', '追溯法', 'D', '2021-02-05 14:57:14');
+INSERT INTO `question` VALUES (96, 12, 0, '《四级英语词汇》这本图书的分类号可能是______。', 2, 'G636.33', 'J216.2', 'I247.4', 'H319', 'D', '2021-02-05 14:57:14');
+INSERT INTO `question` VALUES (97, 12, 0, '布尔逻辑检索技术属于_____。', 2, '文本检索技术', '图像检索技术', '音频检索技术', '视频检索技术', 'A', '2021-02-05 14:57:14');
+INSERT INTO `question` VALUES (98, 12, 0, '二次检索指的是______。', 2, '第二次检索', '检索了一次之后，结果不满意，再检索一次', '在上一次检索的结果集上进行的检索', '与上一次检索的结果进行对比，得到的检索', 'C', '2021-02-05 14:57:14');
+INSERT INTO `question` VALUES (99, 12, 0, '利用CNKI的全文数据库，检索“文庭孝”老师的作品，应选择______作为检索途径。', 2, '题名', '作者', '关键词', '单位', 'B', '2021-02-05 14:57:14');
+INSERT INTO `question` VALUES (100, 12, 0, 'Adobe Reader可以阅读____格式文献。', 2, 'VIP', 'TXT', 'HTML', 'PDF', 'D', '2021-02-05 14:57:14');
+INSERT INTO `question` VALUES (101, 12, 0, 'CAJviewer（俗称：CAJ阅读器）是______数据库的全文阅读软件。', 2, '超星数字图书馆', '中国知网', '万方', '维普期刊', 'B', '2021-02-05 14:57:14');
+INSERT INTO `question` VALUES (102, 12, 0, '以下哪项不是中国期刊全文数据库（CNKI）的检索字段？', 2, '作者', '第一作者', '基金', '分子式', 'D', '2021-02-05 14:57:14');
+INSERT INTO `question` VALUES (103, 12, 0, '美国《科学引文索引》的缩写为____。', 2, 'SCI', 'CSSCI', 'EI', 'ISTP', 'A', '2021-02-05 14:57:14');
+INSERT INTO `question` VALUES (104, 12, 0, '当今世界上最知名也是最权威的百科全书是____。', 2, '美国百科全书', '哥伦比亚百科全书', '不列颠百科全书', '中国大百科全书', 'C', '2021-02-05 14:57:14');
+INSERT INTO `question` VALUES (105, 12, 0, 'WWW信息资源主要基于___协议传输。', 2, 'FTP', 'TELNET', 'HTTP', 'P2P', 'C', '2021-02-05 14:57:14');
+INSERT INTO `question` VALUES (106, 12, 0, '微软公司开发的搜索引擎是______。', 2, 'www.baidu.com', 'www.yahoo.com', 'www.iask.com', 'www.bing.com', 'D', '2021-02-05 14:57:14');
+INSERT INTO `question` VALUES (107, 12, 0, '全球最大的中文搜索引擎是______。', 2, '搜搜', '百度', '雅虎', '谷歌', 'B', '2021-02-05 14:57:14');
+INSERT INTO `question` VALUES (108, 12, 0, '在百度和谷歌中，可以通过______语法实现把检索范围限定在网页标题中这个功能。', 2, 'filetype：', 'inurl：', 'intitle：', 'site：', 'C', '2021-02-05 14:57:14');
+INSERT INTO `question` VALUES (109, 12, 0, '下载工具是帮助用户快速、稳定地从网上下载资源的软件。下列属于常用下载工具有哪些？', 2, '迅雷', '优酷', '淘宝', '新浪', 'A', '2021-02-05 14:57:14');
+INSERT INTO `question` VALUES (110, 12, 0, '在参考文献“李国新 . 开启新时代图书馆法治研究的新阶段[J]. 图书馆, 2018.”中，“[J]”表示该参考文献是_____。', 2, '著作', '专利', '连续出版物', '标准', 'C', '2021-02-05 14:57:14');
 
 -- ----------------------------
 -- Table structure for role
@@ -529,13 +648,13 @@ CREATE TABLE `role`  (
   `name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '角色名称',
   `remark` varchar(128) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '角色备注',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '角色表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '角色表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of role
 -- ----------------------------
 INSERT INTO `role` VALUES (1, '超级管理员', '超级管理员拥有一切权限！');
-INSERT INTO `role` VALUES (2, '普通用户', '普通用户，请自由授权！');
+INSERT INTO `role` VALUES (3, '教师', '管理考试');
 
 -- ----------------------------
 -- Table structure for student
@@ -543,31 +662,22 @@ INSERT INTO `role` VALUES (2, '普通用户', '普通用户，请自由授权！
 DROP TABLE IF EXISTS `student`;
 CREATE TABLE `student`  (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '考生表id',
+  `studentId` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '学号',
   `subjectId` int(11) NOT NULL COMMENT '所属学科专业ID',
   `name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '登录名',
   `password` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '登录密码',
-  `trueName` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '姓名',
-  `tel` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '手机号',
+  `trueName` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '姓名',
+  `tel` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '手机号',
   `createTime` datetime(0) NULL DEFAULT NULL COMMENT '注册时间',
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `subjectId`(`subjectId`) USING BTREE,
   CONSTRAINT `student_ibfk_1` FOREIGN KEY (`subjectId`) REFERENCES `subject` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '考生表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '考生表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of student
 -- ----------------------------
-INSERT INTO `student` VALUES (2, 1, 'cg', '123', 'cg', '13656564656', '2019-04-21 20:40:48');
-INSERT INTO `student` VALUES (3, 5, 'llqllq', 'sadsad', 'llq', '1356565656', '2019-04-21 20:46:42');
-INSERT INTO `student` VALUES (4, 1, 'zs', 'sadsadsa', '张三', '18989898989', '2019-04-21 20:46:52');
-INSERT INTO `student` VALUES (5, 7, 'ls', 'dsad111', '李四', '15656565656', '2019-04-21 20:47:00');
-INSERT INTO `student` VALUES (6, 1, 'llq', 'llq', 'yy', '13918655696', '2019-05-01 21:33:31');
-INSERT INTO `student` VALUES (8, 6, '张三丰', '123456', '张三丰', '18959558585', '2019-05-04 16:51:59');
-INSERT INTO `student` VALUES (9, 1, '马大云', '123', '马云', '13656565656', '2019-05-04 18:11:12');
-INSERT INTO `student` VALUES (10, 1, 'jack', '123', '马化腾', '13656564545', '2019-05-04 18:22:19');
-INSERT INTO `student` VALUES (11, 1, 'test', '123', '测试人员', '13989895959', '2019-05-04 18:23:40');
-INSERT INTO `student` VALUES (12, 7, '小马哥', '123123', '小马哥', '1556565655', '2019-05-04 18:27:45');
-INSERT INTO `student` VALUES (13, 8, '123', '123', '123', '123', '2020-01-11 20:52:57');
+INSERT INTO `student` VALUES (16, '201865110155', 12, 'chenguang', '123', 'chenguangGG', '17674748338', '2021-02-05 14:56:53');
 
 -- ----------------------------
 -- Table structure for subject
@@ -576,18 +686,17 @@ DROP TABLE IF EXISTS `subject`;
 CREATE TABLE `subject`  (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '学科专业表id',
   `name` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '学科名称',
+  `userId` int(11) NULL DEFAULT NULL COMMENT '任课教师id',
   `remark` varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '学科备注',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '学科专业表' ROW_FORMAT = Dynamic;
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `teacher_id`(`userId`) USING BTREE,
+  CONSTRAINT `subject_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '学科专业表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of subject
 -- ----------------------------
-INSERT INTO `subject` VALUES (1, '软件工程', '软件工程专业');
-INSERT INTO `subject` VALUES (5, '数学专业', '数学专业');
-INSERT INTO `subject` VALUES (6, '物理专业', '');
-INSERT INTO `subject` VALUES (7, '英语专业', '');
-INSERT INTO `subject` VALUES (8, 'cg', '测试');
+INSERT INTO `subject` VALUES (12, '软件工程', 16, '');
 
 -- ----------------------------
 -- Table structure for user
@@ -605,12 +714,12 @@ CREATE TABLE `user`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `roleId`(`roleId`) USING BTREE,
   CONSTRAINT `user_ibfk_1` FOREIGN KEY (`roleId`) REFERENCES `role` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '用户表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '用户表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES (1, 'admin', 'admin', 1, '/BaseProjectSSM/resources/upload/1544880711002.jpg', 1, 18, '上海市浦东新区浦东南路1835号');
-INSERT INTO `user` VALUES (13, 'cg', '123456', 2, '/OnlineExam/resources/upload/1578733190431.png', 1, 18, 'HNDD');
+INSERT INTO `user` VALUES (1, 'admin', 'admin', 1, '/OnlineExam/resources/admin/easyui/images/user_photo.jpg', 1, 0, '湖南开放大学');
+INSERT INTO `user` VALUES (16, 'teacher', '123', 3, '/OnlineExam/resources/upload/1612507896479.JPG', 0, 1, '');
 
 SET FOREIGN_KEY_CHECKS = 1;
